@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\core\\customization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\core\\customization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\fractions\\activity\\hijacking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\fractions\\activity\\hijacking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\core\\hijackinghouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\core\\hijackinghouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\vehiclehandlers\\vehiclesname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\vehiclehandlers\\vehiclesname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\fractions\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\fractions\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\jobs\\workmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\jobs\\workmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\jobs\\electrician.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\jobs\\electrician.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\jobs\\taxi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\jobs\\taxi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|e:\\games\\ragemp\\server-files\\dotnet\\resources\\gamemode\\golemo\\markets\\marketother.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9E0437C-01DA-437E-9985-CA671E2DD30B}|Golemo\\Golemo.csproj|solutionrelative:golemo\\markets\\marketother.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Customization.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Core\\Customization.cs",
+              "RelativeDocumentMoniker": "Golemo\\Core\\Customization.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Core\\Customization.cs",
+              "RelativeToolTip": "Golemo\\Core\\Customization.cs",
+              "ViewState": "AgIAACEGAAAAAAAAAAAkwCkGAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T14:45:18.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HijackingHouse.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Core\\HijackingHouse.cs",
+              "RelativeDocumentMoniker": "Golemo\\Core\\HijackingHouse.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Core\\HijackingHouse.cs",
+              "RelativeToolTip": "Golemo\\Core\\HijackingHouse.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAYwGoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T13:15:54.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VehiclesName.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\VehicleHandlers\\VehiclesName.cs",
+              "RelativeDocumentMoniker": "Golemo\\VehicleHandlers\\VehiclesName.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\VehicleHandlers\\VehiclesName.cs",
+              "RelativeToolTip": "Golemo\\VehicleHandlers\\VehiclesName.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAkwIAAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T11:24:12.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Hijacking.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Fractions\\Activity\\Hijacking.cs",
+              "RelativeDocumentMoniker": "Golemo\\Fractions\\Activity\\Hijacking.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Fractions\\Activity\\Hijacking.cs",
+              "RelativeToolTip": "Golemo\\Fractions\\Activity\\Hijacking.cs",
+              "ViewState": "AgIAABoBAAAAAAAAAAAkwFIBAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T11:17:35.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Manager.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Fractions\\Manager.cs",
+              "RelativeDocumentMoniker": "Golemo\\Fractions\\Manager.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Fractions\\Manager.cs",
+              "RelativeToolTip": "Golemo\\Fractions\\Manager.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA1wCYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T11:16:44.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WorkManager.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Jobs\\WorkManager.cs",
+              "RelativeDocumentMoniker": "Golemo\\Jobs\\WorkManager.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Jobs\\WorkManager.cs",
+              "RelativeToolTip": "Golemo\\Jobs\\WorkManager.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAkwGsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T15:16:04.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Electrician.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Jobs\\Electrician.cs",
+              "RelativeDocumentMoniker": "Golemo\\Jobs\\Electrician.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Jobs\\Electrician.cs",
+              "RelativeToolTip": "Golemo\\Jobs\\Electrician.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T11:59:33.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MarketOther.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Markets\\MarketOther.cs",
+              "RelativeDocumentMoniker": "Golemo\\Markets\\MarketOther.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Markets\\MarketOther.cs",
+              "RelativeToolTip": "Golemo\\Markets\\MarketOther.cs",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAowOwAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T10:37:06.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Taxi.cs",
+              "DocumentMoniker": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Jobs\\Taxi.cs",
+              "RelativeDocumentMoniker": "Golemo\\Jobs\\Taxi.cs",
+              "ToolTip": "E:\\Games\\RAGEMP\\server-files\\dotnet\\resources\\GameMode\\Golemo\\Jobs\\Taxi.cs",
+              "RelativeToolTip": "Golemo\\Jobs\\Taxi.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T09:51:29.638Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
