@@ -1,0 +1,275 @@
+<html lang="ru"><head>
+    <title>inv</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="favicon.ico" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./assets/css/inv.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/circle.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link href="https://cdn.materialdesignicons.com/1.1.34/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="inv" v-if="active">
+		<div class="bg1"></div>
+		<div class="head">
+			<div class="exit">
+				<div class="bg">
+					<p>ESC</p>
+				</div>
+				<p>Чтобы выйти
+			</p></div>
+			<div class="inv1">
+				<div class="bg">
+					<p>I</p>
+				</div>
+				<p>Инвентарь
+			</p>
+<span>54</span>
+</div>
+		</div>
+		<div class="left droppable" data-action="1" data-type="eq">
+			<div class="hum">
+				<img src="./assets/img/hum.svg">
+				<div class="items1">
+					<div class="item1"></div>
+					<p>Головной Убор</p>
+				</div>
+				<div class="items2">
+					<div class="item2"></div>
+					<p>Маска</p>
+				</div>
+				<div class="items3">
+					<div class="item3"></div>
+					<p>Очки</p>
+				</div>
+				<div class="items4">
+					<div class="item4"></div>
+					<p>Шея</p>
+				</div>
+				<div class="items5">
+					<div class="item5"></div>
+					<p>Бронежилет</p>
+				</div>
+				<div class="items6">
+					<div class="item6"></div>
+					<p>Серьги</p>
+				</div>
+				<div class="items7">
+					<div class="item7"></div>
+					<p>Куртка</p>
+				</div>
+				<div class="items8">
+					<div class="item8"></div>
+					<p>Рюкзак</p>
+				</div>
+				<div class="items9">
+					<div class="item9"></div>
+					<p>Перчатки</p>
+				</div>
+				<div class="items10">
+					<div class="item10"></div>
+					<p>Футболка</p>
+				</div>
+				<div class="items11">
+					<div class="item11"></div>
+					<p>Часы</p>
+				</div>
+				<div class="items12">
+					<div class="item12"></div>
+					<p>Штаны</p>
+				</div>
+				<div class="items13">
+					<div class="item13"></div>
+					<p>Ботинки</p>
+				</div>
+			</div>
+			<div class="bust">
+				<p>Оружие</p>
+				<div class="list">
+					<div class="slot1">
+						<div class="item1">
+						</div>
+						<p>1</p>
+					</div>
+					<div class="slot2">
+						<div class="item2">
+						</div>
+						<p>2</p>
+					</div>
+					<div class="slot3">
+						<div class="item3">
+						</div>
+						<p>3</p>
+					</div>
+					<div class="slot4">
+						<div class="item4">
+						</div>
+						<p>4</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="center droppable" data-action="1" data-type="inv">
+			<div class="huminv">
+				<h1>Инвентарь</h1>
+				<div class="items">
+					<!-- <div class="item">
+						<img src="img/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div> -->
+					<item
+                    v-for="(item, index) in items"
+                    :key="key"
+                    :id="item[0]"
+                    :index="index"
+                    :count="item[1]"
+                    :isactive="item[2]"
+					:subdata="item[3]"
+                    type="inv" />
+
+				</div>
+			</div>
+			<div class="bpinv">
+				<h1>Сумка</h1>
+				<p>Продвинутый тип</p>
+				<p style="color:#fff;font-weight: 800;">2/25</p>
+				<div class="items">
+					<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+<div class="item">
+						<img src="./assets/images/icons/items/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="right droppable" v-show="outside" data-action="2" data-type="out">
+			<div class="dopinv">
+				<h1>Внешний Инвентарь</h1>
+				<p>{{outHead}}</p>
+				<div class="items">
+					<!-- <div class="item">
+						<img src="img/-12.png">
+						<p>Name</p>
+						<span>100шт</span>
+					</div> -->
+					<item
+						v-for="(item, index) in outitems"
+						:key="key"
+						:id="item[0]"
+						:index="index"
+						:count="item[1]"
+						:subdata="item[3]"
+                    type="out" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="circle" @mouseOut="out" v-show="active" style="opacity:0; height:810px; width:810px">
+        <div class="bg"></div>
+        <div id="8" class="center" @mouseOver="over" @click="btn">
+			<div id="8" class="text">{{description}}</div>
+			<p class="sub">{{subdata}}</p>
+        </div>
+        <ul>
+            <li id="0" @mouseOver="over">
+                <div id="0" class="contents" :class="icons[0]" @click="btn"></div>
+            </li>
+            <li id="1" @mouseOver="over">
+                <div id="1" class="contents" :class="icons[1]" @click="btn"></div>
+            </li>
+            <li id="2" @mouseOver="over">
+                <div id="2" class="contents" :class="icons[2]" @click="btn"></div>
+            </li>
+            <li id="3" @mouseOver="over">
+                <div id="3" class="contents" :class="icons[3]" @click="btn"></div>
+            </li>
+            <li id="4" @mouseOver="over">
+                <div id="4" class="contents" :class="icons[4]" @click="btn"></div>
+            </li>
+            <li id="5" @mouseOver="over">
+                <div id="5" class="contents" :class="icons[5]" @click="btn"></div>
+            </li>
+            <li id="6" @mouseOver="over">
+                <div id="6" class="contents" :class="icons[6]" @click="btn"></div>
+            </li>
+            <li id="7" @mouseOver="over">
+                <div id="7" class="contents" :class="icons[7]" @click="btn"></div>
+            </li>
+        </ul>
+    </div>
+	<div class="info" v-show="active" :style="style">
+		<div class="header"><div class="text">{{name}}</div><div class="clos" v-on:click="hide">X</div></div>
+		<div class="box">{{subtext}}</div>
+		<div class="button">
+			<div class="btns use" v-on:click="btn(1)">Использ</div><div class="btns" v-if="type" v-on:click="btn(2)">Передать</div>
+			<div class="btns" v-if="!type" v-on:click="btn(3)">Взять</div><div class="btns" v-on:click="btn(4)">Выбросить</div>
+		</div>	
+	</div>
+	<link rel="stylesheet" href="./assets/css/info.css">
+	<script src='./assets/mymod/jquery-3.2.1.min.js'></script>
+	<script src='./assets/mymod/vue.js'></script>
+	<script src='./assets/mymod/dng.js'></script>
+	<script src='./assets/mymod/inventory.js'></script>
+	<script src="./assets/js/move.min.js"></script>
+	<script src='./assets/js/circle.js'></script> 	
+</body>
+</html>

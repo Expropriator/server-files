@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Clothes Shop Freedom</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="stylesheet" href="./assets/clothesshop/css/clothes.css">
+	<link rel="stylesheet" href="./assets/clothesshop/font/icons.css">
+	<link rel="stylesheet" href="../../assets/fonts/bebas-neue/stylesheet.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+<style>
+	[v-cloak] {
+		display: none;
+	}
+</style>
+
+<body>
+	<div v-cloak class="clothes" v-if="active">
+		<div @click="exit" class="btn exit">Закрыть</div>
+		<div class="mouse">
+			<div class="txt">Используйте мышь, чтобы крутить камерой</div>
+			<img src="./assets/clothesshop/res/clothes/mouse.svg" class="iconka">
+		</div>
+		<div class="obwak">
+			<div class="logoname">
+				<h2>МАГАЗИН ОДЕЖДЫ</h2>
+				<a>SHARP CLOTHES</a>
+			</div>
+			<div class="right">
+				<div class="block">
+					<div class="listclothes">
+						<div @click="setclothes(style)" v-for="(clothe, style) in styles" :key="indexS"
+							:class="{'active': indexS === style}" class="clothes__block">
+							<div class="hovers"></div>
+							<p class="clothesName">{{clothe}}</p>
+							<p class="clothesPrice">{{prices[style] | formatThousands}}$</p>
+						</div>
+					</div>
+				</div>
+				<div class="select__colors">
+					<div class="list">
+						<i @click="left(1)" class="fa fa-chevron-left"></i>
+						<i @click="right(1)" class="fa fa-chevron-right"></i>
+					</div>
+				</div>
+			</div>
+			<div class="left2">
+				<div class="left">
+					<div @click="btn(9,$event)" class="icon bag" v-bind:class="{ active: btns[9] }">Рюкзаки</div>
+					<div @click="btn(8,$event)" class="icon jewerly" v-bind:class="{ active: btns[8] }">Ювелирка</div>
+					<div @click="btn(7,$event)" class="icon glasses" v-bind:class="{ active: btns[7] }">Очки</div>
+					<div @click="btn(6,$event)" class="icon watches" v-bind:class="{ active: btns[6] }">Часы</div>
+					<div @click="btn(5,$event)" class="icon gloves" v-bind:class="{ active: btns[5] }">Перчатки</div>
+					<div @click="btn(4,$event)" class="icon shoe" v-bind:class="{ active: btns[4] }">Обувь</div>
+					<div @click="btn(3,$event)" class="icon pants" v-bind:class="{ active: btns[3] }">Штаны</div>
+					<div @click="btn(2,$event)" class="icon shirt" v-bind:class="{ active: btns[2] }">Футболка</div>
+					<div @click="btn(1,$event)" class="icon jacket" v-bind:class="{ active: btns[1] }">Верх</div>
+					<div @click="btn(0,$event)" class="icon hat" v-bind:class="{ active: btns[0] }">Шляпа</div>
+				</div>
+			</div>
+		</div>
+		<div @click="buy" class="btn buy">Купить одежду</div>
+		<img src="./assets/clothesshop/res/clothes/up.svg" class="upicon">
+		<img src="./assets/clothesshop/res/clothes/info.png" class="infoicon">
+		<div class="infoclothes">Выберите категорию одежды используя кнопки ниже</div>
+		<div class="infoclothes2">Нажимайте на стрелочки чтобы смотреть стили одежды</div>
+		<div class="bgshow2"></div>
+		<div class="backslol2"></div>
+	</div>
+	<script src="./assets/clothesshop/js/vue.js"></script>
+	<script src="./assets/clothesshop/js/clothes.js"></script>
+	<script>
+	Vue.filter('formatThousands', (x) => {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+	})
+	</script>
+	<script src="./assets/clothesshop/js/jquery-3.2.1.min.js"></script>
+</body>
+
+</html>

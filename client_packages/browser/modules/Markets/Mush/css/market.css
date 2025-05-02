@@ -1,0 +1,212 @@
+body {
+	font-family: Montserrat;
+	overflow: hidden;
+	-webkit-user-select: none;
+	color: #fff;
+	overflow-X: hidden;
+}
+.main {
+	position: relative;
+	width: 120vh;
+	height: 75vh;
+	background: #171a1d;
+	margin-left: auto;
+	margin-right: auto;
+	top: 12vh;
+	animation-name: slide; 
+	animation-duration: 0.4s;
+}
+.main .allblocks {
+	position: absolute;
+	width: 120vh;
+	height: 68vh;
+	background: #1e2124;
+	bottom: 0;
+	overflow-Y: scroll;
+	overflow-X: hidden;
+}
+.main .allblocks .allblocks2 {
+	max-width: 120vh; 
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/* margin-top: -100.6vh; */
+}
+.main .allblocks .allblocks2 .block {
+	width: 58vh;
+	margin-top: 1vh;
+	margin-left: 1vh;
+	height: 19vh;
+	background: #1c1f21;
+	/* background: #aaa; */
+}
+.main .allblocks .allblocks2 .block .name {
+	position: relative;
+	top: -15vh;
+	font-size: 1.8vh;
+	left: 20vh;
+}
+.main .allblocks .allblocks2 .block .description {
+	position: relative;
+	top: -15vh;
+	font-size: 1.3vh;
+	left: 20vh;
+	opacity: 0.7;
+	width: 30vh;
+}
+.main .allblocks .allblocks2 .block .btnsale:hover {
+	background: #ffffff30;
+	transition: 0.33s;
+}
+.main .allblocks .allblocks2 .block .btnsale {
+	/* position: relative; */
+	margin-top: -11vh;
+	text-align: center;
+	cursor: pointer;
+	line-height: 4vh;
+	transition: 0.33s;
+	top: -10vh;
+	font-size: 1.6vh;
+	margin-left: 20vh;
+	height: 4vh;
+	/* opacity: 0.7; */
+	background: #ffffff10;
+	width: 14vh;
+}
+.main .allblocks .allblocks2 .block .price {
+	/* position: relative; */
+	margin-top: -3.1vh;
+	font-weight: 500;
+	text-align: center;
+	transition: 0.33s;
+	/* top: -0vh; */
+	font-size: 1.6vh;
+	margin-left: 25vh;
+	/* opacity: 0.7; */
+}
+.main .allblocks .allblocks2 .block .imagesblock {
+	position: relative;
+	background: #16191c;
+	width: 17vh;
+	top: 1vh;
+	left: 1vh;
+	height: 17vh
+}
+.fish {
+	width: 12vh;
+	top: 50%;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* transform: translate(0%, 10%) */
+}
+.market {
+	width: 4vh;
+	margin-right: 1vh;
+	margin-bottom: -1.25vh;
+}
+.main .header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 120vh;
+	height: 7vh;
+}
+.main .header .name {
+	font-weight: 500;
+	position: absolute;
+	top: 1.25vh;
+	font-size: 1.6vh;
+	left: 1.25vh;
+}
+.main .header .menus {
+	position: relative;
+	width: 20vh;
+	height: 5vh;
+	margin-left: auto;
+	margin-right: auto;
+	top: 1vh;
+}
+.main .header .menus .menubtn {
+	background: #ffffff30;
+	position: relative;
+	width: 20vh;
+	font-size: 1.6vh;
+	margin-left: auto;
+	margin-right: auto;
+	height: 5vh;
+	cursor: pointer;
+	text-align: center;
+	line-height: 5vh;
+}
+.main .header .exit {
+	position: absolute;
+	right: 2.75vh;
+	cursor: pointer;
+	top: 2.5vh;
+}
+.close {
+	width: 2vh;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #30343b50;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ffffff00 5%, #ffffff00 100%);
+  border-radius: 10px;
+}
+@keyframes slide {
+  0% {
+    top: 120vh;
+	opacity: 0;
+  }
+  100% {
+    top: 12vh;
+	opacity: 1;
+  }
+  
+@keyframes slide2 {
+  0% {
+    top: 12vh;
+	opacity: 1;
+  }
+  100% {
+    top: -120vh;
+	opacity: 0;
+  }
+  
+.animatonOn {
+    animation: animation-date-on  1s ease;
+}
+.animatonOff {
+    animation: animation-date-off  1s ease;
+}
+
+@keyframes animation-date-on {
+    from {
+        margin: -40vw 0;
+        opacity: 0;
+    }
+    to {
+        margin: 0vw;
+        opacity: 1;
+    }
+}
+
+@keyframes animation-date-off {
+    from {
+        margin: 0vw 0;
+        opacity: 1;
+    }
+    to {
+        margin: 30vw 0;
+        opacity: 0;
+    }
+}

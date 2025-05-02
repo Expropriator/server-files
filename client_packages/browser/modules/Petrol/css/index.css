@@ -1,0 +1,278 @@
+body {
+	-webkit-user-select: none;
+}
+.petrol {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	left: 0;
+	width: 100%;
+	color: #fff;
+	height: 100%;
+	background: radial-gradient(50% 90% at 50% 50%, rgba(23, 28, 28, 0) 0%, rgba(22, 21, 35, .90) 100%);
+	background-color: #0d162799;
+	/* background: rgba(47,47,47,.95); */
+	font-family: Montserrat;
+	-webkit-animation: fadeInFromNone 1s ease-out;
+	-moz-animation: fadeInFromNone 1s ease-out;
+	-o-animation: fadeInFromNone 1s ease-out;
+	animation: fadeInFromNone 1s ease-out;
+}
+.center {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	position: absolute;
+	width: 75vh;
+	/* background: #ffffff05; */
+	height: 60vh;
+}
+.oilname {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 80vh;
+	height: 10vh;
+	/* background: red; */
+}
+input {
+	outline: none;
+	border: none;
+	background: #ffffff10;
+	border: 0.3vh solid #ffffff20;
+	top: 26vh;
+	left: 17.5vh;
+	width: 30vh;
+	height: 8vh;
+	font-weight: 600;
+	text-align: center;
+	font-size: 3vh;
+	color: #fff;
+	border-radius: 0.5vh;
+	font-family: Montserrat;
+	position: absolute;
+}
+.globalblock {
+	position: absolute;
+	top: 27.5vh;
+	left: 50vh;
+}
+.subglob {
+	font-size: 1.5vh;
+	font-weight: 600;
+	opacity: 0.3;
+}
+.itogo {
+	color: #0de646;
+	font-size: 4vh;
+	margin-top: -0.8vh;
+	font-weight: 600;
+}
+.namebiz {
+	font-size: 4vh;
+}
+.subname {
+	color: #0de646;
+	font-weight: 700;
+	font-size: 6.5vh;
+	margin-top: -2vh;
+	text-shadow: 0 0 3vh #0de64650;
+}
+.block {
+	position: relative;
+	top: 10vh;
+	margin-top: 1vh;
+	width: 15.68vh;
+	transition: background .33s;
+	height: 15.68vh;
+	background: #ffffff10;
+}
+.exit {
+	position: absolute;
+	top: 2vh;
+	right: 2vh;
+	width: 15vh;
+	text-align: center;
+	line-height: 5vh;
+	font-size: 1.2vh;
+	height: 5vh;
+	opacity: 0.2;
+	transition: opacity .33s;
+	background: #ffffff30;
+}
+.exit:hover {
+	opacity: 0.8;
+}
+.block p {
+	text-align: center;
+	line-height: 15.68vh;
+	font-size: 2vh;
+	font-weight: 400;
+	transition: opacity .33s;
+	opacity: 0.3;
+	position: absolute;
+	left: 50%;
+	/* top: 50%; */
+	/* width: 10vh; */
+	transform: translate(-50%,-50%);
+	height: 3vh;
+}
+.btnoplata:hover {
+	box-shadow: 0 0 6vh 0.5vh #0de64650;
+}
+.allprice {
+	position: absolute;
+	top: 14vh;
+	left: 17.5vh;
+	width: 40vh;
+	height: 10vh;
+}
+.btnoplata {
+	background: #0de646;
+	left: 17.5vh;
+	width: 58.5vh;
+	text-align: center;
+	line-height: 8vh;
+	font-size: 1.5vh;
+	font-weight: 600;
+	border-radius: 0.5vh;
+	transition: box-shadow .33s;
+	height: 8vh;
+	bottom: 0;
+	position: absolute;
+}
+.price {
+	color: #0de646;
+	font-size: 7vh;
+	font-weight: 600;
+	text-shadow: 0 0 3vh #0de64650;
+}
+.subprice {
+	font-size: 1.5vh;
+	font-weight: 600;
+	opacity: 0.3;
+	margin-top: -0.8vh;
+}
+.text {
+	position: absolute;
+	font-size: 1.5vh;
+	left: 1vh;
+	top: -2.5vh;
+	opacity: 0.4;
+}
+.btns {
+	position: absolute;
+	bottom: 10.5vh;
+	left: 16.5vh;
+	width: 59.5vh;
+	display: flex;
+	height: 8vh;
+	/* background: #fff; */
+}
+.text_btn_f {
+	font-size: 1.5vh;
+	position: absolute;
+	top: 1.7vh;
+	left: 6.5vh;
+}
+.block.active p{
+	opacity: 1;
+}
+.block.active {
+	background: #ffffff20;
+}
+.text_btn_s {
+	font-size: 1.5vh;
+	position: absolute;
+	top: 3.3vh;
+	/* color: #0de646; */
+	opacity: 0.4;
+	/* font-weight: 600; */
+	left: 6.5vh;
+}
+.btn:hover {
+	background: #ffffff20;
+}
+.icop {
+	width: 3vh;
+	top: 50%;
+	transform: translate(0,-50%);
+	position: absolute;
+	left: 2vh;
+}
+.btn {
+	position: relative;
+	width: 20vh;
+	margin-left: 1vh;
+	height: 7vh;
+	transition: background .33s;
+	background: #ffffff10;
+	left: 0;
+}
+	@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}

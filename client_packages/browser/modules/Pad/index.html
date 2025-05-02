@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<div v-if="active" class="pad">
+			<div v-if="style == 2">
+				<header>
+					<div class="nameblock">
+						<img src="./img/gro.svg" class="icogro">
+						<a>{{name}}</a>
+					</div>
+					<div class="allblocks">
+						<div @click="gostyle(2)" class="blockup active">
+							Члены организации
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(3)" class="blockup">
+							Пригласить
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(4)" class="blockup">
+							Отчеты
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(6)" class="blockup">
+							Управление
+							<div class="lineblockup"></div>
+						</div>
+					</div>
+					<div @click="btn(0)" class="exitpad">
+						<img src="./img/off.svg" class="officon">
+					</div>
+				</header>
+				<div class="listhelp">
+					<a>ID</a>
+					<a>Имя</a>
+					<a style="margin-left: 8vw;">Рабочая смена</a>
+					<a>Ранг</a>
+					<a>Название ранга</a>
+				</div>
+				<div class="alllist">
+					<div v-for="member in members" class="oneblock">
+						<div v-bind:class="[ member[0] ? 'online' : 'offline' ]"><span></span></div>
+						<a>{{member[1]}}</a>
+						<a style="margin-left: 7vw;">{{member[2]}}</a>
+						<a style="margin-left: 16.7vw;">{{member[3]}}</a>
+						<a style="margin-left: 26.3vw;">{{member[5]}}</a>
+						<a style="margin-left: 31vw;">{{member[6]}}</a>
+						<div @click="btn(5,$event)" v-bind:class="{active: btnactive[5]}" class="btnchangerank">РАНГ</div>
+						<div v-on:click="yvol(member[2])" v-bind:class="{active: btnactive[3]}" class="btnchangerank2">ВЫГНАТЬ</div>
+					</div>
+				</div>
+			</div>
+			<div v-if="style == 3">
+				<header>
+					<div class="nameblock">
+						<img src="./img/gro.svg" class="icogro">
+						<a>{{name}}</a>
+					</div>
+					<div class="allblocks">
+						<div @click="gostyle(2)" class="blockup">
+							Члены организации
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(3)" class="blockup active">
+							Пригласить
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(4)" class="blockup">
+							Отчеты
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(6)" class="blockup">
+							Управление
+							<div class="lineblockup"></div>
+						</div>
+					</div>
+					<div @click="btn(0)" class="exitpad">
+						<img src="./img/off.svg" class="officon">
+					</div>
+				</header>
+				<div class="invitecen">
+					<a>{{header[style]}}</a>
+					<input class="inputinvite3" placeholder="ВВЕДИТЕ ИМЯ_ФАМИЛИЯ ЛИБО ID" v-model="input" v-if="style > 2">
+					<input class="inputinvite2" placeholder="Новый ранг" v-model="rank" v-if="style > 4">
+					<div @click="submit" class="btnivite" v-if="style > 2">{{btntext[style]}}</div>
+				</div>
+			</div>
+			<div v-if="style == 5">
+				<header>
+					<div class="nameblock">
+						<img src="./img/gro.svg" class="icogro">
+						<a>{{name}}</a>
+					</div>
+					<div class="allblocks">
+						<div @click="gostyle(2)" class="blockup active">
+							Члены организации
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(3)" class="blockup">
+							Пригласить
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(4)" class="blockup">
+							Отчеты
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(6)" class="blockup">
+							Управление
+							<div class="lineblockup"></div>
+						</div>
+					</div>
+					<div @click="btn(0)" class="exitpad">
+						<img src="./img/off.svg" class="officon">
+					</div>
+				</header>
+				<div class="invitecen">
+					<a>{{header[style]}}</a>
+					<input class="inputinvite3" placeholder="ВВЕДИТЕ ИМЯ_ФАМИЛИЯ ЛИБО ID" v-model="input" v-if="style > 2">
+					<input class="inputinvite2" placeholder="Новый ранг" v-model="rank" v-if="style > 4">
+					<div @click="submit" class="btnivite" v-if="style > 2">{{btntext[style]}}</div>
+				</div>
+			</div>
+			<div v-if="style == 4">
+				<header>
+					<div class="nameblock">
+						<img src="./img/gro.svg" class="icogro">
+						<a>{{name}}</a>
+					</div>
+					<div class="allblocks">
+						<div @click="gostyle(2)" class="blockup">
+							Члены организации
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(3)" class="blockup">
+							Пригласить
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(4)" class="blockup active">
+							Отчеты
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(6)" class="blockup">
+							Управление
+							<div class="lineblockup"></div>
+						</div>
+					</div>
+					<div @click="btn(0)" class="exitpad">
+						<img src="./img/off.svg" class="officon">
+					</div>
+				</header>
+				<div class="listhelp">
+					<a>Время</a>
+					<a style="margin-left: 7.3vw;">Действие</a>
+				</div>
+				<div class="alllist">
+					<div v-for="log in logs" class="oneblock">
+						<a>{{log[0]}} {{log[1]}}</a>
+						<div v-if="log[5] != null">
+							<a style="margin-left: 13vw;"><b style="color: #6d6fd1">{{log[2]}}</b> {{log[5]}} {{log[3]}} x{{log[4]}}</a>
+						</div>
+						<div v-else>
+							<a style="margin-left: 13vw;"><b style="color: #6d6fd1">{{log[2]}}</b> взял со склада {{log[3]}} x{{log[4]}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div v-if="style == 6">
+				<header>
+					<div class="nameblock">
+						<img src="./img/gro.svg" class="icogro">
+						<a>{{name}}</a>
+					</div>
+					<div class="allblocks">
+						<div @click="gostyle(2)" class="blockup">
+							Члены организации
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(3)" class="blockup">
+							Пригласить
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(4)" class="blockup">
+							Отчеты
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(6)" class="blockup active">
+							Управление
+							<div class="lineblockup"></div>
+						</div>
+					</div>
+					<div @click="btn(0)" class="exitpad">
+						<img src="./img/off.svg" class="officon">
+					</div>
+				</header>
+				<div class="threeblock">
+					<div @click="gostyle(10)" class="blockone">
+						<div class="cyl"><img src="./img/papper.png" class="papper"></div>
+						<a>Информация о фракции</a>
+						<p>Задача организации, в особенности же начало повседневной работы по формированию позиции</p>
+					</div>
+					<div @click="gostyle(11)" class="blockone">
+						<div class="cyl"><img src="./img/money.png" class="papper"></div>
+						<a>Управление бюджетом организации</a>
+						<p>Задача организации, в особенности же начало повседневной работы по формированию позиции</p>
+					</div>
+					<!-- <div @click="gostyle(12)" class="blockone"> -->
+						<!-- <div class="cyl"><img src="./img/hand2.png" class="papper"></div> -->
+						<!-- <a>Информация о фракции</a> -->
+						<!-- <p>Задача организации, в особенности же начало повседневной работы по формированию позиции</p> -->
+					<!-- </div> -->
+				</div>
+			</div>
+			<div v-if="style == 10">
+				<header>
+					<div class="nameblock">
+						<img src="./img/gro.svg" class="icogro">
+						<a>{{name}}</a>
+					</div>
+					<div class="allblocks">
+						<div @click="gostyle(2)" class="blockup">
+							Члены организации
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(3)" class="blockup">
+							Пригласить
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(4)" class="blockup">
+							Отчеты
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(6)" class="blockup active">
+							Управление
+							<div class="lineblockup"></div>
+						</div>
+					</div>
+					<div @click="btn(0)" class="exitpad">
+						<img src="./img/off.svg" class="officon">
+					</div>
+				</header>
+				<div class="mainblock">
+					<div class="imgfrac">
+						<div class="nameblock2">
+							<img src="./img/gro.svg" class="icogro2">
+							<a>{{name}}</a>
+						</div>
+						<div class="alltexts">
+							<a>Материалов: {{mats}}</a>
+							<a>Аптечек: {{med}}</a>
+							<a>Наркотиков: {{drug}}</a>
+							<a>Денег: {{moneys}}$</a>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div v-if="style == 11">
+				<header>
+					<div class="nameblock">
+						<img src="./img/gro.svg" class="icogro">
+						<a>{{name}}</a>
+					</div>
+					<div class="allblocks">
+						<div @click="gostyle(2)" class="blockup">
+							Члены организации
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(3)" class="blockup">
+							Пригласить
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(4)" class="blockup">
+							Отчеты
+							<div class="lineblockup"></div>
+						</div>
+						<div @click="gostyle(6)" class="blockup active">
+							Управление
+							<div class="lineblockup"></div>
+						</div>
+					</div>
+					<div @click="btn(0)" class="exitpad">
+						<img src="./img/off.svg" class="officon">
+					</div>
+				</header>
+				<div style="position: relative;top: -2vw" class="invitecen">
+					<a style="margin-top: 3vw;">Снять/положить деньги фракции</a>
+					<input class="inputinvite3" placeholder="Количество денег" v-model="money">
+					<div @click="submit2()" style="left: 39.8%" class="btnivite2">Снять</div>
+					<div @click="submit3()" class="btnivite2">Положить</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+    <script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

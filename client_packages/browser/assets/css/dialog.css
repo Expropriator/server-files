@@ -1,0 +1,116 @@
+﻿.dialog p {
+  margin: 0;
+}
+.dialog {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: radial-gradient(50% 90% at 50% 50%, rgba(23, 28, 28, 0) 0%, rgba(22, 21, 35, .20) 100%);
+	background-color: #0d162795;
+	-webkit-animation: fadeInFromNone 0.5s ease-out; -moz-animation: fadeInFromNone 0.5s ease-out; -o-animation: fadeInFromNone 0.5s ease-out; animation: fadeInFromNone 0.5s ease-out;
+}
+.centerdial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 40vh;
+  height: auto;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: rgba(22, 21, 35, 0.8);
+  border-radius: 6px;
+  padding: 40px 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.dialog .field_ques {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.dialog .question {
+  display: block;
+  max-width: 400px;
+  height: auto;
+}
+
+.dialog .question p {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.dialog .buttons {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  height: auto;
+  width: auto;
+  margin-top: 20px;
+}
+
+.dialog button {
+  width: 125px;
+  height: 37px;
+  font-size: 1.3em;
+  border-style: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.dialog .yes:hover {
+  background: #ffffff10;
+  color: #fff;
+}
+
+.dialog .no:hover {
+  background: #ffffff20;
+  color: #fff;
+}
+
+.dialog .yes {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  width: 140px;
+  height: 60px;
+  border-radius: 5px;
+  background: #00000000;
+  padding: 0 10px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.dialog .no {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(255, 255, 255);
+  width: 140px;
+  height: 60px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid #ffffff60;
+  background: #ffffff10;
+  padding: 0 10px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}

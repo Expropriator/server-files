@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+
+<body style="background: none;">
+	<div class="shop" v-if="active">
+		<div @click="exit()" class="exit">
+			<a>X</a>ВЫЙТИ
+		</div>
+		<div class="names">{{header}}</div>
+		<div class="namesstreet">{{street}}</div>
+		<div class="categories">
+			<div @click="btn(0,$event)" v-bind:class="{ active: btns[0] }" class="block">Оружие</div>
+			<div @click="btn(3,$event)" v-bind:class="{ active: btns[3] }" class="block">Патроны</div>
+		</div>
+		
+		<div class="items">
+			<div class="list">
+				<div v-for="(item, index) in items"	@click="buy(index)" class="item">
+					<div class="image">
+						<img :src="`./img/`+ index + `.png`" class="imgico">
+					</div>
+					<div class="name">{{item[0]}}</div>
+					<div class="price">${{item[1]}}</div>
+				</div>
+				<div v-for="(item, index) in sliders" @click="rangebuy(index)" class="item">
+					<div class="image">
+						<img :src="`./img/`+ (index + 16) + `.png`" class="imgico">
+					</div>
+					<div class="name">{{item[0]}}</div>
+					<div class="price">${{item[1]}}</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="sale"> -->
+			<!-- <div class="finisname">ИТОГО:</div> -->
+			<!-- <div class="finishprice">$300</div> -->
+			<!-- <div class="finishbuy">КУПИТЬ</div> -->
+			<!-- <div class="listb"> -->
+				<!-- <div v-for="(item, index) in basket" class="blocksale"> -->
+					<!-- <div class="imagebs"></div> -->
+					<!-- <div class="textbs">{{item}}</div> -->
+				<!-- </div> -->
+			<!-- </div> -->
+		<!-- </div> -->
+	</div>
+    <script src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/c552bfdf6a.js" crossorigin="anonymous"></script>
+</body>
+</html>

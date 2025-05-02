@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack Freedom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="../../../../assets/fonts/bebas-neue/stylesheet.css">	
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<main class="main" v-if="active">
+		<div class="bgleft"></div>
+		<div class="bgright"></div>
+		<div class="infoiller">
+			<img src="./img/cardbg.png" class="cardbg">
+			<div class="bj_info_me">
+				<div class="name_me">У ВАС</div>
+				<div class="count_me">{{me}}<img src="./img/card.png" class="card"></div>
+			</div>
+			<div style="margin-top: 9.5vh;" class="bj_info_me">
+				<div class="count_me">-<img src="./img/card.png" class="card"></div>
+			</div>
+			<div style="margin-top: 18vh;" class="bj_info_me">
+				<div class="name_me">У ДИЛЛЕРА</div>
+				<div class="count_me">{{diller}}<img src="./img/card.png" class="card"></div>
+			</div>
+		</div>
+		<div class="infostavka">
+			<div class="block_stavka">
+				<div class="nameblock">МИНИМАЛЬНАЯ СТАВКА</div>
+				<div class="count">{{minBet}}<img src="./img/chip1.png" class="chip"></div>
+			</div>
+			<div style="margin-top: 10vh;" class="block_stavka">
+				<div class="nameblock">ЭТА СТАВКА</div>
+				<div class="count">{{currBet}}<img src="./img/chip1.png" class="chip"></div>
+			</div>
+			<div style="margin-top: 10vh; margin-left: 11vh;" class="block_stavka">
+				<div class="nameblock">ВОЗМОЖНЫЙ ВЫЙГРЫШ</div>
+				<div class="count">{{currBet * 2}}<img src="./img/chip1.png" class="chip"></div>
+			</div>
+		</div>
+		<div v-if="!start" class="help_block">
+			<div class="help1">
+				<div class="block1"><img src="./img/Arrow.svg" class="arrow"></div>
+				<div style="margin-left: 5vh" class="block1"><img src="./img/Arrow.svg" style="transform: rotate(180deg);" class="arrow"></div>
+				<div class="namehe">РАЗМЕР СТАВКИ</div>
+			</div>
+			<div style="margin-top: 5vh;" class="help1">
+				<div style="width: 6vh;" class="block1"><img src="./img/arR.svg" class="arrow2"></div>
+				<!-- <div style="margin-left: 5vh" class="block1"><img src="./img/Arrow.svg" style="transform: rotate(180deg);" class="arrow"></div> -->
+				<div style="left: 8vh;" class="namehe">СДЕЛАТЬ СТАВКУ</div>
+			</div>
+			<div style="margin-top: 10vh;" class="help1">
+				<div class="block1">V</div>
+				<!-- <div style="margin-left: 5vh" class="block1"><img src="./img/Arrow.svg" style="transform: rotate(180deg);" class="arrow"></div> -->
+				<div style="left: 6vh;" class="namehe">КАМЕРА</div>
+			</div>
+		</div>
+		<div v-if="start" class="help_block">
+			<div style="margin-top: 5vh;" class="help1">
+				<div style="width: 6vh;" class="block1"><img src="./img/space.svg" class="arrow3"></div>
+				<!-- <div style="margin-left: 5vh" class="block1"><img src="./img/Arrow.svg" style="transform: rotate(180deg);" class="arrow"></div> -->
+				<div style="left: 8vh;" class="namehe">Достаточно</div>
+			</div>
+			<div style="margin-top: 10vh;" class="help1">
+				<div style="width: 6vh;" class="block1"><img src="./img/arR.svg" class="arrow2"></div>
+				<!-- <div style="margin-left: 5vh" class="block1"><img src="./img/Arrow.svg" style="transform: rotate(180deg);" class="arrow"></div> -->
+				<div style="left: 8vh;" class="namehe">ЕЩЕ</div>
+			</div>
+		</div>
+		<div v-if="sec != 0" class="alltimers">
+			<div class="time1">{{min}}:{{sec}}</div>
+			<div class="time2">{{min}}:{{sec}}</div>
+		</div>
+	</main>
+	<!-- <div class="bg"></div> -->
+    <!--<main class="main" v-if="">
+        <div class="container">
+            <div class="game-inf">
+                <div class="game-top" v-if="start">
+                    <p class="game-top__text">У вас {{me}}, У диллера {{diller}}</p>
+                </div>
+                <div class="game-main" v-if="!start">
+                    <div class="game-main__item">
+                        <p class="game-main__text">Эта ставка:</p>
+                        <span class="game-main__span">{{currBet}}$</span>
+                    </div>
+                    <div class="game-main__item">
+                        <p class="game-main__text">Мин.Ставка:</p>
+                        <span class="game-main__span">{{minBet}}$</span>
+                    </div>
+                </div>
+                <div class="game-time" v-if="start">
+                    <p class="game-time__text">Время:</p><span class="game-time__span">{{min}}:{{sec}}</span>
+                </div>
+                <div class="btns">
+                    <div class="music">
+                        <audio class="audio" preload="auto">
+                                <source src="./click.mp3" type="audio/mp3"/>
+                        </audio>
+                    </div>
+                    <div class="btns__wrapper" v-if="!start" id="btnsOne">
+                        <div class="btn">
+                            <span class="btn__text">Сделать ставку </span>
+                            <div class="btn__img">
+                                <img src="img/arR.svg" alt="" class="btn-img btn-r">
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="btn__text">Уменьшить ставку</span>
+                            <div class="btn__img">
+                                <img src="img/Arrow.svg" alt="" class="btn-img">
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="btn__text">Увеличить ставку</span>
+                            <div class="btn__img">
+                                <img src="img/Arrow.svg" alt="" class="btn-img btn-img-t">
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="btn__text">Выход</span>
+                            <div class="btn__img">
+                                <span>E</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btns__wrapper" v-if="start" id="btnsTwo">
+                       
+                        <div class="btn">
+                            <span class="btn__text">Достаточно</span>
+                            <div class="btn__img">
+                                <img src="img/space.svg" alt="" class="btn-img btn-s">
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="btn__text">Ещё</span>
+                            <div class="btn__img">
+                                <img src="img/arR.svg" alt="" class="btn-img btn-r">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>-->
+    <script src="./js/library/vue.js"></script>
+
+    <script src="./js/library/jquery-3.2.1.min.js"></script>
+    <!-- <script src="../../js/u.js"></script> -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+.casino-bet {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(11,22,37, .20);
+	font-family: Bebas Neue;
+	color: #fff;
+	z-index: -2;
+	-webkit-animation: fadeInFromNone 1s ease-out; -moz-animation: fadeInFromNone 1s ease-out; -o-animation: fadeInFromNone 1s ease-out; animation: fadeInFromNone 1s ease-out;
+}
+.casino-bet .time {
+	position: absolute;
+	font-size: 5.5vw;
+	font-weight: 700;
+	width: 20vw;
+	height: 11vw;
+	text-align: center;
+	text-shadow: 0 0 1vw #00000020;
+	left: 50%;
+	transform: translate(-50%,0%);
+	-webkit-animation: fadeInFromNone 1s ease-out; -moz-animation: fadeInFromNone 1s ease-out; -o-animation: fadeInFromNone 1s ease-out; animation: fadeInFromNone 1s ease-out;
+}
+.text {
+	/* position: absolute; */
+	text-align: center;
+	font-weight: 500;
+	font-size: 1.3vw;
+	position: absolute;
+	bottom: 8vw;
+	width: 30vw;
+	height: 0vw;
+	opacity: 0.2;
+	left: 50%;
+	transform: translate(-50%,0);
+}
+.casino-bet .time2 {
+	position: absolute;
+	text-align: center;
+	font-size: 8vw;
+	font-weight: 700;
+	width: 20vw;
+	/* opacity: 0.1; */
+	color: #ff000014;
+	height: 11vw;
+	z-index: -2;
+	/* background: green; */
+	left: 50%;
+	transform: translate(-50%,0%);
+	-webkit-animation: fadeInFromNone 1s ease-out; -moz-animation: fadeInFromNone 1s ease-out; -o-animation: fadeInFromNone 1s ease-out; animation: fadeInFromNone 1s ease-out;
+}
+.casino-bet .bottomcenter {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,-0%);
+	bottom: 0vw;
+	height: 6vw;
+	width: 45vw;
+	/* background: green; */
+}
+.casino-bet .bottomcenter .fishki {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 5vw;
+	height: 5vw;
+}
+.casino-bet .bottomcenter .fishki .namefishki {
+	position: absolute;
+	top: 0.5vw;
+	text-align: center;
+	width: 5vw;
+	font-size: 0.6vw;
+	color: #cfd0d2;
+	font-family: Montserrat;
+	font-weight: 600;
+}
+.casino-bet .bottomcenter .fishki .countfishki {
+	position: absolute;
+	top: 3.5vw;
+	text-align: center;
+	width: 5vw;
+	font-weight: bold;
+	font-size: 1.25vw;
+	text-shadow: 0 0 1.5vw #00000020;
+}
+.casino-bet .bottomcenter .fishki .iconkachips {
+	position: absolute;
+	width: 3vw;
+	height: 3vw;
+	left: 0.5vw;
+	bottom: 0.5vw;
+}
+.casino-bet .bottomcenter .summastavki .namesumma {
+	position: absolute;
+	font-family: Montserrat;
+	font-weight: 600;
+	color: #cfd0d2;
+	font-size: 0.6vw;
+}
+.casino-bet .bottomcenter .blocksumma .btnminuse:hover,
+.casino-bet .bottomcenter .blocksumma .btnpluse:hover {
+	transition: background 0.33s;
+	background: #ffffff40;
+}
+.casino-bet .bottomcenter .blocksumma .btnpluse {
+	position: absolute;
+	text-align: center;
+	line-height: 1.5vw;
+	top:0.75vw;
+	font-size: 0.85vw;
+	font-weight: 500;
+	right: 2.5vw;
+	width: 1.5vw;
+	height: 1.5vw;
+	z-index: 2;
+	background: #ffffff20;
+	transition: background 0.33s;
+}
+.casino-bet .bottomcenter .blocksumma .stavka {
+	position: relative;
+	text-align: center;
+	line-height: 3.25vw;
+	font-size: 1vw;
+	font-weight: 700;
+}
+.casino-bet .bottomcenter .blocksumma .btnminuse {
+	position: absolute;
+	text-align: center;
+	line-height: 1.5vw;
+	top: 0.75vw;
+	font-size: 0.85vw;
+	font-weight: 500;
+	left: 2.5vw;
+	width: 1.5vw;
+	height: 1.5vw;
+	background: #ffffff20;
+	transition: background 0.33s;
+}
+.casino-bet .bottomcenter .blocksumma {
+	position: absolute;
+	top: 1vw;
+	background: #ffffff20;
+	height: 3vw;
+	width: 15vw;
+}
+.casino-bet .bottomcenter .summastavki {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 5vw;
+	height: 5vw;
+	left: 8vw;
+	top: -4.5vw;
+}
+.casino-bet .bottomcenter .line {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 0.1vw;
+	height: 3.5vw;
+	left: 20vw;
+	top: -17.2.5vw;
+	background: #ffffff20;
+}
+.casino-bet .bottomcenter .btnstartcas2:hover {
+	transition: background 0.33s;
+	background: #ffffff40;
+}
+.casino-bet .bottomcenter .btnstartcas2 b {
+	color: #fff;
+	font-family: Bebas Neue;
+	text-shadow: none;
+	text-transform: capitalize;
+	font-size: 0.85vw;
+	opacity: 0.8;
+}
+.casino-bet .bottomcenter .btnstartcas2 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 8vw;
+	transition: background 0.33s;
+	font-size: 1vw;
+	height: 3vw;
+	left: 32vw;
+	top: -15vw;
+	line-height: 3vw;
+	text-align: center;
+	background: #ffffff20;
+	color: #ff0000;
+	text-shadow: 0 0 0.5vw #ff0000;
+	font-family: Montserrat;
+	font-weight: 700;
+}
+.casino-bet .bottomcenter .btnstartcas:hover {
+	transition: background 0.33s;
+	background: #ffffff40;
+}
+.casino-bet .bottomcenter .btnstartcas {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 5vw;
+	transition: background 0.33s;
+	font-size: 1vw;
+	height: 3vw;
+	left: 23.5vw;
+	top: -12vw;
+	line-height: 3vw;
+	text-align: center;
+	background: #ffffff20;
+}
+.casino-bet .helpblock .iconkadiamond2 {
+	position: absolute;
+	left: -2.25vw;
+	top: -0.25vw;
+	width: 1.5vw;
+}
+.casino-bet .iconkadiamond {
+	position: absolute;
+	left: 0;
+	bottom: -7vw;
+	width: 22.5vw;
+}
+.namecasino2 {
+	font-size: 0.8vw;
+}
+.casino-bet .helpblock2 .iconkadiamond2 {
+	position: absolute;
+	left: -2.25vw;
+	top: -0.25vw;
+	width: 1.5vw;
+}
+.casino-bet .helpblock2 {
+	position: absolute;
+	top: 1vw;
+	right: 9vw;
+}
+.casino-bet .helpblock {
+	position: absolute;
+	top: 1vw;
+	right: 1vw;
+	opacity: 0.6;
+}
+.casino-bet .btnclosecas:hover {
+	background: #ffffff40;
+	transition: background 0.33s;
+}
+.casino-bet .btnclosecas {
+	position: absolute;
+	bottom: 1.5vw;
+	transition: background 0.33s;
+	right: 1vw;
+	width: 10.5vw;
+	height: 3vw;
+	background: #ffffff20;
+	font-size: 1vw;
+	line-height: 3vw;
+	text-align: center;
+}
+.casino-bet .backgroundcasino1 {
+	position: absolute;
+	top: 20vw;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(0deg, #0b162590, #0b162500);
+	z-index: -1;
+}
+.casino-bet .backgroundcasino2 {
+	position: absolute;
+	top: 0vw;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(50% 100% at 50% 50%, rgba(11, 22, 37, 0) 0%, #0b162595 100%);
+	z-index: -1;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Дрифт</title>
+  <link rel="stylesheet" href="css/drift.css">
+  <link rel="stylesheet" href="../../assets/css/font.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div class="drift" v-if="active">
+      <header>
+        <div class="left">
+          <p>Настройка</p>
+        </div>
+        <div class="right">
+          <img src="./images/cross.svg" @click="close">
+        </div>
+      </header>
+      <content>
+        <div class="option">
+          <p>Регулировка резкости ручного тормоза</p>
+          <div class="range">
+            <input type="range" step="0.05" min="0.00" max="3.50" v-model="params.Break"><p>{{justify(params.Break)}}</p>
+          </div>
+        </div>
+        <div class="option">
+          <p>Регулировка угла поворота колёс</p>
+          <div class="range">
+            <input type="range" step="0.01" min="0.50" max="1.20" v-model="params.Steering"><p>{{justify(params.Steering)}}</p>
+          </div>
+        </div>
+        <div class="option">
+          <p>Регулировка чувствительности руля</p>
+          <div class="range">
+            <input type="range" step="0.05" min="1.00" max="3.00" v-model="params.Wheels"><p>{{justify(params.Wheels)}}</p>
+          </div>
+        </div>
+        <div class="option">
+          <p>Изменение склонности автомобиля к заносу</p>
+          <div class="range">
+            <input type="range" step="0.05" min="1.00" max="3.00" v-model="params.Skid"><p>{{justify(params.Skid)}}</p>
+          </div>
+        </div>
+        <div class="option">
+          <p>Регулировка высоты подвески</p>
+          <div class="range">
+            <input type="range" step="0.01" min="-0.05" max="0.10" v-model="params.Height"><p>{{justify(params.Height)}}</p>
+          </div>
+        </div>
+        <div class="option">
+          <p>Регулировка крена автомобиля в поворотах</p>
+          <div class="range">
+            <input type="range" step="0.05" min="0.00" max="3.00" v-model="params.Rotate"><p>{{justify(params.Rotate)}}</p>
+          </div>
+        </div>
+        <div class="buttons">
+          <div class="button green" v-on:click="send()">
+            <p v-on:click="send()">ПРИМЕНИТЬ</p>
+          </div>
+          <div class="button red" v-on:click="defaultparams()">
+            <p v-on:click="defaultparams()">ПО УМОЛЧАНИЮ</p>
+          </div>
+        </div>
+      </content>
+    </div>
+  </div>
+  <script src="js/drift.js"></script>
+</body>
+</html>

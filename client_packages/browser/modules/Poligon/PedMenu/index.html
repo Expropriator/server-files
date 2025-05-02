@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link href="./css/index.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../fonts/bebas-neue/stylesheet.css">
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script src="https://kit.fontawesome.com/c552bfdf6a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="poligon">
+	<div v-if="style == 0" class="main">
+		<div class="name">НАЧАТЬ ЗАДАНИЕ СТРЕЛЬБИЩА?</div>
+		<div class="desc">Вы начинаете задание, вы должны будете попадать по мишеням из разного оружия, которое вы выберете. Оружие зависит от вашего уровня персонажа, и в зависимости от того, насколько тяжелое оружие вы выберите настолько будет выше ваш выигрыш</div>
+		<div @click="gostyle(1)" class="start">Начать</div>
+		<div @click="close()" class="close">Нет, спасибо</div>
+	</div>
+	<div v-if="style == 1" class="guns">
+		<div class="nameblock">Выбор оружия</div>
+		<div class="allguns">
+			<div @click="selectgun(0)" class="gun">
+				<img src="./img/1.png" class="ginico">
+				<div class="namew">Glock</div>
+				<div class="namew2">Доступно</div>
+			</div>
+			<div @click="selectgun(1)" v-if="lvl >= 3" class="gun">
+				<img src="./img/2.png" class="ginico">
+				<div class="namew">Сайга</div>
+				<div class="namew2">Доступно</div>
+			</div>
+			<div v-else class="gun">
+				<img src="./img/2.png" class="ginico">
+				<div class="namew">Сайга</div>
+				<div class="namew3">Недоступно</div>
+			</div>
+			<div @click="selectgun(2)" v-if="lvl >= 5" class="gun">
+				<img src="./img/3.png" class="ginico">
+				<div class="namew">Revolver</div>
+				<div class="namew2">Доступно</div>
+			</div>
+			<div v-else class="gun">
+				<img src="./img/3.png" class="ginico">
+				<div class="namew">Revolver</div>
+				<div class="namew3">Недоступно</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<script src="./js/index.js"></script>
+<script src="./js/library/vue.js"></script>
+<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

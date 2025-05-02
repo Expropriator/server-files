@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bebas Neue';
+  color: #fff;
+  user-select: none;
+}
+
+[v-cloak] {
+	display: none;
+}
+body {
+	overflow: hidden;
+}
+.container {
+	-webkit-animation: fadeInFromNone 2s ease-out; -moz-animation: fadeInFromNone 2s ease-out; -o-animation: fadeInFromNone 2s ease-out; animation: fadeInFromNone 2s ease-out;
+}
+
+.container .bg1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(11,22,37,.89);
+	width: 100%;
+	height: 100%;
+	z-index: -2;
+}
+.container .bg2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: radial-gradient(50% 50% at 50% 50%, rgba(23, 28, 28, 0) 0%, #0b162595 100%);
+	width: 100%;
+	height: 100%;
+	z-index: -2;
+}
+.container .nameblock {
+	position: absolute;
+	top: 5vh;
+	left: 18vh;
+	font-weight: 700;
+	text-shadow: 0 0 2vh #ffffff50;
+	font-size: 6vh;
+}
+.container .infoblock {
+	position: absolute;
+	left: 17.5vh;
+	top: 15vh;
+}
+.container .infoblock .text1 a {
+	font-size: 1.5vh;
+	font-weight: 300;
+	margin-left: 0.5vh;
+	margin-right: 0.5vh;
+}
+.container .infoblock .text1 {
+	font-weight: 700;
+	font-size: 2.5vh;
+}
+.container .infoblock .text1 .chip {
+	width: 3vh;
+	margin-bottom: -0.9vh;
+	margin-left: 1.2vh;
+	margin-right: 1.2vh;
+}
+.container .buyblock {
+	position: absolute;
+	top: 25vh;
+	left: 18vh;
+}
+.container .buyblock .block1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40vh;
+	height: 23vh;
+	background: rgba(255,255,255,.08);
+	border-radius: 0.5vh;
+}
+.container .buyblock .block1 .priceblock .name {
+	opacity: 0.5;
+	letter-spacing: 0.3vh;
+	font-weight: 300;
+	font-size: 1.7vh;
+}
+.container .buyblock .block1 .priceblock .price {
+	font-size: 2.9vh;
+	letter-spacing: 0.2vh;
+}
+.container .buyblock .block1 .priceblock {
+	position: absolute;
+	left: 5vh;
+	bottom: 4vh;
+}
+.container .buyblock .block1 .count {
+	font-weight: 700;
+	font-size: 4.6vh;
+	position: absolute;
+	left: 5vh;
+	top: 4vh;
+}
+.container .buyblock .block2 {
+	position: absolute;
+	top: 0;
+	left: 45vh;
+	width: 40vh;
+	height: 23vh;
+	background: rgba(255,255,255,.08);
+	border-radius: 0.5vh;
+}
+.container .buyblock .block2 .priceblock .name {
+	opacity: 0.5;
+	letter-spacing: 0.3vh;
+	font-weight: 300;
+	font-size: 1.7vh;
+}
+.container .buyblock .block2 .priceblock .price {
+	font-size: 2.9vh;
+	letter-spacing: 0.2vh;
+}
+.container .buyblock .block2 .priceblock {
+	position: absolute;
+	left: 5vh;
+	bottom: 4vh;
+}
+.container .buyblock .block2 .count {
+	font-weight: 700;
+	font-size: 4.6vh;
+	position: absolute;
+	left: 5vh;
+	top: 4vh;
+}
+
+.container .buyblock .block3 {
+	position: absolute;
+	top: 28vh;
+	left: 0vh;
+	width: 40vh;
+	height: 23vh;
+	background: linear-gradient(45deg, #a788c0, #8f71a7);
+	border-radius: 0.5vh;
+}
+.container .buyblock .block3 .priceblock .name {
+	opacity: 0.5;
+	letter-spacing: 0.3vh;
+	font-weight: 300;
+	font-size: 1.7vh;
+}
+.container .buyblock .block3 .priceblock .price {
+	font-size: 2.9vh;
+	letter-spacing: 0.2vh;
+}
+.container .buyblock .block3 .priceblock {
+	position: absolute;
+	left: 5vh;
+	bottom: 4vh;
+}
+.container .buyblock .block3 .count {
+	font-weight: 700;
+	font-size: 4.6vh;
+	position: absolute;
+	left: 5vh;
+	top: 4vh;
+}
+
+.container .buyblock .block4 {
+	position: absolute;
+	top: 28vh;
+	left: 45vh;
+	width: 40vh;
+	height: 23vh;
+	background: linear-gradient(45deg, #4874c6, #4b77c7);
+	border-radius: 0.5vh;
+}
+.container .buyblock .block4 .priceblock .name {
+	opacity: 0.5;
+	letter-spacing: 0.3vh;
+	font-weight: 300;
+	font-size: 1.7vh;
+}
+.container .buyblock .block4 .priceblock .price {
+	font-size: 2.9vh;
+	letter-spacing: 0.2vh;
+}
+.container .buyblock .block4 .priceblock {
+	position: absolute;
+	left: 5vh;
+	bottom: 4vh;
+}
+.container .buyblock .block4 .count {
+	font-weight: 700;
+	font-size: 4.6vh;
+	position: absolute;
+	left: 5vh;
+	top: 4vh;
+}
+.chip2 {
+	width: 3vh;
+	margin-right: 2.5vh;
+}
+.container .textdesc {
+	position: absolute;
+	left: 18vh;
+	bottom: 14.5vh;
+	font-size: 1.5vh;
+	opacity: 0.4;
+}
+.container .nameblock2 {
+	position: absolute;
+	bottom: 15vh;
+	font-weight: 700;
+	left: 18vh;
+	text-shadow: 0 0 2vh #ffffff50;
+	font-size: 6vh;
+}
+.container .inputblock {
+	position: absolute;
+	bottom: 9vh;
+	left: 18vh;
+}
+#block {
+	transition: all 0.33s;
+}
+#block:hover {
+	transform: scale(1.1);
+	transition: all 0.33s;
+}
+.container .inputblock .btnsell:hover {
+	transition: all 0.33s;
+	transform: translateX(1vh);
+	box-shadow: 0 0 3vh 1vh #e0484850;
+}
+.container .inputblock .btnsell {
+	position: absolute;
+	transition: all 0.33s;
+	left: 38vh;
+	bottom: 0;
+	cursor: pointer;
+	width: 40vh;
+	text-align: center;
+	line-height: 4.5vh;
+	letter-spacing: 0.8vh;
+	height: 4.5vh;
+	border-radius: 0.5vh;
+	border: 0.3vh solid #9c1152;
+	background: linear-gradient(90deg, #9c1152, #e04848)
+}
+.container .inputblock .blockres {
+	background: #ffffff20;
+	border: none;
+	border-radius: 0.3vh;
+	width: 15vh;
+	outline: none;
+	text-align: center;
+	font-size: 2vh;
+	height: 4.5vh;
+	letter-spacing: 0.4vh;
+	line-height: 4.5vh;
+	position: absolute;
+	left: 22vh;
+	bottom: 0vh;
+}
+input {
+	background: #ffffff20;
+	border: none;
+	border-radius: 0.3vh;
+	width: 20vh;
+	outline: none;
+	text-align: center;
+	font-size: 2vh;
+	height: 4.5vh;
+	letter-spacing: 0.4vh;
+	line-height: 4.5vh;
+}
+::placeholder {
+	font-size: 1.2vh;
+	text-align: center;
+	opacity: 0.2;
+}
+.container .women {
+	position: absolute;
+	right: -47vh;
+	top: -9vh;
+	width: 200vh;
+	animation-name: slide; 
+	animation-duration: 3s;
+}
+@keyframes slide {
+  0% {
+    right: -100vh;
+  }
+  100% {
+   	right: -47vh;
+  }
+}
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="../../assets/fonts/bebas-neue/stylesheet.css">	
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+<style>
+	[v-cloak] {
+		display: none;
+	}
+</style>
+<body>
+	<div class="all">
+	<div v-cloak class="housebuy" v-if="active">
+		<div @click="exit()" class="exit">
+				<a>X</a>ВЫЙТИ
+		</div>
+		<!-- <div class="housebg"></div> -->
+		<img :src="`./construction-info/houses/`+ housetype + `.png`" class="houseicobg">	
+		<img :src="`./construction-info/houses/`+ housetype + `.png`" class="houseico">	
+		<div v-if="housetype != 0 && housetype != 1">
+			<img :src="`./construction-info/houses/mailbox/`+ housetype + `.png`" class="houseico">	
+			<img :src="`./construction-info/houses/sign/`+ housetype + `.png`" class="houseico">	
+		</div>
+		<img :src="`./construction-info/`+ housetype + `.png`" class="houseico">
+		<div v-if="housetype == 0" class="house-0">
+			<div class="housecenter" id="housecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Государственная цена</a>
+					<p>{{price | formatThousands}}$</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div><div v-else class="h2">Государство</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div>
+				<div @click="int(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 1" class="house-1">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div>
+				<div @click="int(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 2" class="house-2">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div>
+				<div @click="int(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 3" class="house-3">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div>
+				<div @click="int(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 4" class="house-4">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div>
+				<div @click="int(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 5" class="house-5">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div>
+				<div @click="int(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 6" class="house-6">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div>
+				<div @click="int(id)" class="open"></div>
+			</div>
+		</div>
+		<div class="text">Чтобы зайти в дом нажмите на ручку двери</div>
+	</div>
+	
+	
+	<div v-cloak class="houseinfo" v-if="active">
+		<div @click="exit()" class="exit">
+				<a>X</a>ВЫЙТИ
+		</div>
+		<!-- <div class="housebg"></div> -->
+		<img :src="`./construction-info/houses/`+ housetype + `.png`" class="houseicobg">	
+		<img :src="`./construction-info/houses/`+ housetype + `.png`" class="houseico">	
+		<div v-if="housetype != 0 && housetype != 1">
+			<img :src="`./construction-info/houses/mailbox/`+ housetype + `.png`" class="houseico">	
+			<img :src="`./construction-info/houses/sign/`+ housetype + `.png`" class="houseico">	
+		</div>
+		<img :src="`./construction-info/`+ housetype + `.png`" class="houseico">
+		<div v-if="housetype == 0" class="house-0">
+			<div class="housecenter" id="housecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Государственная цена</a>
+					<p>{{price | formatThousands}}$</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 1" class="house-1">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 2" class="house-2">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 3" class="house-3">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 4" class="house-4">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 5" class="house-5">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 6" class="house-6">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		<div class="text">Чтобы зайти в дом нажмите на ручку двери</div>
+	</div>
+	
+	<div v-cloak class="houseinfo2" v-if="active">
+		<div @click="exit()" class="exit">
+				<a>X</a>ВЫЙТИ
+		</div>
+		<!-- <div class="housebg"></div> -->
+		<img :src="`./construction-info/houses/`+ housetype + `.png`" class="houseicobg">	
+		<img :src="`./construction-info/houses/`+ housetype + `.png`" class="houseico">	
+		<div v-if="housetype != 0 && housetype != 1">
+			<img :src="`./construction-info/houses/mailbox/`+ housetype + `.png`" class="houseico">	
+			<img :src="`./construction-info/houses/sign/`+ housetype + `.png`" class="houseico">	
+		</div>
+		<img :src="`./construction-info/`+ housetype + `.png`" class="houseico">
+		<div v-if="housetype == 0" class="house-0">
+			<div class="housecenter" id="housecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Государственная цена</a>
+					<p>{{price | formatThousands}}$</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 1" class="house-1">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 2" class="house-2">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 3" class="house-3">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 4" class="house-4">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 5" class="house-5">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}$</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		
+		<div v-if="housetype == 6" class="house-6">
+			<div class="housecenter" id="housecenter">
+				<div class="houseinfornecenter">
+				<div class="block">
+					<a>Тип дома</a>
+					<p>{{type}}</p>
+				</div>
+				<div class="block">
+					<a>Сожители</a>
+					<p>{{roommates}}</p>
+				</div>
+				<div class="block">
+					<a>Вместимость гаража</a>
+					<p>{{garage}}</p>
+				</div>
+				<div class="block">
+					<a>Налог</a>
+					<p>{{(price / 100 * 0.013).toFixed() | formatThousands}}</p>
+				</div>
+				<div class="houseinform">
+					<div class="housedom">Дом #{{id}}</div>
+					<div class="hi">Владелец дома</div>
+					<div v-if="owner != null" class="h2">{{owner}}</div><div v-else class="h2">Государство</div>
+					<div class="hi">Государственная цена</div>
+					<div class="h2">{{price | formatThousands}}$</div>
+				</div>
+				</div>
+				<img src="./construction-info/security.png" class="security">
+				<!-- <div @click="buy(id)" class="buybtn" id="buybtn">КУПИТЬ</div> -->
+				<div @click="enter(id)" class="open"></div>
+			</div>
+		</div>
+		<div class="text">Чтобы зайти в дом нажмите на ручку двери</div>
+	</div>
+	</div>
+    <script src="./js/index.js"></script>
+	<script>Vue.filter('formatThousands', (x) => {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");})</script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

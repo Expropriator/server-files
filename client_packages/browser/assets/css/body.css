@@ -1,0 +1,230 @@
+body {
+	overflow: hidden;
+	-webkit-user-select: none;
+}
+.bgshow {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -2;
+	background: grey;
+}
+.bglinear {
+	position: absolute;
+	width: 150%;
+	height: 150%;
+	top: -22vh;
+	left: -10vh;
+	z-index: -1;
+	background: linear-gradient(90deg, rgba(22,21,35,.90), #ffffff00)
+}
+.body{
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    margin-top: -29vh;
+    height: 90vh;
+    width: 40vh;
+    top: 50vh;
+	left: 5vh;
+    color: #51c1a3;
+}
+
+.body .right{
+	margin-top: 6vh;
+	position: relative;
+}
+.body .left10{
+    text-align: center;
+    float: left;
+	top: 0;
+}
+.body .left10 div{
+    color: white;
+}
+.body .left11{
+    text-align: center;
+    float: left;
+}
+.body .left11 div{
+    color: white;
+}
+.body .block{
+    margin-bottom: -5vh;
+    height: 20vh;
+	margin-left: 0.5vh;
+}
+.body .items222{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 73.5vh;
+    margin-top: 5vh;
+}
+.body .btn{
+    border-radius: 0.4vh;
+    margin-right: 10vh;
+    width: 12vh;
+	height: 4.5vh;
+	text-align: center;
+	line-height: 4.5vh;
+	background: #0de646;
+	color: #fff;
+	font-family: Montserrat;
+	font-weight: 600;
+	transition: all 0.33s;
+	font-size: 1.4vh;
+	overflow: hidden;
+	z-index: 1;
+	position: absolute;
+	top: 16vh;
+	right: 2vh;
+}
+.body .btn:hover{
+	box-shadow: 0 0 2vh 1vh #0de64650;
+	transition: all 0.33s;
+	z-index: 1;
+
+}
+.body .namebody {
+	position: absolute;
+	font-family: Montserrat;
+	color: #fff;
+	font-weight: 600;
+	font-size: 5vh;
+	width: 30vh;
+	top: -10vh;
+}
+.body .namebody2 {
+	position: absolute;
+	font-family: Montserrat;
+	color: #fff;
+	font-weight: 400;
+	font-size: 1.5vh;
+	width: 30vh;
+	height: 3vh;
+	top: 2vh;
+	left: 0.25vh;
+}
+.body .right p{
+    margin: 10px;
+    font-size: 16pt;
+    left: 5vh;
+	top: 17vh;
+	position: relative;
+	color: #0de646;
+	font-family: Montserrat;
+	font-weight: 600;
+	font-size: 1.8vh;
+	text-shadow: 0 0vh 1vh #0de646;
+	width: 8vh;
+	z-index: 0;
+}
+.body .left11 p{
+    text-align: left;
+    margin: 3vh;
+    width: 180px;
+	margin-left: -0vh;
+	margin-top: -2.5vh;
+	color: #fff;
+	font-family: Montserrat;
+	font-weight: 600;
+	font-size: 2vh;
+}
+.body .left11 div{
+    margin-left: 20px;
+    width: 26vh;
+}
+.body .left11 span {
+	position: relative;
+	line-height: 3.5vh;
+	font-family: Montserrat;
+}
+.body .left10 p{
+    text-align: left;
+    margin: 2vh;
+    width: 180px;
+	margin-left: -0vh;
+	margin-top: -2.5vh;
+	color: #fff;
+	font-family: Montserrat;
+	font-weight: 600;
+	font-size: 2vh;
+}
+.body .left10 div{
+    margin-left: 20px;
+    width: 20vh;
+	z-index: -1;
+	height: 5vh;
+}
+.body .left10 span {
+	position: relative;
+	line-height: 4vh;
+	font-family: Montserrat;
+}
+.body i{
+    font-family: "icons";
+    font-style: normal;
+    cursor: pointer;
+}
+.body i:hover{
+    background: #0de646;
+}
+.body i.left-arrow:hover{
+	background: #0de646;
+	transition: all 0.33s;
+	border: 0.2vh solid #ffffff50;
+}
+.body i.left-arrow{
+    float: left;
+	background: #ffffff40;
+	border-radius: 1vh;
+	transition: all 0.33s;
+	width: 3vh;
+	height: 3vh;
+	line-height: 3vh;
+	border: 0.2vh solid #ffffff50;
+	z-index: -1;
+}
+
+.body i.right-arrow:hover{
+	background: #0de646;
+	transition: all 0.33s;
+	border: 0.2vh solid #ffffff50;
+}
+.body i.right-arrow{
+    float: right;
+	background: #ffffff40;
+	border-radius: 1vh;
+	transition: all 0.33s;
+	width: 3vh;
+	height: 3vh;
+	line-height: 3vh;
+	border: 0.2vh solid #ffffff50;
+	z-index: 1;
+}
+.body .exit{
+	float: right;
+	width: 30px;
+	height: 30px;
+    cursor: pointer;
+    background-image: url('../images/icons/exit.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+}
+
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background: #30343b00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ffffff00 5%, #ffffff00 100%);
+  border-radius: 10px;
+}

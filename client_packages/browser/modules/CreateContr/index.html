@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+	<link rel="stylesheet" href="../../assets/fonts/bebas-neue/stylesheet.css">
+</head>
+
+<body>
+	<div class="ped">
+		<div v-if="style == 0" class="dialog">
+			<div class="name">
+			Джейкоб
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text">
+				Если тебе кто-то не нравиться, могу с этим помочь. Только скажи как его зовут
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div onclick="closemenu()" class="btnyes2">Спасибо, я сам</div>
+				<div @click="gostyle(2)" class="btnyes">Это как?</div>
+				<div @click="gostyle(1)" class="btnno">Да давай</div>
+			</div>
+		</div>
+		<div v-if="style == 2" class="dialog">
+			<div class="name">
+			Джейкоб
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text" style="top: 1.5vh;">
+				Надеюсь ты не легавый, короче ты можешь заказать убийство на этого человека, только тсс...
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div @click="gostyle(0)" class="btnno">Ясно</div>
+			</div>
+		</div>
+		<div v-if="style == 1">
+			<div class="main">
+				<div onclick="closemenu()" class="exit">
+					<a>X</a>ВЫЙТИ
+				</div>
+				<div class="center">
+					<div class="header">
+						<div class="cyl">
+							<img src="./skull.svg" class="skull">
+						</div>
+						<a>ЗАКАЗ НА УБИЙСТВО</a>
+					</div>
+					<div style="margin-left: 9.5vw; position: absolute;">
+						<div class="blocks">
+							<div class="headlines">
+								Имя жертвы
+							</div>
+							<input placeholder="Ilya" v-model="name">
+							<div style="margin-top: 7vw;" class="headlines">
+								Фамилия жертвы
+							</div>
+							<input style="margin-top: 7vw;" v-model="surname" placeholder="Merumond">
+							<div style="margin-top: 14vw;" class="headlines">
+								Цена
+							</div>
+							<input style="margin-top: 14vw;" v-model="price" placeholder="100">
+						</div>
+						<div @click="crcont" class="btn">Заказать</div>
+						<p>Не ошибитесь с именем и фамилией, иначе вы можете заказать убийство не на того человека и вы просто так потратите свои деньги. Минимальная цена на убийство 1 500 000$</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

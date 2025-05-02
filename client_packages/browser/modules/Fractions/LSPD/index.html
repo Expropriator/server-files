@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+
+<body>
+	<div class="ped">
+		<div v-if="style == 0" class="dialog">
+			<div class="name">
+			Элис Кремер
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text">
+				Привет, ты в главном здании Los Santos Police Department, чем могу помочь?
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div onclick="closemenu()" class="btnyes2">Нет, спасибо.</div>
+				<div v-if="fine == 0" @click="gostyle(1)" class="btnyes">Оплатить штрафы</div>
+				<div v-if="fine != 0" @click="gostyle(2)" class="btnyes">Оплатить штрафы</div>
+				<div v-if="frac != 7" @click="gostyle(3)" style="margin-top: 7vh;" class="btnyes">Как здесь работать?</div>
+				<a v-if="frac == 7">
+				<div v-if="!workday" @click="gostyle(4)" style="margin-top: 7vh" class="btnyes">Начать рабочий день</div>
+				<div v-if="workday" @click="gostyle(5)" style="margin-top: 7vh;" class="btnyes">Закончить рабочий день</div>
+				</a>
+				<div @click="nelegal()" class="btnno">Сдать нелегеал</div>
+			</div>
+		</div>
+		<div v-if="style == 1" class="dialog">
+			<div class="name">
+			Элис Кремер
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text" style="top: 2.5vh;">
+				У вас нет штрафов, лучше не собирайте их
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div @click="gostyle(0)" class="btnyes">Понял, спасибо</div>
+			</div>
+		</div>
+		<div v-if="style == 2" class="dialog">
+			<div class="name">
+			Элис Кремер
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Вы уверены что хотите оплатить штрафы в размере {{fine}}$?
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 11vh;" class="btns">
+				<div @click="payfines()" class="btnyes3">Да, давайте...</div>
+				<div @click="gostyle(0)" style="position: absolute; top: 2vh;" class="btnno">Нет, немного позже</div>
+			</div>
+		</div>
+		<div v-if="style == 3" class="dialog">
+			<div class="name">
+			Элис Кремер
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Приходите на наборы в полицию штата, ождиайте новостей от Weazel News!
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 11vh;" class="btns">
+				<div @click="gostyle(0)" style="position: absolute; top: 2vh;" class="btnyes">Ясно</div>
+			</div>
+		</div>
+		<div v-if="style == 4" class="dialog">
+			<div class="name">
+			Элис Кремер
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Удачного рабочего дня в полицейском департменте города Los Santos!
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 11vh;" class="btns">
+				<div @click="starworkday" style="position: absolute; top: 2vh;" class="btnyes">Спасибо</div>
+			</div>
+		</div>
+		<div v-if="style == 5" class="dialog">
+			<div class="name">
+			Элис Кремер
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Уже уходите? Удачного дня вам! Берегите себя от бандитов, а как вы знаете их много
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 11vh;" class="btns">
+				<div @click="starworkday" style="position: absolute; top: 2vh;" class="btnyes">Спасибо</div>
+			</div>
+		</div>
+	</div>
+    <script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Snowboard Market</title>
+  <link rel="stylesheet" href="css/market.css">
+  <link rel="stylesheet" href="../../../assets/css/font.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div id="mainblock" class="main" v-if="">
+		<div class="header">
+			<div class="name"><img src="./images/market.svg" class="market">{{header}}</div>
+			<div class="menus">
+				<div class="menubtn">Скупка</div>
+			</div>
+			<div @click="closeMenu()" class="exit"><img src="./images/close.svg" class="close"></div>
+		</div>
+		<div class="allblocks">
+			<div class="allblocks2">
+				<div v-for="(item, index) in sellitems" class="block">
+					<div class="imagesblock">
+						<img :src="`./images/` + item.ID + `.png`" class="fish">
+					</div>
+					<div class="name">{{item.Name}}</div>
+					<div class="description">{{item.Desc}}</div>
+					<div @click="sell(item.ID)" class="btnsale">Продать</div>
+					<div class="price">${{item.Ordered ? item.Price * curs : item.Price}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+  <script src="js/market.js"></script>
+</body>
+
+</html>

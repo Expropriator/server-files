@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+
+<body>
+	<div class="ped">
+		<div v-if="style == 0" class="dialog">
+			<div class="name">
+			Джэймс Фостер
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text">
+				Приветсвую, хочешь порабоать почтальоном? Помоги мне немного тут, получишь деньги
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div onclick="closemenu()" class="btnyes2">В другой раз</div>
+				<div @click="gostyle(2)" class="btnyes">Как тут работать?</div>
+				<div v-if="workid != 2" @click="gostyle(1)" class="btnno">Устроиться на работу</div>
+				<div v-if="workid == 2" @click="gostyle(4)" class="btnno">Уволиться</div>
+				<div v-if="workid == 2" style="margin-top: 7vh;" @click="takepockets()" class="btnyes">Взять посылки</div>
+			</div>
+		</div>
+		<div v-if="style == 2" class="dialog">
+			<div class="name">
+			Джэймс Фостер
+			</div>
+			<div class="line"></div>
+			<div style="height: 6vw;" class="textblock">
+				<div class="text" style="top: 1.5vh;">
+				Смотри, я тебе даю транспорт Boxwille и 10 посылок. Потом ты развозишь их, если закончаться приезжай обратно и бери еще
+				</div>
+			</div>
+			<div style="bottom: 6.5vh;" class="btns">
+				<div @click="buylic(0)" class="btnyes">Да, давайте</div>
+				<div @click="gostyle(0)" class="btnno">Нет, немного позже</div>
+			</div>
+		</div>
+		<div v-if="style == 1" class="dialog">
+			<div class="name">
+			Джэймс Фостер
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				На парковке стоит тачка возьми ее она твоя, так же даю 10 посылок. Удачи!
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 9vh;" class="btns">
+				<div @click="changework()" class="btnyes">Спасибо</div>
+				<div onclick="closemenu()" class="btnno">Я передумал</div>
+			</div>
+		</div>
+		<div v-if="style == 4" class="dialog">
+			<div class="name">
+			Джэймс Фостер
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Надеюсь ты еще придешь, было приятно с тобой работать. Удачи тебе!
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 9vh;" class="btns">
+				<div @click="changework()" class="btnyes">Я приду потом</div>
+				<div onclick="closemenu()" class="btnno">Я еще поработаю</div>
+			</div>
+		</div>
+	</div>
+    <script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+
+<body>
+	<div class="main">
+		<div @click="exit()" class="exit">
+				<a>X</a>ВЫЙТИ
+		</div>
+		<div v-if="style == 0" class="style0">
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="nameblock">
+				<div class="desc">Склад снаряжения</div>
+				<div class="desc2">Главной Мэрии города Los Santos</div>
+			</div>
+			<div class="center">
+				<div class="block active">
+					<a>Оружие</a>
+				</div>
+				<div @click="gostyle(1)" class="block">
+					<a>Снаряжение</a>
+				</div>
+			</div>
+			<div class="allitems2">
+				<div @click="buy(0)" class="bbg2">
+					<img src="../../../Inventory/assets/images/icons/items/109.png" class="ico">
+					<a>Тайзер</a>
+				</div>
+				<div @click="buy(1)" class="bbg2">
+					<img src="../../../Inventory/assets/images/icons/items/100.png" class="ico">
+					<a>Пистолет</a>
+				</div>
+				<div @click="buy(2)" class="bbg2">
+					<img src="../../../Inventory/assets/images/icons/items/133.png" class="ico">
+					<a>Карабиновая винтовка</a>
+				</div>
+				<div @click="buy(3)" class="bbg2">
+					<img src="../../../Inventory/assets/images/icons/items/201.png" class="ico">
+					<a>Патроны 9x19mm</a>
+				</div>
+				<div @click="buy(4)" class="bbg2">
+					<img src="../../../Inventory/assets/images/icons/items/245.png" class="ico">
+					<a>Патроны 56x45mm</a>
+				</div>
+				<div class="bbg2"></div>
+				<div class="bbg2"></div>
+				<div class="bbg2"></div>
+				<div class="bbg2"></div>
+				<div class="bbg2"></div>
+				<div class="bbg2"></div>
+				<div class="bbg2"></div>
+			</div>
+			<div class="allitems">
+				<div v-for="i in 12" class="bbg"></div>
+			</div>
+		</div>
+		<div v-if="style == 1" class="style0">
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="nameblock">
+				<div class="desc">Склад снаряжения</div>
+				<div class="desc2">Главной Мэрии города Los Santos</div>
+			</div>
+			<div class="center">
+				<div @click="gostyle(0)" class="block">
+					<a>Оружие</a>
+				</div>
+				<div class="block active">
+					<a>Снаряжение</a>
+				</div>
+			</div>
+			<div class="allitems2">
+				<div @click="buy(5)" class="bbg2">
+					<img src="../../../Inventory/assets/images/icons/items/-9.png" class="ico">
+					<a>Бронежилет</a>
+				</div>
+				<div @click="buy(6)" class="bbg2">
+					<img src="../../../Inventory/assets/images/icons/items/500.png" class="ico">
+					<a>Дрон</a>
+				</div>
+				<div class="bbg2"></div>
+			</div>
+			<div class="allitems">
+				<div v-for="i in 12" class="bbg"></div>
+			</div>
+		</div>
+	</div>
+    <script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

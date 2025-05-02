@@ -1,0 +1,200 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    color: rgba($color: #E5FFFF, $alpha: 1.0);
+    font-family: 'Montserrat', sans-serif;
+}
+#app{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.wanted{
+    position: absolute;
+    width: 29.625vw;
+    height: 24.188vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    &::before,&::after{
+        position: absolute;
+        content: '';
+        pointer-events: none;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 30.875vw;
+        height: 25.438vw;
+    }
+    &::before{
+        border-top: 0.063vw;
+        border-bottom: 0.063vw;
+        border-style: solid;
+        border-image: linear-gradient(90deg,rgba($color: #E5FFFF, $alpha: 0),rgba($color: #E5FFFF, $alpha: 0.4),rgba($color: #E5FFFF, $alpha: 0)) 1;
+    }
+    &::after{
+        border-top: 0.625vw;
+        border-bottom: 0.625vw;
+        border-style: solid;
+        border-image: linear-gradient(90deg,rgba($color: #131A1B, $alpha: 0),rgba($color: #131A1B, $alpha: 0.4),rgba($color: #131A1B, $alpha: 0)) 1;
+    }
+}
+.wanted__wrapper{
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #131A1B, $alpha: 0.9);
+    clip-path: polygon(0 0, 0.625vw 100%, calc(100% - 0.625vw) 100%, 100% 0);
+    padding: 1.25vw 2.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    &>p{
+        font-weight: 600;
+        font-size: 1.313vw;
+        text-align: center;
+        height: 1.625vw;
+    }
+    &>input{
+        width: 100%;
+        height: 2vw;
+    }
+}
+.wanted__params{
+    width: 100%;
+    height: 2vw;
+    display: flex;
+    &>div{
+        width: 15vw;
+        height: 100%;
+        font-size: 0.625vw;
+        //border: 0.063vw solid rgba($color: #2BD9D9, $alpha: 1.0);
+        border: 0.063vw dashed rgba($color: #E5FFFF, $alpha: 0.25);
+        background: rgba($color: #131A1B, $alpha: 0.4);
+        display: flex;
+        align-items: center;
+        padding: 0 0.938vw;
+        margin-right: 0.938vw;
+    }
+    &>input{
+        width: 8.688vw;
+        height: 100%;
+    }
+}
+.wanted__input{
+    display: flex;
+    align-items: center;
+    padding: 0 0.875vw;
+    font-size: 0.625vw;
+    background: rgba($color: #131A1B, $alpha: 0.4);
+    border: 0.063vw dashed rgba($color: #E5FFFF, $alpha: 0.25);
+    color: rgba($color: #E5FFFF, $alpha: 0.25);
+    &:focus{
+        border: 0.063vw solid rgba($color: #2BD9D9, $alpha: 1.0);
+        color: rgba($color: #E5FFFF, $alpha: 1.0);
+    }
+}
+.wanted__stars{
+    width: 100%;
+    height: 2vw;
+    &>p{
+        font-size: 0.625vw;
+        height: 0.75vw;
+        color: rgba($color: #E5FFFF, $alpha: 0.4);
+        margin-bottom: 0.25vw;
+    }
+    &>div{
+        height: 1vw;
+        display: flex;
+        align-items: flex-start;
+    }
+}
+.wanted__star{
+    width: 1vw;
+    height: 1vw;
+    margin-right: 0.625vw;
+    &>svg{
+        pointer-events: none;
+        display: block;
+        width: 1vw;
+        height: 1vw;
+        fill: rgba($color: #E5FFFF, $alpha: 0.4);
+    }
+    &.hover{
+        &>svg{
+            fill: rgba($color: #E5FFFF, $alpha: 0.55);
+        }
+    }
+    &.active{
+        filter: drop-shadow(0 0 0.625vw rgba($color: #2BD9D9, $alpha: 1.0));
+        &>svg{
+            fill: rgba($color: #2BD9D9, $alpha: 1.0);
+        }
+    }
+}
+.wanted__redemption{
+    width: 100%;
+    height: 0.875vw;
+    display: flex;
+    align-items: center;
+    padding-left: 0.063vw;
+    &>input{
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        margin-right: 0.625vw;
+        width: 0.875vw;
+        height: 0.875vw;
+        appearance: none;
+        border: 0.063vw solid rgba($color: #E5FFFF, $alpha: 0.75);
+        &:checked:after {
+            pointer-events: none;
+            content: '\2714';
+            width: 100%;
+            height: 100%;
+            font-size: 0.625vw;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            color: #99a1a7;
+        }
+    }
+    &>p{
+        font-style: italic;
+        font-size: 0.625vw;
+        color: rgba($color: #E5FFFF, $alpha: 0.5);
+    }
+}
+.wanted__buttons{
+    width: 100%;
+    height: 2.938vw;
+    display: flex;
+    justify-content: space-around;
+    &>div{
+        height: 100%;
+        width: 12vw;  
+        font-size: 0.875vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:first-child{
+            background: rgba($color: #E5FFFF, $alpha: 0.15);
+        }
+        &:last-child{
+            border: 0.125vw solid rgba($color: #E5FFFF, $alpha: 0.07);
+        }
+    }
+}

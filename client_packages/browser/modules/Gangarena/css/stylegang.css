@@ -1,0 +1,56 @@
+.hud_gun .center .block .name {
+	font-weight: 400;
+	font-size: 3.5vh;
+}
+.hud_gun .center .block .progres_bar .progres {
+	background: #0de646;
+	height: 0.2vh;
+	position: absolute;
+}
+.hud_gun .center .block .progres_bar {
+	position: absolute;
+	top: 4.4vh;
+	width: 20vh;
+	height: 0.2vh;
+	background: #ffffff20;
+}
+.hud_gun .center .block .time {
+	font-weight: 400;
+	font-size: 2.4vh;
+	position: absolute;
+	right: 0.5vh;
+	top: 0.2vh;
+	text-align: right;
+}
+.hud_gun .center {
+	position: relative;
+	width: 20vh;
+	height: 10vh;
+	margin-right: auto;
+	top: 88vh;
+	text-shadow: 0 0 3vh #00000090;
+	margin-left: auto;
+}
+.btnkils {
+	background: #313131;
+	font-size: 3vh;
+	width: 9vh;
+	text-align: center;
+	height: 5vh;
+	top: 5vh;
+	position: absolute;
+	line-height: 5vh;
+	border-radius: 0.5vh;
+}
+.btndeath {
+	background: #313131;
+	font-size: 3vh;
+	width: 10vh;
+	text-align: center;
+	border-radius: 0.5vh;
+	height: 5vh;
+	top: 5vh;
+	right: 0;
+	position: absolute;
+	line-height: 5vh;
+}

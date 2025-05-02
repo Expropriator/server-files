@@ -1,0 +1,1594 @@
+﻿
+.inGameHud {zoom: 85%}
+
+	body {
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		overflow: hidden;
+		margin: 0;
+		font-family: Bebas Neue;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	#effect {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	#safezone {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	.bgshow {
+		position: absolute;
+		background: url('../images/img/bgshow.png');
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	.iconkill {
+		position: absolute;
+		top: 0;
+		zoom: 80%;
+		left: 0;
+		width: 2.5vw;
+		height: 2.5vw;
+		background: #0de646;
+		border-radius: 0.5vw;
+	}
+	.iconkill img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 1.5vw;
+	}
+	.timer {
+		position: absolute;
+		bottom: 1vw;
+		right: 1vw;
+		width: 20vw;
+		height: 3vw;
+		background: linear-gradient(270deg, #00000090, #00000040);
+	}
+	.timer a {
+		font-family: Montserrat;
+		position: absolute;
+		right: 0;
+		font-weight: 500;
+		top: -1.6vw;
+		font-size: 1vw;
+	}
+	.linetimer {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 19vw;
+		height: 2vw;
+		background: #1fe65350;
+	}
+	.lineactivetimer {
+		position: absolute;
+		/* top: 50%; */
+		left: 0;
+		/* transform: translate(-50%,-50%); */
+		width: 2vw;
+		height: 2vw;
+		background: #1fe653;
+	}
+.demorgan {
+	position: absolute;
+	right: 1vw;
+	bottom: 1vw;
+	width: 20vw;
+	font-size: 0.8vw;
+	height: 8vw;
+	font-family: Montserrat;
+	background: black;
+}
+.demorgan h1 {
+	position: absolute;
+	left: 1vw;
+	bottom: 1.5vw;
+	color: #0de646;
+	font-size: 0.9vw;
+	font-weight: 500;
+}
+.demorgan b {
+	position: absolute;
+	left: 1vw;
+	bottom: 1vw;
+	color: #fff;
+	text-align: left;
+	opacity: 0.9;	
+	font-weight: 400;
+}
+.updemorgan a {
+	position: absolute;
+	top: 1vw;
+	font-weight: 600;
+	color: #000;
+}
+.updemorgan p {
+	position: absolute;
+	top: 2vw;
+	font-weight: 400;
+	color: #000;
+}
+.updemorgan {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20vw;
+	height: 4vw;
+	background: #0de646;
+}
+.exit {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: 2vw;
+	background: #00000060;
+	width: 10vw;
+	z-index: 4;
+	height: 2vw;
+	font-family: Montserrat;
+	color: #fff;
+	padding-right: 1.4vw;
+	/* zoom: 80%; */
+	text-align: right;
+	line-height: 2vw;
+	font-weight: 400;
+	font-size: 0.75vw;
+	border-radius: 0.25vw;
+}
+.exit a {
+	width: 2vw;
+	height: 2vw;
+	text-align: center;
+	position: absolute;
+	color: #fff;
+	/* font-family: Montserrat; */
+	left: 0;
+	border-radius: 0.25vw;
+	background: #00000060;
+}
+
+.exitmetro {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: 2vw;
+	background: #00000060;
+	max-width: 22vw;
+	z-index: 4;
+	height: 2vw;
+	font-family: Montserrat;
+	color: #fff;
+	padding-right: 1.4vw;
+	padding-left: 3vw;
+	/* zoom: 80%; */
+	text-transform: uppercase;
+	text-align: right;
+	line-height: 2.1vw;
+	font-weight: 400;
+	font-size: 0.75vw;
+	border-radius: 0.25vw;
+}
+.exitmetro a {
+	width: 2vw;
+	height: 2vw;
+	text-align: center;
+	position: absolute;
+	color: #fff;
+	/* font-family: Montserrat; */
+	left: 0;
+	border-radius: 0.25vw;
+	background: #00000060;
+}
+	
+	.shadow {
+		position: absolute;
+		background: url('../images/donate/bgshow.png');
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	.inGameHud {
+		position: absolute;
+		margin: 0 auto;
+		line-height: normal;
+		color:#fff;
+		width: 100%;
+		height: 100%;
+        -webkit-animation: fadeInFromNone 1s ease-out;
+		-moz-animation: fadeInFromNone 1s ease-out;
+		-o-animation: fadeInFromNone 1s ease-out;
+		animation: fadeInFromNone 1s ease-out;
+	}
+	
+	.inGameHud .main {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 52vh;
+		height: 10vh;
+	}
+	.inGameHud .main .bgmain {
+		position: absolute;
+		top: -10vh;
+		right: -10vh;
+		width: 46vh;
+		border-radius: 20vh;
+		height: 20vh;
+		filter: blur(2vh);
+		background: rgba(0,0,0,.10);
+		z-index: -2;
+	}
+	.inGameHud .main .time {
+		position: absolute;
+		top: 1vh;
+		right: 2vh;
+		width: 9vh;
+		height: 7vh;
+		/* background: #aaa; */
+	}
+	.inGameHud .main .time .vrema {
+		font-size: 5vh;
+		font-weight: 500;
+		text-align: center;
+		position: absolute;
+		left: 50%;
+		width: 9vh;
+		top: 0;
+		transform: translate(-50%, 0)
+	}
+	.inGameHud .main .time .date {
+		font-size: 1.3vh;
+		text-align: center;
+		font-weight: 500;
+		position: absolute;
+		left: 50%;
+		width: 8.2vh;
+		bottom: 0;
+		transform: translate(-50%, 0)
+	}
+	.inGameHud .main .line {
+		position: absolute;
+		width: 0.2vh;
+		height: 7vh;
+		background: rgba(255,255,255,.30);
+		top: 1.25vh;
+		right: 12vh;
+	}
+	.inGameHud .main .nameblock {
+		position: absolute;
+		right: 14vh;
+		top: 1.5vh;
+	}
+	.inGameHud .main .nameblock .logo {
+		width: 6vh;
+		left: -7vh;
+		position: absolute;
+	}
+	.inGameHud .main .nameblock .freedom {
+		font-size: 4vh;
+		width: 11vh;
+		line-height: 3.1vh;
+	}
+	.inGameHud .main .line2 {
+		position: absolute;
+		width: 0.2vh;
+		height: 7vh;
+		background: rgba(255,255,255,.30);
+		top: 1.25vh;
+		right: 34vh;
+	}
+	.inGameHud .main .moneyblock {
+		position: absolute;
+		top: 1vh;
+		right: 39vh;
+		height: 7vh;
+		width: 13vh;
+	}
+	.inGameHud .main .moneyblock .money .circle {
+		position: absolute;
+		width: 2vh;
+		height: 2vh;
+		border-radius: 10vh;
+		background: #0de646;
+		right: -3vh;
+		margin-top: -2.8vh;
+		font-size: 1.4vh;
+		text-align: center;
+		line-height: 2.5vh;
+		box-shadow: 0 0 3vh 1vh #0de64650;
+	}
+	.inGameHud .main .moneyblock .money {
+		font-size: 3vh;
+		text-align: right;
+	}
+	.inGameHud .moneyb {
+		position: absolute;
+		right: 2vh;
+		top: 9vh;
+		width: 30vh;
+		height: 7.6vh;
+	}
+	.inGameHud .moneyb .lineleft {
+		position: absolute;
+		right: 0;
+		width: 0.4vh;
+		height: 7.6vh;
+		background: #0de646;
+	}
+	.inGameHud .moneyb .desc {
+		font-size: 2vh;
+		right: 1vh;
+		opacity: 0.5;
+		position: absolute;
+		bottom: 0;
+	}
+	.inGameHud .moneyb .money {
+		position: absolute;
+		right: 1vh;
+		font-size: 5vh;
+		text-shadow: 0 0 4vh #ffffff80;
+		top: 0vh;
+		font-weight: 500;
+	}
+	.inGameHud .gift {
+		position: absolute;
+		background: linear-gradient(90deg, #0cba3a, #0de646);
+		right: 0vh;
+		width: 15vh;
+		font-family: Bebas Neue;
+		padding-left: 4vh;
+		text-align: center;
+		line-height: 3vh;
+		border-radius: 0.5vh;
+		height: 3vh;
+		top: -6vh;
+		letter-spacing: 0.01vh;
+		font-size: 1.5vh;
+	}
+	.inGameHud .gift .icon {
+		width: 5vh;
+		position: absolute;
+		top: -1vh;
+		left: -1vh;
+	}
+	.inGameHud .greenzone {
+		position: absolute;
+		right: -19vh;
+		top: 90vh;
+		width: 30vh;
+		height: 8vh;
+		font-weight: 500;
+		background: linear-gradient(90deg, #ffffff00, #00ff0690)
+	}
+	.inGameHud .greenzone .block {
+		margin-top: 0.9vh;
+	}
+	.inGameHud .greenzone .block .blocktext {
+		position: absolute;
+		font-size: 3vh;
+		right: 20vh;
+	}
+	.inGameHud .greenzone .block .blocktext2 {
+		position: absolute;
+		font-size: 3vh;
+		right: 19.6vh;
+		margin-top: 2.4vh;
+		letter-spacing: 0.35vh;
+	}
+	.inGameHud .fishzone {
+		position: absolute;
+		right: -19vh;
+		top: 81vh;
+		width: 30vh;
+		height: 8vh;
+		font-weight: 500;
+		background: linear-gradient(90deg, #ffffff00, #438cef90)
+	}
+	.inGameHud .fishzone .block {
+		margin-top: 0.9vh;
+	}
+	.inGameHud .fishzone .block .blocktext {
+		position: absolute;
+		font-size: 3vh;
+		right: 20vh;
+		letter-spacing: 0.35vh;
+	}
+	.mood a {
+		color: #0de646;
+		font-weight: 600;
+	}
+	.mood {
+		position: absolute;
+		font-size: 2vh;
+		font-weight: 400;
+		top: 2vh;
+		left: 50%;
+		text-shadow: 0 0 2vh #0de646;
+		transform: translate(-50%,0%); 
+		font-family: Montserrat;
+	}
+	.inGameHud .fishzone .block .blocktext2 {
+		position: absolute;
+		font-size: 3vh;
+		right: 19.6vh;
+		margin-top: 2.4vh;
+		letter-spacing: 0.35vh;
+	}
+	.inGameHud .steet_block .info {
+		position: absolute;
+		bottom: 0;
+		width: 35vh;
+		opacity: 0.5;
+		font-size: 1.5vh;
+		letter-spacing: 0.2vh;
+	}
+	.inGameHud .steet_block .micro {
+		position: absolute;
+		width: 5vh;
+		height: 5vh;
+		background: #282828;
+		bottom: 2.5vh;
+		border-radius: 100vh;
+		border: 0.3vh solid #0de646;
+	}
+	.inGameHud .steet_block .micro .microicon {
+		width: 2.5vh;
+		position: absolute;
+		top: 1.2vh;
+		left: 1.2vh;
+	}
+	.inGameHud .ammoblock {
+		position: absolute;
+		bottom: 1vh;
+		/* background: linear-gradient(90deg, #00000090, #00000000); */
+		border-radius: 0.5vh;
+		width: 15vh;
+		right: 0vh;
+		font-family: Montserrat;
+		font-weight: 600;
+		color: #a7a7db;
+		text-shadow: 0 0 1vw #0de646;
+		display: flex;
+		height: 2vh;
+	}
+	.inGameHud .ammoblock .icogun {
+		display:flex;max-width:4.69vw;
+	}
+	.inGameHud .ammoblock .text {
+		position: relative;
+		/* left: 5vh; */
+		/* top: 0; */
+		margin-left: 0.7vw;
+		margin-top: -0.5vw;
+		display: flex;
+		font-size: 1vw;
+		/* width: 10vh; */
+		text-align: left;
+		/* line-height: 5.6vh; */
+		font-size: 2vh;
+	}
+	.inGameHud.ammoblock .icoammo {
+		width: 3vh;
+		position: absolute;
+		top: 1.25vh;
+		left: 1vh;
+	}
+.notifybtn {
+	font-family: Montserrat;
+	width: 42vh;
+	border-left: 0.5vh solid #0de646;
+	height: 12vh;
+	background: rgba(10, 18, 29,0.9);
+	left: 0.5vh;
+	bottom: 24vh;
+	position: absolute;
+	-webkit-animation: fadeInFromNone 0.5s ease-out;
+	-moz-animation: fadeInFromNone 0.5s ease-out;
+	-o-animation: fadeInFromNone 0.5s ease-out;
+	animation: fadeInFromNone 0.5s ease-out;
+}
+.notifybtn .textbtn {
+	font-size: 1.5vh;
+	position: absolute;
+	left: 1vh;
+	top: 1.5vh;
+	width: 40vh;
+}
+.notifybtn .btny {
+	position: absolute;
+	width: 5vh;
+	height: 5vh;
+	left: 1vh;
+	top: 4.5vh;
+	color: #a3ff00;
+	text-align: center;
+	line-height: 5vh;
+	font-weight: 600;
+	font-size: 1.5vh;
+	background: #ffffff20;
+	border-radius: 0.5vh;
+	border: 0.3vh solid #ffffff20;
+}
+.notifybtn .btny p {
+	position: absolute;
+	line-height: 1.5vh;
+	top: 1vh;
+	left: 6vh;
+	width: 13vh;
+	height: 3vh;
+	opacity: 0.5;
+	text-align: left;
+	font-weight: 400;
+	color: #fff;
+}
+.notifybtn .btnn {
+	position: absolute;
+	width: 5vh;
+	height: 5vh;
+	left: 22vh;
+	top: 4.5vh;
+	color: #ff0000;
+	text-align: center;
+	line-height: 5vh;
+	font-weight: 600;
+	font-size: 1.5vh;
+	background: #ffffff20;
+	border-radius: 0.5vh;
+	border: 0.3vh solid #ffffff20;
+}
+.notifybtn .btnn p {
+	position: absolute;
+	line-height: 1.5vh;
+	top: 1vh;
+	left: 6vh;
+	width: 13vh;
+	height: 3vh;
+	opacity: 0.5;
+	text-align: left;
+	font-weight: 400;
+	color: #fff;
+}	
+/* speedometer	 */
+.inGameHud .car-hud {
+    position: absolute;
+    bottom: -1vw;
+    right: -1vw;
+    transform: scale(.75);
+    animation: speed-data .9s ease;
+}
+.inGameHud .car-hud .contents-car {
+    display: flex;
+}
+.inGameHud .car-hud .value-gear  {
+    transform: rotate(10deg);
+    margin:  3.983402489626556vh -2.5892116182572615vh 0  3.983402489626556vh;
+}
+.inGameHud .car-hud .progress-ring-holder-rotating {
+    transform: rotate(-124deg) translate(-2.1784232365145226vh, -1.8109543568464731vh);
+    z-index: 30;
+}
+.inGameHud .car-hud .progress-ring-holder-rotating .progress-ring-holder-wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    inline-size: 100%;
+    block-size: 90%;
+}
+.inGameHud .car-hud .progress-ring-holder-rotating .progress-ring-holder-wrapper .progress-ring-holder {
+    inline-size: .37037vh;
+    block-size: 3.22222vh;
+    background: #fff;
+}
+.inGameHud .car-hud .progress-ring-holder-rotating1 {
+    transform: rotate(-133.5deg) translate(8.506224066390041vh, -10.892116182572614vh);
+    z-index: 30;
+    /* position: absolute; */
+    /* margin: 17.3vh 23.1vh; */
+    /* background: black; */
+}
+.inGameHud .car-hud .progress-ring-holder-rotating1 .progress-ring-holder-wrapper1{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    inline-size: 100%;
+    block-size: 100%;
+    /* background: black; */
+}
+.inGameHud .car-hud .progress-ring-holder-rotating1 .progress-ring-holder-wrapper1 .progress-ring-holder1 {
+    inline-size: .37037vh;
+    block-size: 3.22222vh;
+    background: #fff;
+}
+.inGameHud .car-hud .progress-ring-holder-rotating1 .progress-ring-holder-wrapper1 .active {
+
+    animation: blink-data-v-2 .1s linear infinite alternate
+}
+
+.inGameHud .car-hud .info-gear {
+    position: absolute;
+    margin: 9vh 10.5vh;
+    font-size: 3vh;
+    text-align: center;
+    width: 5vh;
+}
+.inGameHud .car-hud .info-gear p:first-child{
+    font-size: 6.5vh;
+    height: 10vh;
+}
+.inGameHud .car-hud .info-gear p:nth-child(2){
+    font-size: 1.5vh;
+    opacity: .7;
+}
+.inGameHud .car-hud .info-speed {
+    position: absolute;
+    margin: 7vh 17vh;
+    font-size: 3vh;
+    text-align: center;
+    width: 25vh;
+}
+.inGameHud .car-hud .info-speed p:first-child {
+    font-size: 7vh;
+    font-weight: 600;
+    height: 7.5vh;
+}
+.inGameHud .car-hud .info-speed p:nth-child(2){
+    font-size: 1.5vh;
+    opacity: .7;
+}
+.inGameHud .car-hud .value-fuel {
+    transform: rotate(-15deg);
+    margin: -1.5vh 0 0 -6.7vh;
+}
+.inGameHud .car-hud .info-key-car {
+    margin: .1vh 0 0vh -10vh;
+    display: flex;
+}
+.inGameHud .car-hud .info-key-car .key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1.5vh;
+    transition: opacity .35s;
+}
+.inGameHud .car-hud .info-key-car .key span:first-child{
+    margin: 0 1.4vh 0 0;
+}
+.inGameHud .car-hud .info-key-car .key span:nth-child(2) {
+    background-color: rgb(255 255 255 / 22%);
+    padding: .8vh 1.3vh;
+    border-radius: 5vw;
+    font-size: 1.7vh;
+}
+.inGameHud .car-hud .info-key-car .key img {
+    width: 3.5vh;
+}
+.inGameHud .car-hud .info-key-car .nonActive{
+    opacity: .5;
+}
+.inGameHud .car-hud .info-key-car .active {
+    opacity: 1;
+}
+.car-hud .info-key-car .gas {
+    margin: .5vh 0 0 4vh;
+}
+.inGameHud .car-hud .info-key-car .gas img {
+    width: 2.7vh;
+}
+.inGameHud .car-hud .value-gear .fill {
+    stroke:white
+}
+.inGameHud .car-hud .value-speed .fill {
+    stroke: #0de646;
+}
+.inGameHud .car-hud .value-fuel .fill {
+    stroke: #fff;
+}
+.inGameHud .car-hud .value-speed .animated {
+    animation: blink-data .1s linear infinite alternate
+}
+	/*Квесты*/
+	@keyframes bounce {
+  0% {
+    opacity: 0;
+  -webkit-transform: translate(0%, 50%);
+      -ms-transform: translate(0%, 50%);
+          transform: translate(0%, 50%);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+}
+
+	.inGameHud .interact {
+		position: relative;
+		width: 34vh;
+		height: 7.3vh;
+		margin: 52.5vh auto 0;
+	}
+	.inGameHud .interact .iconka2{
+		width: 4vh;
+		height: 4vh;
+		border: solid 0.2vh #ffffff50;
+		border-radius: 50%;
+		margin-top: -5.75vh;
+		color: #fff;
+		text-align: center;
+		line-height: 4vh;
+		font-size: 2vh;
+		margin-left: 1.35vh;
+}
+ @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+ 
+
+ @-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}
+	.inGameHud .interact .iconka{
+		width: 6.5vh;
+		height: 6.5vh;
+		border: solid 0.3vh #ffffff99;
+		border-radius: 50%;
+		border-right-color: transparent;
+		border-bottom-color: transparent;
+		-webkit-transition: all 1.5s ease-in;
+		-webkit-animation-name: rotate; 
+		-webkit-animation-duration: 1.5s; 
+		-webkit-animation-iteration-count:  infinite;
+		-webkit-animation-timing-function: linear;	
+		transition: all 1.5s ease-in;
+		animation-name: rotate; 
+		animation-duration: 1.5s; 
+		animation-iteration-count: infinite;
+		animation-timing-function: linear; 
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.0s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.1s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+	.inGameHud .interact .press {
+		font-family: Montserrat;
+		font-weight: 500;
+		font-size: 1.5vh;
+		margin-left: 9vh;
+		margin-top: -3.3vh;
+		position: absolute;
+		width: 40vh;
+	}
+	
+	
+	/*INTERACT PREE G(VEH/CAS/LW)*/
+	
+	.inGameHud .playerinteract {
+		position: absolute;
+		top: 70vh;
+		margin-left: 90vh;
+		margin-right: auto;
+		width: 25vh;
+		height: 7vh;
+		background: rgba(59,59,59,.85);
+		border: 0.2vh solid #ffffff20;
+		border-radius: 5px;
+	}
+	.inGameHud .playerinteract .iconka{
+		position: absolute;
+		left: -40px;
+		width: 30px;
+		height: 30px;
+		top: -7px;
+		text-align: center;
+		border-radius: 100px;
+		border: 2px solid #ffffff60;
+	}
+	.inGameHud .playerinteract .press {
+		font-family: Montserrat;
+		font-weight: 500;
+		font-size: 13px;
+		width: 12vh;
+		position: absolute;
+		top: 1.8vh;
+		left: 6vh;
+	}
+	.inGameHud .playerinteract .images {
+		width: 30px;
+		height: 30px;
+		right: 5px;
+		top: 2vh;
+		position: relative;
+	}
+	.inGameHud .playerinteract .img {
+		position: absolute;
+		left: 20px;
+	}
+
+	.inGameHud .steet_block{
+		position: absolute;
+		bottom: 1vh;
+		left: 1vh;
+		width: 15vh;	
+	}
+    /* helpblock */
+.help {
+	position: absolute;
+	right: 2vh;
+	width: 25vh;
+	height: 60vh;
+	/* background: #000; */
+	top: 33vh;
+	font-family: Montserrat;
+}
+.addcash {
+	color: #0de646;
+	font-size: 2vh;
+	top: 5.3vh;
+	z-index: 2;
+	right: 10vh;
+	text-align: right;
+	position: relative;
+	/* width: auto; */
+	/* background: red; */
+	/* height: 2vh; */
+	overflow: hidden;
+	text-shadow: 0 0 1vh #0de646;
+}
+/* .addcash a { */
+	/* position: absolute; */
+	/* width: auto; */
+	/* top: 0; */
+	/* left: 0; */
+	/* height: 2vh; */
+/* } */
+.help .helptext a {
+	color: #0de646;
+	font-weight: 700;
+	font-size: 1.8vh;
+	text-shadow: 0vh 0vh 1vh #0de646;
+}
+.help .helptext {
+	position: absolute;
+	right: 0;
+	font-weight: 500;
+	font-size: 1.8vh;
+}
+.help .helptext2 {
+	position: absolute;
+	right: -2vh;
+	top: 2vh;
+	width: 30vh;
+	font-weight: 500;
+	font-size: 1.8vh;
+}
+.help .bottomline {
+	position: absolute;
+	width: 20vh;
+	height: 0.3vh;
+	background: #0de646;
+	top: 4.5vh;
+	right: 0;
+}
+.help .bh {
+	position: relative;
+	width: 20vh;
+	top: 5.5vh;
+	height: 4vh;
+	margin-top: 0.2vh;
+	right: -5vh;
+}
+.help .bh .bk {
+	position: absolute;
+	width: 3.3vh;
+	height: 3.3vh;
+	background: #ffffff15;
+	text-align: center;
+	line-height: 3.3vh;
+	right: 0;
+	text-shadow: 0 0 0.5vh #0de646;
+	color: #0de646;
+	font-size: 1.5vh;
+	font-weight: 600;
+}
+.help .bh .key {
+	right: 4vh;
+	position: absolute;
+	line-height: 3.3vh;
+	font-size: 1.5vh;
+	font-weight: 500;
+	width: 25vh;
+	text-align: right;
+	text-shadow: 0 0 1vh #ffffff80;
+}
+.inGameHud .vehiclename {
+	position: absolute;
+	font-size: 3vh;
+	font-family: Montserrat;
+	font-weight: 600;
+	text-align: right;
+	width: 65vh;
+	/* background: red; */
+	height: 4vh;
+	left: -65vh;
+	bottom: 2vh;
+	/* margin-left: -1vh; */
+}
+.shtraf {
+	zoom: 80%;
+	position: absolute;
+	top: 10vh;
+	left: 50%;
+	transform: translate(-50%,0);
+	width: 40vh;
+	font-family: Montserrat;
+	height: 25vh;
+	animation: slideup3 1s;
+	/* background: #111830; */
+	border-radius: 1.5vh;
+	/* transform: skew(0deg, -5deg); */
+}
+.upblock {
+	position: absolute;
+	background: #0de646;
+	width: 15vh;
+	text-align: center;
+	line-height: 4vh;
+	font-weight: 600;
+	height: 4vh;
+	border-radius: 1vh;
+	left: 50%;
+	top: -2vh;
+	transform: translate(-50%,0)
+}
+.headline {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	font-size: 3vh;
+	font-weight: 500;
+	top: 2.5vh;
+}
+.headline2 {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	font-size: 5vh;
+	font-weight: 800;
+	top: 5.5vh;
+}
+.descrip {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	font-size: 1.8vh;
+	opacity: 0.5;
+	width: 27vh;
+	/* background: #999; */
+	font-weight: 600;
+	top: 11.5vh;
+}
+.descripspeed {
+	position: absolute;
+	left: 50%;
+	color: #0de646;
+	transform: translate(-50%,0);
+	font-size: 1.8vh;
+	/* opacity: 0.5; */
+	/* width: 27vh; */
+	/* background: #999; */
+	font-weight: 800;
+	top: 14vh;
+}
+.descripprice {
+	position: absolute;
+	left: 50%;
+	color: red;
+	transform: translate(-50%,0);
+	font-size: 1.5vh;
+	/* opacity: 0.5; */
+	/* width: 27vh; */
+	/* background: #999; */
+	font-weight: 800;
+	top: 17vh;
+}
+.bgshtraf {
+	position: absolute;
+	top: 0vh;
+	width: 40vh;
+	height: 20vh;
+	background: #111830;
+	border-radius: 1.5vh;
+	transform: skew(0deg, -5deg);
+}
+#shtraf {
+	position: absolute;
+	animation: slideup2 1s;
+	animation-delay: 5s;
+	animation-fill-mode: forwards;
+    animation-timing-function: linear; 
+}
+.border {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-right: -1vh;
+	height: 4vh;
+	background: #0de646;
+	width: 0.4vh;
+}
+.payday {
+	position: absolute;
+	right: 18.5vw;
+	top: 50%;
+	transform: translate(0,-50%);
+	/* background: #fff; */
+	width: 22.5vw;
+	animation: slideup 1s;
+	height: 22.5vw;
+}
+#payday {
+	position: absolute;
+	animation: slideup2 1s;
+	animation-delay: 12s;
+	animation-fill-mode: forwards;
+    animation-timing-function: linear;  
+}
+.bgpayday {
+	width: 22.5vw;
+	border-radius: 0;
+}
+.namep {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	font-family: Montserrat;
+	font-weight: 800;
+	font-size: 1.75vw;
+	transform: translate(-50%, 0)
+}
+.timep {
+	position: absolute;
+	left: 50%;
+	top: 2vw;
+	font-family: Montserrat;
+	font-weight: 500;
+	font-size: 0.75vw;
+	transform: translate(-50%, 0)
+}
+.circle_desc {
+	position: absolute;
+	left: 50%;
+	top: 9.75vw;
+	font-family: Montserrat;
+	font-weight: 400;
+	opacity: 0.7;
+	font-size: 0.75vw;
+	transform: translate(-50%, 0)
+}
+.bgline {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: -5vw;
+	width: 5.5vw;
+	height: 25vw;
+	background: linear-gradient(0deg, #0de64690, #0de64600)
+}
+.paybg {
+	position: absolute;
+	left: 0.875vw;
+	bottom: 0.875vw;
+	overflow: hidden;
+	height: 20vw;
+	margin-bottom: 0.17525vw;
+	/* background: #ffffff20; */
+	width: 20.75vw;
+}
+.lvl {
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	font-size: 1vw;
+	font-family: Montserrat;
+	font-weight: 700;
+}
+.circle {
+	position: absolute;
+	width: 3vw;
+	height: 3vw;
+	border-radius: 30vw;
+	border: 0.15vw solid #ffffff50;
+	left: 50%;
+	top: 6vw;
+	transform: translate(-50%, 0);
+}
+.allinfo {
+	position: absolute;
+	left: 50%;
+	width: 12.5vw;
+	border-radius: 0.25vw;
+	height: 3vw;
+	/* background: #fff; */
+	bottom: 5vw;
+	z-index: 2;
+	transform: translate(-50%, 0);
+}
+.allpayment {
+	width: 6.5vw;
+	background: #fff;
+	position: absolute;
+	height: 3vw;
+	border-radius: 0.25vw;
+	text-align: center;
+	line-height: 3vw;
+	font-size: 1vw;
+	font-family: Montserrat;
+	color: #000;
+	font-weight: 600;
+}
+.allexp {
+	width: 6.25vw;
+	position: absolute;
+	height: 3vw;
+	right: 0;
+	background: #0de646;
+	border-radius: 0.25vw;
+	text-align: center;
+	line-height: 3vw;
+	font-size: 1vw;
+	font-family: Montserrat;
+	font-weight: 600;
+}
+.blocknonwork {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	width: 16vw;
+	z-index: 2;
+	height: 2vw;
+	/* background: #fff; */
+	bottom: 2vw;
+}
+.paymentpay {
+	background: #fff;
+	color: #000;
+	font-size: 0.75vw;
+	font-family: Montserrat;
+	font-weight: 600;
+	width: 5vw;
+	text-align: center;
+	line-height: 2vw;
+	height: 2vw;
+	border-radius: 0.25vw;
+}
+.namedesc {
+	position: absolute;
+	left: 6vw;
+	line-height: 2vw;
+	font-family: Montserrat;
+	font-size: 0.75vw;
+	font-weight: 400;
+	opacity: 0.8;
+	width: 15vw;
+	top: 0;
+}
+.bonus {
+	position: absolute;
+	width: 3vh;
+	height: 3vh;
+	text-align: center;
+	line-height: 3.2vh;
+	font-family: Montserrat;
+	font-size: 1.3vh;
+	font-weight: 600;
+	top: 90%;
+	text-transform: skew(10deg);
+	transform: translate(0,-50%);
+	left: -8.5vh;
+	color: #0de646;
+	box-shadow: 0 0 4vh 0.5vh #00000030;
+	border-radius: 50vh;
+	background: #fff;
+}
+.streetname {
+	font-size: 3vh;
+	opacity: 1;
+	position: absolute;
+	bottom: 5vh;
+	width: 40vh;
+	font-weight: 500;
+	left: 6.5vh;
+}
+.streetname2 {
+	font-size: 3vh;
+	opacity: 0.5;
+	width: 40vh;
+	position: absolute;
+	bottom: 2vh;
+	font-weight: 500;
+	left: 6.5vh;
+}
+.help .bh .key .icon{
+	width: 30px;
+}
+
+@keyframes blink-data {
+    0% {
+        stroke: #ffac00
+    }
+    to {
+        stroke: #ff3131
+    }
+}
+@keyframes slideup {
+    0% {
+        margin-top: 40vh;
+		opacity: 0;
+    }
+    to {
+         margin-top: 0vh;
+		 opacity: 1;
+    }
+}
+@keyframes slideup2 {
+    0% {
+        margin-top: 0vh;
+		opacity: 1;
+    }
+    to {
+         margin-top: -40vh;
+		 opacity: 0;
+    }
+}
+@keyframes slideup3 {
+    0% {
+        margin-top: -40vh;
+		opacity: 0;
+    }
+    to {
+         margin-top: 0vh;
+		 opacity: 1;
+    }
+}
+@keyframes blink-data2 {
+    0% {
+        background: #ffffff15;
+    }
+    to {
+        background: rgba(255,0,0,.85);
+		color: #fff;
+    }
+}
+@keyframes blink-data-v-2 {
+    0% {
+        background: #ffac00
+    }
+    to {
+        background: #ff3131
+    }
+}
+
+@keyframes open-hud {100% {opacity: 1; } }
+@keyframes speed-data {
+    0% {
+        transform: scale(0) translateX(650vh);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(.6);
+    }
+    to {
+        transform: scale(.75) translateX(0vh);
+        opacity: 1;
+    }
+}
+
+@keyframes right-data {
+    0% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes clicks {
+    100% {
+        background: white;
+        color: black;
+        transition: all .35s;
+    }
+  }	
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+
+
+.inGameHud .rights {
+  position: absolute;
+  right: 0vh;
+  bottom: 2vh;
+  width: 20vw;
+  letter-spacing: 0.1vh;
+  /* transform: matrix(1, 0.13, -0.03, 0.99, 0, 0); */
+}
+.inGameHud .rights .info-gears .g  {
+  display: flex;
+}
+.inGameHud .rights .info-gears .g .gears {
+  width: .2625vw;
+  height: 1.59166666666666667vw;
+  background: rgba(255, 255, 255, 0.34);
+  border-radius: .1vw;
+  margin: 0 .11vw 0 .1vw;
+}
+.inGameHud .rights .info-gears .g .active {
+  background: #0de646;
+}
+.inGameHud .rights .info-gears .g .red {
+  height: 2vw;
+  background: #FC4E51;
+  margin: -.393vw .1vw 0 .14vw;
+}
+.inGameHud .rights .info-gears::after {
+  content: "";
+  display: flex;
+  width: 18.4125vw;
+  height: .08vw;
+  background: rgba(255, 255, 255, 0.34);
+  margin: .3vw 0 0 .17vw;
+  border-radius: .1vw;
+}
+.inGameHud .rights .info-gears .progrees-bar {
+  width: 14.37vw;
+}
+.inGameHud .rights .info-gears .progrees-bar .value{
+  max-width: 100%;
+  background: white;
+  height: .1vw;
+  margin: 0 0 .5vw .2vw;
+  position: relative;
+}
+.inGameHud .rights .info-gears .progrees-bar .value::after{
+  content: "";
+  position: absolute;
+  width: .5vw;
+  height: .5vw;
+  right: 0;
+  top: -.18vw;
+  border-radius: 5vw;
+  background: #0de646;
+}
+.inGameHud .rights .info-gears{
+  margin: 0 0 .5vw;
+}
+.inGameHud .rights .info-car{
+  display: flex;
+  align-items: center;
+}
+.inGameHud .rights .info-car .fuel {
+  color: white;
+  font-weight: bold;
+  font-size: .9vw;
+  display: flex;
+  align-items: center;
+}
+.inGameHud .rights .info-car .fuel .progress-bar {
+  width: 6.249479vw;
+  height: .9895833333333334vw;
+  background: rgba(255, 255, 255, 0.34);
+  border-radius: .15vw;
+  margin: 0 .5vw;
+  overflow: hidden;
+}
+.inGameHud .rights .info-car .fuel .progress-bar .value {
+  background: #0de646;
+  height: 100%;
+}
+.inGameHud .rights .info-car .fuel .icons img {
+  width: 1.15vw;
+}
+.inGameHud .rights .info-car .info {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 1.3vw;
+}
+.inGameHud .rights .info-car .info .icons {
+  margin: 0 1.7vw 0 0;
+  display: flex;
+  align-items: center;
+}
+.inGameHud .rights .info-car .info .icons:nth-child(1) img {
+  width: 1.75vw;
+  margin: .1vw 0 0 0;
+}
+.inGameHud .rights .info-car .info .icons:nth-child(2) img {
+  width: 1.35vw;
+}
+.inGameHud .rights .info-car .info .icons .stats {
+  width: .4166666666666667vw;
+  height: .4166666666666667vw;
+  border-radius: 50%;
+  margin: 0 0 0 .6vw;
+}
+.inGameHud .rights .info-car .info .icons .non-active {
+  background: #EA3942;
+  box-shadow: 0px 0px 4px rgb(234 57 66 / 50%);
+}
+.inGameHud .rights .info-car .info .icons .active {
+  background: #A0E557;
+  box-shadow: 0px 0px 4px rgba(160, 229, 87, 0.5);
+}
+.inGameHud .rights .info-speed .speed,
+.inGameHud .rights .info-speed{
+  display: flex;
+  align-items: center;
+  margin: 0 3.5vw 0 0;
+  width: 1vw;
+}
+.inGameHud .rights .info-speed .speed p{
+  font-size: 4vw;
+  color: white;
+  font-weight: bold;
+  padding: 0 .8vw 0 0;
+}
+.inGameHud .rights .info-speed .speed p a{
+  opacity: .25;
+}
+.inGameHud .rights .info-speed .speed span{
+  font-size: 1vw;
+  color: white;
+  opacity: .25;
+  font-weight: bold;
+}
+.inGameHud .rights .info-speed .speed b{
+  font-size: 1vw;
+  color: white;
+  /* opacity: .25; */
+  font-weight: bold;
+  /* margin-top: 3.5vh; */
+  margin-left: 1vh;
+}
+.inGameHud .rights .info-speed .gears{
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  margin: 0 10vw;
+}
+.inGameHud .rights .info-speed .gears .block{
+  background: #0de646;
+  width: 4.225vw;
+  height: 3.125vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5vw;
+	color: rgba(0, 0, 0, 0.701);
+  z-index: 30000;
+  border-radius: .3vw;
+}
+.inGameHud .rights .info-speed .gears p{
+  opacity: .25;
+}
+.value-fuel img {
+	position: absolute;
+	bottom: 0px;
+	right: -20px;
+	transform: rotate(15deg);
+}

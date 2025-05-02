@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+
+<body>
+	<div class="ped">
+		<div v-if="style == 0" class="dialog">
+			<div class="name">
+			Артур Шторм
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text">
+				Привет, ты в здании лицензирования. Здесь ты можешь получить лицензию на вождение
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div onclick="closemenu()" class="btnyes2">Спасибо, я сам</div>
+				<div @click="gostyle(2)" class="btnyes">Купить лицензию DRIVE A</div>
+				<div @click="gostyle(1)" class="btnno">Купить лицензию DRIVE D</div>
+				<div style="margin-top: 7vh;" @click="gostyle(3)" class="btnyes">Купить лицензию CDL B</div>
+			</div>
+		</div>
+		<div v-if="style == 2" class="dialog">
+			<div class="name">
+			Артур Шторм
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text" style="top: 1.5vh;">
+				Вы уверены что хотите купить лицензию на мото транспорт за 5 000$?
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div @click="buylic(0)" class="btnyes">Да, давайте</div>
+				<div @click="gostyle(0)" class="btnno">Нет, немного позже</div>
+			</div>
+		</div>
+		<div v-if="style == 1" class="dialog">
+			<div class="name">
+			Артур Шторм
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Вы уверены что хотите купить лицензию на легковой транспорт за 10 000$?
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 9vh;" class="btns">
+				<div @click="buylic(1)" class="btnyes">Да, давайте</div>
+				<div @click="gostyle(0)" class="btnno">Нет, немного позже</div>
+			</div>
+		</div>
+		<div v-if="style == 3" class="dialog">
+			<div class="name">
+			Артур Шторм
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Вы уверены что хотите купить лицензию на грузовой транспорт за 15 000$?
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 9vh;" class="btns">
+				<div @click="buylic(2)" class="btnyes">Да, давайте</div>
+				<div @click="gostyle(0)" class="btnno">Нет, немного позже</div>
+			</div>
+		</div>
+	</div>
+    <script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

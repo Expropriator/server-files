@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/rentcars.css">
+  <link rel="stylesheet" href="../../assets/css/font.css">
+  <link rel="stylesheet" href="../../assets/fonts/fonts/stylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <title>RentCars</title>
+</head>
+
+<body>
+  <div id="app" v-if="active" v-cloak>
+    <div class="container">
+      <div class="bg"></div>
+
+      <div class="main pageBuys">
+        <div class="items">
+          <div @click="selectModel(name)" class="item" v-for="(price, name) in vehicles">
+            <p>
+              <b>{{name}}</b>
+            </p>
+      <p2>
+              <b>${{price}}</b>
+            </p2>
+          </div>
+        </div>
+      </div>
+
+
+      <transition name="modal">
+        <div class="modal-window" v-if="isModalOpen">
+    <div class="arendatext">Вы уверены что хотите арендовать авто?</div>
+          <div style="margin-left: 2vh;">
+           <p>
+              Название: <a style="color: #fff; font-weight: 500; margin-left: 1vh;">{{vehicle}}</a>
+            </p>
+            <p>
+              Кол-во мест: <a style="color: #fff; font-weight: 500; margin-left: 1vh;">{{maxPassengers}}</a>
+            </p>
+            <p>
+              Скорость: <a style="color: #fff; font-weight: 500; margin-left: 1vh;">{{maxSpeed}} км/ч</a>
+            </p>
+            <p>
+              Цена: <a style="color: #fff; font-weight: 500; margin-left: 1vh;">{{vehicles[vehicle] * (rentMinutes/10)}}$</a>
+            </p>
+            <p>
+			Время
+              <i @click="changeRentTimeMinutes('substract')" class="fa fa-caret-left fz-11"></i>
+              <input type="number" v-model="rentMinutes" disabled>
+              <i @click="changeRentTimeMinutes('add')" class="fa fa-caret-right fz-11"></i>
+               минут
+            </p>
+          </div>
+      <footer>
+            <a :class="{btnDisable: needMoney}" class="btnModal mg-center btnGps" @click="rentVehicle()">Арендовать</a>
+            <a class="btnModal mg-center btnCancel" @click="modalClose()">Отмена</a>
+          </footer>
+        </div>
+      </transition>
+
+      <transition name="fade">
+        <div class="fade" v-if="isModalOpen"></div>
+      </transition>
+
+    </div>
+  </div>
+
+  <script src="js/rentcars.js"></script>
+</body>
+
+</html>

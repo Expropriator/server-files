@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1.0" name="viewport">
+	<link rel="stylesheet" href="./assets/css/chat.css">
+	<link rel="stylesheet" href="./assets/css/hud_new.css">
+	<link rel="stylesheet" href="./assets/css/hud/style.min.css">
+	<link rel="stylesheet" href="./assets/fonts/notify.css">
+	<!-- <link rel="stylesheet" href="./assets/css/theme.css" /> -->
+	<link rel="stylesheet" href="./assets/fonts/bebas-neue/stylesheet.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+		  rel="stylesheet">
+</head>
+<style>
+	[v-cloak] {
+		display: none;
+	}
+</style>
+
+<body style="background: none">
+<div id="safezone">
+	<div style="zoom: 75%;" class="inGameHud" v-if="show">
+		<!-- MAIN BLOCK UP RIGHT -->
+		<!-- <div class="mood">Настроение <a>{{mood}}</a></div> -->
+		<div class="main">
+			<div class="time">
+				<div class="vrema">{{time}}</div>
+				<div class="date">{{date}}</div>
+			</div>
+			<div class="line"></div>
+			<div class="nameblock">
+				<img src="./assets/images/hud/ragemp_pro.png" class="logo">
+				<div class="freedom">Mirage ROLEPLAY</div>
+				<!--					<div class="bonus">by ragemp.pro</div>-->
+			</div>
+			<!--				 <div class="line2"></div>-->
+			<!--				 <div class="moneyblock">-->
+			<!--				 <div class="money">{{money}}<div class="circle">$</div></div>-->
+			<!--				 <div class="money">{{bank}}<div class="circle">$</div></div>-->
+			<!--				 </div>-->
+			<div class="bgmain"></div>
+		</div>
+		<div style="margin-top: 2vh; position: relative;" class="allleft">
+			<div class="moneyb">
+				<div v-if="cashm" class="addcash">
+					<a>{{cashmoney}}$</a>
+				</div>
+				<div class="money">${{money}}</div>
+				<div style="top: 0;" class="lineleft"></div>
+				<div class="desc">НАЛИЧНЫЕ</div>
+			</div>
+			<div style="margin-top: 16vh; zoom: 70%; right: 2.8vh;" class="moneyb">
+				<div style="margin-right: 0.4vh;" class="money">${{bank}}</div>
+				<div style="width: 0.6vh;" class="lineleft"></div>
+				<div style="margin-right: 0.4vh;" class="desc">БАНК</div>
+				<div v-if="cashb" style="margin-right: -3vh;" class="addcash">{{cashbank}}$</div>
+			</div>
+
+			<div v-if="greenzone" class="greenzone">
+				<div class="block">
+					<div class="blocktext">GREEN</div>
+					<div class="blocktext2">ZONE</div>
+				</div>
+			</div>
+
+			<div v-if="fishzone" class="fishzone">
+				<div class="block">
+					<div class="blocktext">FISH</div>
+					<div class="blocktext2">ZONE</div>
+				</div>
+			</div>
+			<!-- HELP BLOCK -->
+			<div class="help">
+				<div class="gift">
+					<div class="block">{{lastbonus}}</div>
+					<img src="./assets/images/hud/gift.png" class="icon">
+				</div>
+				<div class="helptext">НАЖМИТЕ <a>F5</a></div>
+				<div class="helptext2">ЧТОБЫ СКРЫТЬ ПОДСКАЗКИ</div>
+				<div class="bottomline"></div>
+				<div class="bh">
+					<div class="bk">N</div>
+					<div class="key">МИКРОФОН</div>
+				</div>
+				<div class="bh">
+					<div class="bk">{{binds[0]}}</div>
+					<div class="key">ИНВЕНТАРЬ</div>
+				</div>
+				<div class="bh">
+					<div class="bk">E</div>
+					<div class="key">ВЗАИМОДЕЙСТВИЕ</div>
+				</div>
+				<div class="bh">
+					<div class="bk">U</div>
+					<div class="key">АНИМАЦИИ</div>
+				</div>
+				<div class="bh">
+					<div class="bk">F2</div>
+					<div class="key">МЕНЮ ПЕРСОНАЖА</div>
+				</div>
+				<div class="bh">
+					<div class="bk">F3</div>
+					<div class="key">ПЕРЕЗАГРУЗИТЬ МИКРОФОН</div>
+				</div>
+				<div v-if="inVeh" class="bh">
+					<div class="bk">J</div>
+					<div class="key">ПРИСТЕГНУТЬ РЕМЕНЬ</div>
+				</div>
+				<div v-if="inVeh && !engine" class="bh">
+					<div style="animation: blink-data2 1.5s linear infinite alternate" class="bk">ALT</div>
+					<div class="key">ДВИГАТЕЛЬ</div>
+				</div>
+				<div v-if="inVeh && engine" class="bh">
+					<div class="bk">ALT</div>
+					<div class="key">ДВИГАТЕЛЬ</div>
+				</div>
+				<div v-if="inVeh && doors" class="bh">
+					<div style="animation: blink-data2 1.5s linear infinite alternate" class="bk">{{binds[3]}}</div>
+					<div class="key">ДВЕРИ</div>
+				</div>
+				<div v-if="inVeh && !doors" class="bh">
+					<div class="bk">{{binds[3]}}</div>
+					<div class="key">ДВЕРИ</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="shtraf" v-if="fine">
+			<div id="shtraf">
+				<div class="bgshtraf">
+					<div class="upblock">ШТРАФ</div>
+					<div class="headline">ПРЕВЫШЕНИЕ</div>
+					<div class="headline2">СКОРОСТИ</div>
+					<div class="descrip">Вы проехали со скоростью</div>
+					<div class="descripspeed">{{finespeed}} km/h</div>
+					<div class="descripprice">-${{fineprice}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="exit" v-if="inBoat">
+			<a>X</a>БРОСИТЬ ЯКОРЬ
+		</div>
+		<div class="exitmetro" v-if="showhelpmetro">
+			<a>E</a>ВЫЙТИ НА СТАНЦИЮ <b style="color: #ff8400">{{statinons[stationmetro]}}</b>
+		</div>
+
+		<div class="exitmetro" v-if="startsnowboard">
+			<a>X</a>ПОСТАВИТЬ СНОУБОРД НА ЗЕМЛЮ
+		</div>
+		<div class="exitmetro" v-if="stopsnowboard">
+			<a>E</a>СЛЕЗТЬ СО СНОУБОРДА
+		</div>
+		<div style="padding-left: 7vw;" class="exitmetro" v-if="stopanim">
+			<a style="width: 6vw">BACKSPACE</a>ОСТАНОВИТЬ АНИМАЦИЮ
+		</div>
+		<div class="demorgan" v-if="demorgan">
+			<div class="updemorgan">
+				<a style="left: 1vw;">Администратор</a>
+				<p style="left: 1vw;">{{demorganadmin}}</p>
+				<a style="right: 1vw;">Осталось</a>
+				<p style="right: 1vw;">{{(demorgantime / 60).toFixed()}} минут</p>
+			</div>
+			<h1>Причина:</h1>
+			<b>{{demorganreason}}</b>
+		</div>
+		<!-- INTERACT E -->
+		<div v-if="hint" class="interact">
+			<div class="iconka">
+			</div>
+			<div class="iconka2">
+				E
+			</div>
+			<div class="press">Нажмите для взаимодействия</div>
+		</div>
+		<!-- LUCKY WHEEL SPINS casinointeract2 -->
+		<div v-if="casinointeract2" class="interact">
+			<div class="iconka">
+			</div>
+			<div class="iconka2">
+				E
+			</div>
+			<div class="press">Нажмите для прокрутки колеса удачи</div>
+		</div>
+
+		<div v-if="payday" class="payday">
+			<div id="payday">
+				<img src="./assets/images/hud/paydaybg.png" class="bgpayday">
+				<div class="paybg">
+					<div class="namep">PAYDAY</div>
+					<div class="timep">{{time}}</div>
+					<div class="circle">
+						<div class="lvl">{{lvl}}</div>
+					</div>
+					<div class="allinfo">
+						<div class="allpayment">+{{paydaycount}}$</div>
+						<div class="allexp">+1 EXP</div>
+					</div>
+					<div class="blocknonwork">
+						<div class="paymentpay">+${{paydaycount}}</div>
+						<div class="namedesc">Пособие по безработице</div>
+					</div>
+					<div class="circle_desc">Уровень</div>
+					<div class="bgline"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- <div v-if="ammo != -1 && !inVeh" style="zoom: 140%;" class="ammoblock"> -->
+		<!-- <img :src="`./assets/images/hud/guns/w` + gun + `.png`" class="icogun"> -->
+		<!-- <div class="text">\ {{ammo}}</div> -->
+		<!-- </div> -->
+		<!-- STREET BLOCK -->
+		<div class="steet_block" :style="{left: 'calc(' + minimapFix + '% + ' + '20px)'}">
+			<div class="info">ONLINE: {{online}} | ID {{playerId}} | SID: #{{personId}} | FPS: {{fps}} | PING:
+				{{ping}}</div>
+			<div v-if="mic" class="micro"><img src="./assets/images/hud/microon.png" class="microicon"></div>
+			<div v-else class="micro"><img src="./assets/images/hud/microoff.png" class="microicon"></div>
+
+			<div class="streetname">{{crossingRoad}}</div>
+			<div class="streetname2">{{street}}</div>
+
+		</div>
+		<div v-if="timerheist != 0" class="timer">
+			<a>Ограбление магазина</a>
+			<div class="linetimer">
+				<div :style="{width: + timerheist/3.16 + 'vw'}" class="lineactivetimer"></div>
+			</div>
+		</div>
+		<!-- Speedometer -->
+		<div class="car-hud" v-if="inVeh">
+			<div class="contents-car">
+				<div v-if="vehiclename != NULL" class="vehiclename">
+					{{vehiclename}}
+					<div class="border"></div>
+				</div>
+				<!-- Обороты -->
+				<div class="value-gear">
+					<svg viewBox="0 0 92 115" class="gears" fill="none" xmlns="http://www.w3.org/2000/svg"
+						 style="width: 14vh;">
+						<path opacity="0.4" d="M24.4379 111.542C-21.0623 65.5424 18.4375 -12.4578 89.9003 8.50505"
+							  stroke="white" stroke-width="9" />
+						<path :style="{strokeDashoffset: 504.295, strokeDasharray: getRpm() }" class="fill"
+							  fill-rule="evenodd" stroke-linecap="butt" stroke-linejoin="miter" fill="none"
+							  stroke-width="9"
+							  d="M24.4379 111.542C-21.0623 65.5424 18.4375 -12.4578 89.9003 8.50505" />
+					</svg>
+				</div>
+				<div class="progress-ring-holder-rotating">
+					<div class="progress-ring-holder-wrapper"
+						 :style="{transform: 'rotate(' + ( rpm * 4.488 > 152.72 ? 152.72 :  rpm * 4.488) + 'deg)'}">
+						<div class="progress-ring-holder"></div>
+					</div>
+				</div>
+				<div class="info-gear">
+					<p>{{gear == 0 ? 'R' : gear}}</p>
+					<p>GEAR</p>
+				</div>
+				<div class="value-speed">
+					<svg xmlns="http://www.w3.org/2000/svg" width="27.5vh" height="22.4vh" viewBox="-4 -10 275 214">
+						<path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="17"
+							  stroke-linecap="butt" stroke-linejoin="miter" opacity="0.4" fill="none"
+							  d="M60.340,185.660 C18.553,143.874 18.553,76.126 60.340,34.340 C102.126,-7.447 169.874,-7.447 211.660,34.340 C253.446,76.126 253.446,143.874 211.660,185.660 ">
+						</path>
+						<path fill-rule="evenodd" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter"
+							  opacity="1" fill="none" class="fill" :class="{animated: speed >= 180}"
+							  :style="{strokeDashoffset: 504.295, strokeDasharray: getSpeed() }"
+							  d="M60.340,185.660 C18.553,143.874 18.553,76.126 60.340,34.340 C102.126,-7.447 169.874,-7.447 211.660,34.340 C253.446,76.126 253.446,143.874 211.660,185.660 ">
+						</path>
+					</svg>
+				</div>
+				<div class="progress-ring-holder-rotating1">
+					<div class="progress-ring-holder-wrapper1"
+						 :style="{transform: 'rotate(' + ( speed * 0.887  > 266 ? 266 :  speed * 0.887 ) + 'deg)'}">
+						<div class="progress-ring-holder1" :class="{active: speed >= 180}"></div>
+					</div>
+				</div>
+				<div class="info-speed">
+					<p>{{speed}}</p>
+					<p>KM/H</p>
+					<p>{{mile}}KM</p>
+				</div>
+				<div class="value-fuel">
+					<img src="./img/4.png" alt="fuel">
+					<svg viewBox="0 0 52 158" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 7vh;">
+						<path opacity="0.4" d="M13.5 154.5C65 109 52.5 37 3.00215 4" stroke="white"
+							  stroke-width="9" />
+						<path :style="{strokeDasharray: 504.295, strokeDashoffset: 504.295 - (fuel) * 1.75 }"
+							  class="fill" stroke-width="9" stroke-linecap="butt" stroke-linejoin="miter" opacity="1"
+							  fill="none" d="M13.5 154.5C65 109 52.5 37 3.00215 4" />
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div class="bottom rights" v-if="inVeh && speed2">
+			<div class="info-speed">
+				<div class="speed">
+					<p><a v-for="n in (speed < 10 ? 2 : speed < 100 ? 1 : 0 )">0</a>{{speed}}</p>
+					<span>KM/H</span>
+					<b>{{mile}}km</b>
+				</div>
+				<div class="gears">
+					<div class="block">
+						<span style="color: #fff;" class="trans">{{gear == 0 ? "N" : gear}}</span>
+					</div>
+					<p>передача</p>
+				</div>
+			</div>
+			<div class="info-gears">
+				<div class="progrees-bar">
+					<div class="value" :style="{width: rpm * 3.21 + '%'}"></div>
+				</div>
+				<div class="g">
+					<div class="gears active" v-for="n in rpm"></div>
+					<template v-if="31 >= rpm">
+						<div class="gears" v-for="n in 31 - rpm"></div>
+					</template>
+					<div class="gears red"></div>
+					<div class="gears red"></div>
+					<div class="gears red"></div>
+					<div class="gears red"></div>
+					<div class="gears red"></div>
+					<div class="gears red"></div>
+					<div class="gears red"></div>
+					<div class="gears red"></div>
+				</div>
+			</div>
+			<div class="info-car">
+				<div class="fuel">
+					<p>{{fuel}}L</p>
+					<div class="progress-bar">
+						<div class="value" :style="{width: fuel * 100 / maxfuel+'%'}"></div>
+					</div>
+					<div class="icons">
+						<img src="./assets/images/hud/fuel.svg">
+					</div>
+				</div>
+				<div class="info">
+					<div class="icons">
+						<img src="./assets/images/hud/engine.svg">
+						<div class="stats active" v-if="engine"></div>
+						<div class="stats non-active" v-else></div>
+					</div>
+					<div class="icons">
+						<img src="./assets/images/hud/door.svg">
+						<div class="stats active" v-if="doors"></div>
+						<div class="stats non-active" v-else></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div v-if="inVeh && speed3" class="speedometer2">
+			<div class="s3speed"></div>
+		</div>
+		<div v-if="hand" class="notifybtn">
+			<div class="textbtn">Незнакомец(30) <a style="opacity: 0.7">предлагает Вам пожать руки</a></div>
+			<div class="btny">Y<p>Нажмите чтобы согласиться</p>
+			</div>
+			<div class="btnn">N<p>Нажмите чтобы отказаться</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="notify_list">
+		<!-- <div class="notify fleeca animate__animated animate__fadeInUp"> -->
+		<!-- <div class="line"></div> -->
+		<!-- <img src="./assets/images/player_hud/noty_fleeca.png" alt="" class="icon"> -->
+		<!-- <div class="content"> -->
+		<!-- <div class="title"></div> -->
+		<!-- <div class="text">Вы успешно завели автомобиль ура ура ура и вам дается когда тада все почему да потому что ты не живешь</div> -->
+		<!-- </div> -->
+		<!-- </div> -->
+	</div>
+
+	<div id="chat" class="chat">
+		<ul id="chat_messages"></ul>
+	</div>
+	<div id="effect"></div>
+
+	<script src="./assets/js/jquery-3.2.1.min.js"></script>
+	<script src="./assets/vue/vue.js"></script>
+	<script src="./assets/js/hud.js"></script>
+	<script src="./assets/js/chat.js"></script>
+	<script src="https://kit.fontawesome.com/c552bfdf6a.js" crossorigin="anonymous"></script>
+
+
+
+
+	<script>
+		function hidehud(toggle) {
+			if (toggle) {
+				HUD.show = false;
+				logotype.show = false;
+			} else {
+				HUD.show = true;
+				logotype.show = true;
+			}
+		}
+		function hidehelp(toggle) {
+			if (toggle) {
+				$('.help').hide();
+			} else {
+				$('.help').show();
+			}
+		}
+	</script>
+
+	<script>function updateSafeZoneSize(screenWidht, screenHeight, safeZoneSize) { var savezoneDiv = document.getElementById("safezone"); safeZoneSize = (((1.0 - safeZoneSize) * 0.5) * 100.0); savezoneDiv.style.right = savezoneDiv.style.left = ((screenWidht / 100) * safeZoneSize) + "px"; savezoneDiv.style.top = savezoneDiv.style.bottom = ((screenHeight / 100) * safeZoneSize) + "px"; return true; }</script>
+</body>
+
+</html>

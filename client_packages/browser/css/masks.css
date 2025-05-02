@@ -1,0 +1,249 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+.masks {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	font-family: Montserrat;
+	color: #fff;
+	height: 100%;
+	-webkit-animation: fadeInFromNone 1s ease-out;
+	-moz-animation: fadeInFromNone 1s ease-out;
+	-o-animation: fadeInFromNone 1s ease-out;
+	animation: fadeInFromNone 1s ease-out;
+	/* background: red; */
+}
+.masks__bg {
+	position: absolute;
+	width: 40%;
+	height: 150%;
+	top: -22vh;
+	left: 0vh;
+	z-index: -1;
+	/* background: red; */
+	background: linear-gradient(90deg, rgba(22,21,35,.90), #ffffff00)	
+}
+.masks__lenght {
+	position: absolute;
+	top: 20%;
+	right: 15%;
+	font-size: 2.5vw;
+	/* opacity: 0.5; */
+}
+.masks__lenght a {
+	font-size: 1vw;
+}
+.masks__header {
+	position: absolute;
+	font-size: 3.5vw;
+	font-weight: 700;
+	left: 2vw;
+	line-height: 3vw;
+	top: 3vw;
+	width: 20vw;
+}
+.masks__desc {
+	position: absolute;
+	top: 9.5vw;
+	left: 2.2vw;
+	font-size: 1vw;
+}
+.masks__list {
+	position: absolute;
+	top: 12vw;
+	left: 2.2vw;
+	width: 20vw;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	/* background: red; */
+	height: 30vw;
+}
+.masks__list__block:hover {
+	opacity: 1;
+}
+.masks__list__block.active {
+	opacity: 1;
+}
+.masks__list__block {
+	position: relative;
+	margin-top: 0.2vw;
+	width: 20vw;
+	transition: opacity .33s;
+	opacity: 0.4;
+	height: 3.5vw;
+	background: #ffffff20;
+}
+.masks__name {
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	left: 1.3vw;
+	font-size: 0.9vw;
+}
+.masks__price {
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	right: 1.3vw;
+	text-align: right;
+	font-size: 0.9vw;
+}
+.masks__colorblock {
+	position: absolute;
+	left: 2.2vw;
+	top: 42.5vw;
+	width: 20vw;
+	height: 3vw;
+	/* background: red; */
+}
+.fa-chevron-right:hover {
+	background: #ffffff30;
+}
+.fa-chevron-left:hover {
+	background: #ffffff30;
+}
+.fa-chevron-left {
+	position: absolute;
+	transition: background .33s;
+	padding: 1vw 1.2vw 1vw 1.2vw;
+	background: #ffffff10;
+	left: 0;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+.fa-chevron-right {
+	position: absolute;
+	transition: background .33s;
+	padding: 1vw 1.2vw 1vw 1.2vw;
+	background: #ffffff10;
+	right: 0;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+.masks__colorblock span div {
+	text-align: center;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	left: 50%;
+}
+.masks__buy {
+	position: absolute;
+	top: 46vw;
+	width: 20vw;
+	height: 3.5vw;
+	left: 2.2vw;
+	background: #9898e6;
+	text-align: center;
+	border-radius: 0.3vw;
+	line-height: 3.5vw;
+	font-size: 0.8vw;
+	font-weight: 400;
+}
+.masks__exit {
+	position: fixed;
+	right: 2vw;
+	top: 1.5vw;
+	background: #0e0e1760;
+	width: 7.5vw;
+	z-index: 4;
+	height: 2vw;
+	zoom: 80%;
+	text-align: center;
+	line-height: 2vw;
+	font-weight: 400;
+	font-size: 0.75vw;
+	border-radius: 0.25vw;
+}
+.masks__exit a {
+	width: 2vw;
+	height: 2vw;
+	position: absolute;
+	color: #fff;
+	/* font-family: Montserrat; */
+	left: 0;
+	border-radius: 0.25vw;
+	background: #0e0e1760;
+}
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aa9ffa;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}	

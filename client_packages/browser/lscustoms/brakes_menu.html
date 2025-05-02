@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link rel="stylesheet" href="ls_castoms.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+<body>
+    <div class="box">
+        <div class="header">
+			<a id="home"><b><</b>НАЗАД</a>
+			<a id="exit_menu"><b>x</b>ВЫЙТИ</a>
+		</div>
+		<div class="logo_categories">
+                    <p>Тормоза</p>
+                </div>
+        <div class="main">
+            <div class="content_box">
+                
+                <div id="-1" class="item">
+                    <p>Стандартные</p>
+                    <p>*price* $</p>
+                </div>
+
+                <div id="0" class="item">
+                    <p>Класса F</p>
+                    <p>*price* $</p>
+                </div>
+
+                <div id="1" class="item">
+                    <p>Класса B</p>
+                    <p>*price* $</p>
+                </div>
+
+                <div id="2" class="item">
+                    <p>Класса A</p>
+                    <p>*price* $</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="footer">
+                <h1>Скорость</h1>
+                <progress id="speed_bar" value="50" max="100"></progress>
+                <h1>Торможение</h1>
+                <progress id="brakes_bar" value="50" max="100"></progress>
+                <h1>Ускорение</h1>
+                <progress id="boost_bar" value="50" max="100"></progress>
+                <h1>Сцепление</h1>
+                <progress id="clutch_bar" value="50" max="100"></progress>
+        </div>
+    </div>
+<script src="../assets/js/jquery-3.2.1.min.js"></script>
+     <script src="../assets/js/vue.js"></script>
+    <script src="tuning.js"></script>
+</body>
+</html>

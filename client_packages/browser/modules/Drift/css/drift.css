@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #81838E;
+  user-select: none;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.drift {
+  width: 33vh;
+  height: 44vh;
+  background: rgba(42, 40, 44, 70%);
+  border-radius: 1vh;
+
+  position: absolute;
+  right: 1vh;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+.drift header {
+  display: flex;
+  padding: 1vh 1vh 0vh 1vh;
+  height: 3vh;
+  justify-content: space-between;
+}
+
+.drift header p {
+  color: hsl(0, 0%, 83%);
+  font-size: 2vh;
+  font-weight: 500;
+  text-align: left;
+  letter-spacing: 0.1vh;
+}
+
+.drift header img {
+  width: 1.4vh;
+}
+
+.drift header .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drift content {
+  height: 100%;
+  width: 100%;
+  padding: 1vh 2vh 1vh 2vh;
+  display: block;
+}
+
+.drift content .option p {
+  margin-top: 0.25vh;
+  color: hsl(0, 0%, 72%);
+  font-weight: 500;
+  font-size: 1.2vh;
+  margin-bottom: 0.3vh;
+}
+
+.drift content .option .range {
+  display: flex;
+  padding-bottom: 1vh;
+  margin-bottom: 0.25vh;
+  border-bottom: 0.25vh solid rgba(255, 255, 255, 5%);
+}
+
+.drift content .option .range p {
+  margin-left: 0.5vh;
+}
+
+.drift content .option input {
+  -webkit-appearance: none;
+  background-color: rgba(0, 0, 0, 0);
+  width: 26vh;
+}
+ 
+.drift content .option input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+ 
+.drift content .option input:focus {
+  outline: none; 
+}
+ 
+.drift content .option input::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.drift content .option input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #00AE4A;
+  border-radius: 2vh;
+  cursor: pointer;
+  width: 1vh;
+  height: 1vh;
+  margin-top: -0.3vh;
+}
+
+.drift content .option input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.4vh;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 20%);
+  border-radius: 2vh;
+
+}
+
+.drift content .buttons {
+  margin-top: 0.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.drift content .button {
+  text-align: center;
+  font-size: 1.5vh;
+  height: 3vh;
+  border-radius: 0.5vh;
+  letter-spacing: 0.1vh;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-bottom: 0.5vh;
+
+  transition-property: border, color;
+  transition-duration: 0.2s;
+  transition-timing-function: linear, linear;
+}
+
+.drift content .green {
+  border: 0.25vh solid #26874E;
+}
+
+.drift content .green p {
+  color: #26874E;
+}
+
+.drift content .green:hover {
+  border: 0.25vh solid #26874ea9;
+}
+
+.drift content .green:hover p {
+  color: #26874ea9;
+}
+
+.drift content .red {
+  border: 0.25vh solid #924545;
+}
+
+.drift content .red p {
+  color: #924545;
+}
+
+.drift content .red:hover {
+  border: 0.25vh solid #924545d2;
+}
+
+.drift content .red:hover p {
+  color: #924545d2;
+}

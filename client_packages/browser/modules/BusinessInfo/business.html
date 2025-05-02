@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<!--
+По поводу заказа
+Merumond#3683
+
+Created by
+
+███╗░░░███╗███████╗██████╗░██╗░░░██╗███╗░░░███╗░█████╗░███╗░░██╗██████╗░
+████╗░████║██╔════╝██╔══██╗██║░░░██║████╗░████║██╔══██╗████╗░██║██╔══██╗
+██╔████╔██║█████╗░░██████╔╝██║░░░██║██╔████╔██║██║░░██║██╔██╗██║██║░░██║
+██║╚██╔╝██║██╔══╝░░██╔══██╗██║░░░██║██║╚██╔╝██║██║░░██║██║╚████║██║░░██║
+██║░╚═╝░██║███████╗██║░░██║╚██████╔╝██║░╚═╝░██║╚█████╔╝██║░╚███║██████╔╝
+╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚═╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝╚═════╝░
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+    <div id="app">
+		<div class="main">
+		<div @click="close()" class="btnclose">Закрыть</div>
+			<div class="up">
+				<div class="sp"><img src="./assets/work.svg" class="ico"></div>
+				<div class="text1">Приобретение бизнеса:</div>
+				<div class="text2">Информация</div>
+				<div class="line"></div>
+			</div>
+			<div class="info">
+				<div class="block">
+				<img src="./assets/app.png" class="ico">
+					<div class="left">Название бизнеса:</div>
+					<div class="right">{{ name }}</div>
+				</div>
+				<div class="block">
+				<img src="./assets/note.svg" class="ico2">
+					<div class="left">Номер бизнеса:</div>
+					<div class="right">{{ id }}</div>
+				</div>
+				<div class="block">
+				<img src="./assets/user.svg" class="ico">
+					<div class="left">Владелец бизнеса:</div>
+					<div class="right">{{ owner }}</div>
+				</div>
+				<div class="block">
+				<img src="./assets/user.svg" class="ico">
+					<div class="left">Цена бизнеса:</div>
+					<div class="right">{{ price | formatThousands }}$</div>
+				</div>
+				<div class="block">
+				<img src="./assets/shield.svg" class="ico">
+					<div class="left">Контролирует:</div>
+					<div class="right">{{ mafia }}</div>
+				</div>
+			</div>
+			<div class="textdesc">Покупая бизнес вы соглашаетесь с политикой штата по владению бизнеса</div>
+			<div v-if="owner == 'Государство' " @click="Buy()" class="btnbuy"><img style="width: 3vh; position: absolute; left: 1vh; top: 0.8vh;" src="./assets/shop.svg" class="ico">ПРИОБРЕСТИ</div>
+			<div v-else class="btncup">БИЗНЕС КУПЛЕН</div>
+		</div>
+    </div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: null,
+            owner: null,
+			price: null,
+            mafia: null,
+            id: null,
+        },
+        methods: {
+            Buy() {
+                mp.trigger("buybiz");
+            },
+            close(){
+                mp.trigger('CloseBuyBusinessMenu');
+            },
+            setOwner(name, owner, price, mafia, id){
+                //alert("asdasdasd");
+                this.name = name;
+                this.owner = owner;
+				this.price = price;
+				this.mafia = mafia;
+				this.id = id;
+            }
+
+        }
+    })
+</script>
+<script>Vue.filter('formatThousands', (x) => {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");})</script>
+</body>
+</html>

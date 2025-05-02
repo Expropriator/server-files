@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="fonts/style.css">
+		<link rel="stylesheet" href="style.css" />
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+
+		<style>
+			body {
+				zoom: 1.0 !important;
+			}
+		</style>
+	</head>
+
+		
+	<body style="background: none">
+		
+		<div onclick="exitCinema()" class="exit">
+				<a>X</a>ВЫЙТИ
+		</div>
+		
+		<div class="cinema-screen" id="cinema-screen"></div>
+		<div class="cinema-screen2"></div>
+		
+		<div class="leftblock" id="menu_cinema" style="display:none;">
+			<div class="namecinema">The Cent <a style="font-weight: 300; font-family: Montserrat">Theatre</a></div>
+			<div class="afisha">
+				<div class="name">Афиша</div>
+				<div class="list">
+					<div onclick="addCinemaVideo2('https://www.youtube.com/watch?v=ZudsBqbtws8')" class="block">
+						<img src="cinemas/1.jpg" class="cinemaico">
+						<div class="nameblock">ЧТО БЫЛО ДАЛЬШЕ?</div>
+					</div>
+					<div onclick="addCinemaVideo2('https://www.youtube.com/watch?v=zrDW1x-4ppQ')" class="block">
+						<img src="cinemas/2.jpg" class="cinemaico">
+						<div class="nameblock">ЭКСТРЕМАЛЬНЫЕ ПРЯТКИ В ОГРОМНОМ ДОМЕ</div>
+					</div>
+					<div onclick="addCinemaVideo2('https://www.youtube.com/watch?v=-LkHS8geUjQ')" class="block">
+						<img src="cinemas/3.jpg" class="cinemaico">
+						<div class="nameblock">Веном 2</div>
+					</div>
+					<div onclick="addCinemaVideo2('https://www.youtube.com/watch?v=KPErag8BcBA')" class="block">
+						<img src="cinemas/4.jpg" class="cinemaico">
+						<div class="nameblock">MIDIX - ВОУ ПОФЛЕКСИМ</div>
+					</div>
+					<div onclick="addCinemaVideo2('https://www.youtube.com/watch?v=ZudsBqbtws8')" class="block">
+						<img src="cinemas/1.jpg" class="cinemaico">
+						<div class="nameblock">ЧТО БЫЛО ДАЛЬШЕ?</div>
+					</div>
+				</div>
+				<div class="nameinp">Вставьте свое видео</div>
+				<input class="input" id="cinema-url">
+				<div onclick="addCinemaVideo()" class="btnstart">ЗАПУСК</div>
+			</div>
+		</div>
+		<!-- <div class="bottomblock"> -->
+			<!-- <div class="namecinema">The Cent <a style="font-weight: 300; font-family: Montserrat">Theatre</a></div> -->
+			<!-- <div class="adminpanel" id="menu_cinema" style="display:none;">> -->
+			<!-- <input id="cinema-url" class="urlvideo" placeholder="Введите сслыку..."> -->
+				<!-- <div class="btnstart" onclick="addCinemaVideo()">Запуск видео</div> -->
+				<!-- <div style="margin-left: 22vh;" class="btnstart" onclick="OpenCinema()">Открыть кинотеатр</div> -->
+				<!-- <div style="margin-left: 44vh;" class="btnstart" onclick="CloseCinema()">Закрыть кинотеатр</div> -->
+			<!-- </div> -->
+			<!-- <div style="margin-left: 66vh;" class="btnstart" id="exit-btn" onclick="exitCinema()">Выйти</div> -->
+		<!-- </div> -->
+
+
+		<script>
+			//setCinema("1", 0, "https://www.youtube.com/watch?v=6BIcNp_-Omw");
+			function setCinema(username, time, url)
+			{
+				$('#cinema-screen').html(`			
+					<iframe 
+						src="https://www.youtube.com/embed/${url}?start=${time}&rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0&autoplay=1&vq=medium&disablekb=1"  
+						frameborder="0" 
+						allowfullscreen
+						class="cinema-video">
+					</iframe>`);
+
+				$('#cinema-username').html(username);
+			}
+
+			function DisplayMenu(toggle)
+			{
+				if(toggle === true)
+				{
+					document.getElementById("menu_cinema").style.display = "block";
+				}
+				else
+				{
+					document.getElementById("menu_cinema").style.display = "none";
+				}
+				
+			}
+			
+			
+			function clearCinema()
+			{
+				$('#cinema-screen').html('');
+				$('#cinema-username').html('');
+			}
+
+			function addCinemaVideo()
+			{
+				let url = $('#cinema-url').val();
+
+				mp.trigger("addCinemaVideo", url);
+			}
+			
+			function addCinemaVideo2(url)
+			{
+				mp.trigger("addCinemaVideo", url);
+			}
+
+			function voteCinemaSkip()
+			{
+				mp.trigger("voteCinemaSkip");
+			}
+
+			function OpenCinema()
+			{
+				mp.trigger("Cinema_Open", true);
+			}
+			function CloseCinema()
+			{
+				mp.trigger("Cinema_Open", false);
+			}
+
+			function exitCinema()
+			{
+				$("#exit-btn").remove();
+				mp.trigger("exitCinema");
+			}
+
+			$(document).keydown(function(objEvent) {
+			    if (objEvent.keyCode == 9) {  //tab pressed
+			        objEvent.preventDefault(); // stops its action
+			    }
+			})
+		</script>
+	</body>
+</html>

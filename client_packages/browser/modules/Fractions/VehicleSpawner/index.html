@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/carspawner.css">
+  <link rel="stylesheet" href="../../assets/css/font.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <title>Vehicle Spawner Interface Merumond</title>
+</head>
+
+<body>
+  <div id="app" v-if="active" v-cloak>
+  <div class="bgshow">
+    <div class="alltxt">
+			<div class="text">СПАВН</div>
+			<div class="text2">ТРАНСПОРТА</div>
+			<div class="text3">Выберите транспорт который хотите вызвать и нажмите вызвать</div>
+		</div>
+	
+	<div class="list">
+	<div class="line"></div>
+		<div class="names">
+			<div class="status">СТАТУС</div>
+			<div class="model">МОДЕЛЬ</div>
+			<div class="number">НОМЕР</div>
+			<div class="cmd">КОМАНДА</div>
+		</div>
+	<div class="blocks">
+		<div class="block" v-for="(item, index) in vehicles">
+			<div class="info1">
+				<div  v-if="item[0]" class="text">АКТИВНО</div>
+				<div  v-else class="text2">НЕАКТИВНО</div>
+			</div>
+			<div class="info2">
+				<div class="text">{{item[2]}}</div>
+			</div>
+			<div class="info3">
+				<div class="text">{{item[3]}}</div>
+			</div>
+			<div class="info4">
+				<div @click="callback(0, item[3])" v-if="item[0]" class="text">ОТОЗВАТЬ</div>
+				<div @click="callback(1, item[3])" v-else class="text">ВЫЗВАТЬ</div>
+			</div>
+		</div>
+	</div>
+		
+		
+	</div>
+	<div class="text1">ВСЕГО АВТО: {{vehicles.length}}</div>
+	
+	<div class="exit">
+		<div class="textesc">ВЫЙТИ</div>
+		<div class="blockesc">
+			<div class="textt">ESC</div>
+		</div>
+	</div>
+	
+	<img src="./img/serezniypasan.png" class="pers">
+	</div>
+	
+	
+	<!-- <div class="container">
+       <header>
+        <span>
+         <i @click="closepanel()" class="fa fa-times-circle-o" aria-hidden="true"></i>
+        </span>
+      </header>
+
+     <div class="main pageMembers">
+        <div class="items">
+          <table>
+            <tr class="item">
+              <th class="adminItem">СТАТУС</th>
+              <th class="nickItem">МОДЕЛЬ</th>
+              <th class="numberItem">НОМЕР</th>
+              <th class="cmdItem">КОМАНДА</th>
+            </tr>
+            <tr class="item" v-for="(item, index) in vehicles">
+              <td>
+                <i class="fa fa-toggle-on" aria-hidden="true" v-if="item[0]"></i>
+                <i class="fa fa-toggle-off" aria-hidden="true" v-else></i>
+              </td>
+              <td>{{item[2]}}</td>
+              <td>{{item[3]}}</td>
+              <td>
+                <span>
+                  <b @click="callback(0, item[3])" v-if="item[0]">ОТОЗВАТЬ</b>
+                  <b @click="callback(1, item[3])" v-else>ОТОЗВАТЬ</b>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+      <footer>
+        <div>
+          <h3>Всего: {{vehicles.length}}</h3>
+        </div>
+      </footer>
+
+    </div>
+  </div>-->
+  </div>
+
+  <script src="js/carspawner.js"></script>
+</body>
+
+</html>

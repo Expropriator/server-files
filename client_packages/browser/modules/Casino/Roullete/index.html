@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Freedom Project Casino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            font-family: "Ubuntu", sans-serif;
+            margin: 0;
+			overflow: hidden;
+        }
+		[v-cloak] {
+			display: none;
+		}
+    </style>
+	<link rel="stylesheet" href="../../../assets/fonts/bebas-neue/stylesheet.css">
+	<link rel="stylesheet" href="./assets/css/casinobet.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+</head>
+<body style="display:block">
+	<div v-cloak class="casino-bet" v-if="active">
+        <div v-if="timeToStart < 10">
+			<div v-if="timeToStart != 0" class="time">0:0{{timeToStart}}</div>
+			<div v-if="timeToStart != 0" class="time2">0:0{{timeToStart}}</div>
+		</div>
+		<div v-else>
+			<div v-if="timeToStart != 0" class="time">0:{{timeToStart}}</div>
+			<div v-if="timeToStart != 0" class="time2">0:{{timeToStart}}</div>
+		</div>
+		<div class="text">Будьте внимательны ставку нельзя отменить!</div>
+		<div class="bottomcenter">
+			<div style="left: -19vw; position: relative" class="bottomcenters">
+				<div class="fishki">
+					<div class="namefishki">Ваши фишки</div>
+					<div class="iconkachips"><img class="iconkachips" src="./assets/images/casino/casino.png"></div>
+					<div class="countfishki">{{chips}}</div>
+				</div>
+				<div class="summastavki">
+					<div class="namesumma">Сумма ставки</div>
+					<div class="blocksumma">
+						<div  @click="plusAct" class="btnpluse">+</div>
+						<div class="stavka">{{val}}</div>
+						<div @click="minusAct" class="btnminuse">-</div>
+					</div>
+				</div>
+				<div class="line"></div>
+				<div @click="accept" class="btnstartcas">
+					НАЧАТЬ
+				</div>
+				<div @click="pdouble" class="btnstartcas2">
+					2x <b><a style="font-size: 1vw;">У</a>двоить ставку</b>
+				</div>
+			</div>
+		</div>
+		<img class="iconkadiamond" src="./assets/images/casino/diamond.png">
+		<div class="helpblock"><img class="iconkadiamond2" src="./assets/images/casino/mouse.svg"><div class="namecasino2">ОТМЕНИТЬ СТАВКУ</div></div>
+		<div class="helpblock2"><img class="iconkadiamond2" src="./assets/images/casino/mouse.svg"><div class="namecasino2">СДЕЛАТЬ СТАВКУ</div></div>
+		<div @click="close" class="btnclosecas">
+			ВЫХОД
+		</div>
+		<div class="backgroundcasino1"></div>
+		<div class="backgroundcasino2"></div>
+    </div>
+    <script src="./assets/js/jquery-3.2.1.min.js"></script>
+	<script src="./assets/js/casinobet.js"></script>
+</body>
+</html>

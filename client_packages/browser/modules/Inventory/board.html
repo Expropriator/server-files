@@ -1,0 +1,343 @@
+<html lang="ru"><head>
+    <title>Freedom - Inventory</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="favicon.ico" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./assets/css/inv.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/circle.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/info.css">
+	<link rel="stylesheet" href="./assets/css/info.css">
+	<link href="https://cdn.materialdesignicons.com/1.1.34/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+</head>
+<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+<body style="background: none">
+	<div v-cloak id="inv" class="inv" v-if="active">
+	<audio id="loading" autoplay="autoplay" volume="1">
+		<source src="./assets/audio/inventory_open.mp3" type="audio/mp3">
+	</audio>
+	<script>var audio=document.querySelector("audio"); audio.volume=0.3;</script>
+		<div v-if="style == 0">
+		<div class="drop droppable" data-action="4" data-type="eq">
+			<img src="./assets/img/trash.svg" class="trashico">
+			<div class="text">Перетащите сюда предметы Чтобы выбросить</div>
+		</div>
+		<div class="centerblock">
+			<div class="clothesblock droppable" data-action="1" data-type="eq">
+				<div class="nameplayer">{{nameplayer}}</div>
+				<div class="slots3">
+					<div id="cl" class="item_position"><img src="./assets/img/inv/mask.svg" class="clothes_icon"></div>
+					<div id="c2" class="item_position"><img src="./assets/img/inv/hat.svg" class="clothes_icon"></div>
+					
+					<div id="c3" class="item_position"><img src="./assets/img/inv/jacket.svg" class="clothes_icon"></div>
+					<div id="c4" class="item_position"><img src="./assets/img/inv/undershirt.svg" class="clothes_icon"></div>
+					<div id="c5" class="item_position"><img src="./assets/img/inv/legs.svg" class="clothes_icon"></div>
+					<div id="c6" class="item_position"><img src="./assets/img/inv/shoes.svg" class="clothes_icon"></div>
+					<div id="c7" class="item_position"><img src="./assets/img/inv/gloves.svg" class="clothes_icon"></div>
+					<div id="c8" class="item_position"><img src="./assets/img/inv/accs.svg" class="clothes_icon"></div>
+					<div id="c9" class="item_position"><img src="./assets/img/inv/backpack.svg" class="clothes_icon"></div>
+					<div id="c10" class="item_position"><img src="./assets/img/inv/bull.svg" class="clothes_icon"></div>
+					<div id="c11" class="item_position"><img src="./assets/img/inv/glasses.svg" class="clothes_icon"></div>
+					<div id="c12" class="item_position"><img src="./assets/img/inv/watch.svg" class="clothes_icon"></div>
+				</div>
+			</div>
+			<div class="slotmain droppable" data-action="1" data-type="inv">
+				<div class="weightblock">
+					<div class="line">
+						<div class="textweight">{{weight}} / {{maxWeight}} КГ</div>
+						<img src="./assets/img/backs.svg" class="backsico">
+						<div :style="{ height: weight * (30 / maxWeight) + 'vw'}" class="progressline"></div>
+					</div>
+				</div>
+				<div class="textmain">ВАШИ ВЕЩИ</div>
+				<div class="allscrols">
+				<div style="z-index: 1;" class="slots">
+					<div class="list">
+						<item
+						v-for="(item, index) in items" v-if="!(savedFast[0] != undefined && savedFast[0][0] == item[0] && savedFast[0][1] == item[1]) && !(savedFast[1] != undefined && savedFast[1][0] == item[0] && savedFast[1][1] == item[1]) && !(savedFast[2] != undefined && savedFast[2][0] == item[0] && savedFast[2][1] == item[1]) && !(savedFast[3] != undefined && savedFast[3][0] == item[0] && savedFast[3][1] == item[1]) && !(savedFast[4] != undefined && savedFast[4][0] == item[0] && savedFast[4][1] == item[1])"
+							:key="key"
+							:id="item[0]"
+							:index="index"
+							:count="item[1]"
+							:isactive="item[2]"
+							:subdata="item[3]"
+						type="inv"/>
+					</div>
+				</div>
+				<div style="z-index: 0;" class="slots">
+					<div class="list">
+						<div v-for="i in 54">
+							<div class="item2"></div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="slotmain2 droppable" data-action="2" data-type="out" v-if="outside">
+				<div class="nameouthead">{{outHead}}</div>
+				<div class="weightout">
+					<div class="wo">{{weightOut}} КГ.</div>
+					<div class="womax">ИЗ {{maxWeightOut}} КГ.</div>
+				</div>
+				<div class="allscroll">
+				<div style="z-index: 1;" class="slots2">
+					<div class="list2">
+						<item
+							v-for="(item, index) in outitems"
+							:key="key"
+							:id="item[0]"
+							:index="index"
+							:count="item[1]"
+							:subdata="item[3]"
+						type="out" />
+					</div>
+				</div>
+				<div style="z-index: 0;" class="slots2">
+					<div class="list2">
+						<div v-for="i in 24">
+							<div class="item2"></div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="slotmain2 droppable" data-action="2" data-type="out" v-if="!outside">
+				<div v-if="!outside" class="centertexto">НЕДОСТУПНО</div>
+				<img src="./assets/img/lock.svg" class="lock">
+				<div class="alllol" id="blur">
+				<div class="nameouthead">{{outHead}}</div>
+				<div class="weightout">
+					<div class="wo">{{weightOut}} КГ.</div>
+					<div class="womax">ИЗ {{maxWeightOut}} КГ.</div>
+				</div>
+				<div style="overflow: hidden; top: 8.2vw;" class="allscroll">
+					<div style="z-index: 1;" class="slots2">
+					</div>
+				<div style="z-index: 0;" class="slots2">
+					<div class="list2">
+						<div v-for="i in 24">
+							<div class="item22"></div>
+						</div>
+					</div>
+				</div>
+				</div>
+				</div>
+			</div>
+			<div class="fast_slots">
+				<div class="name_sloths">БЫСТРЫЙ ДОСТУП</div>
+				<!-- <div class="line"></div> -->
+				<div class="list_slots">
+				<div class="slots">
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+				</div>
+				<div class="slots">
+						<div v-if="!savedFast[0]" class="item2" :class="selectFastSlot ? 'fastSlotField selecting' : 'fastSlotField'" v-on:click="useFastSlot(0)"></div>
+						<div v-else> <item v-for="(item, index) in items" v-if="item[0] == savedFast[0][0] && item[1] == savedFast[0][1]" :key="key" :id="item[0]" :index="index" :count="item[1]" :isactive="item[2]" :subdata="item[3]" type="fast"/>  </div>
+						<div v-if="!savedFast[1]" class="item2" :class="selectFastSlot ? 'fastSlotField selecting' : 'fastSlotField'" v-on:click="useFastSlot(1)"></div>
+						<div v-else> <item v-for="(item, index) in items" v-if="item[0] == savedFast[1][0] && item[1] == savedFast[1][1]" :key="key" :id="item[0]" :index="index" :count="item[1]" :isactive="item[2]" :subdata="item[3]" type="fast"/> </div>
+						<div v-if="!savedFast[2]" class="item2" :class="selectFastSlot ? 'fastSlotField selecting' : 'fastSlotField'" v-on:click="useFastSlot(2)"></div>
+						<div v-else> <item v-for="(item, index) in items" v-if="item[0] == savedFast[2][0] && item[1] == savedFast[2][1]" :key="key" :id="item[0]" :index="index" :count="item[1]" :isactive="item[2]" :subdata="item[3]" type="fast"/> </div>
+						<div v-if="!savedFast[3]" class="item2" :class="selectFastSlot ? 'fastSlotField selecting' : 'fastSlotField'" v-on:click="useFastSlot(3)"></div>
+						<div v-else> <item v-for="(item, index) in items" v-if="item[0] == savedFast[3][0] && item[1] == savedFast[3][1]" :key="key" :id="item[0]" :index="index" :count="item[1]" :isactive="item[2]" :subdata="item[3]" type="fast"/> </div>
+				</div>
+				</div>
+				<div class="keys">
+					<div v-if="savedFast[0]" class="key_one">
+						<div class="key_up">1</div>
+					</div>
+					<div v-else class="key_one opacity">
+						<div class="key_up">1</div>
+					</div>
+
+					<div v-if="savedFast[1]" class="key_two">
+						<div class="key_up">2</div>
+					</div>
+					<div v-else class="key_two opacity">
+						<div class="key_up">2</div>
+					</div>
+
+					<div v-if="savedFast[2]" class="key_three">
+						<div class="key_up">3</div>
+					</div>
+					<div v-else class="key_three opacity">
+						<div class="key_up">3</div>
+					</div>
+
+					<div v-if="savedFast[3]" class="key_four">
+						<div class="key_up">4</div>
+					</div>
+					<div v-else class="key_four opacity">
+						<div class="key_up">4</div>
+					</div>
+				</div>
+			</div>
+<!--			<div id="fastSlotsApp">-->
+<!--				<div class="fast_slots">-->
+<!--					<item v-for="(slot, index) in fastSlots"-->
+<!--						  :key="index"-->
+<!--						  :id="slot[0]"-->
+<!--						  :index="index"-->
+<!--						  :count="slot[1]"-->
+<!--						  :isactive="slot[2]"-->
+<!--						  type="fast"-->
+<!--						  :fast_slot="index">-->
+<!--					</item>-->
+<!--				</div>-->
+<!--			</div>-->
+		</div>
+		</div>
+		<div v-if="style == 1">
+			<div class="centercraft">
+				<img src="./assets/img/mine.svg" class="minesvg">	<div class="textcraft"><a>СОЗДАНИЕ <b>ПРЕДМЕТОВ</b></a></div>
+				<div class="listcraft">
+					<div @click="selectitemcraft(index)" v-for="(item, index) in craftlist" class="crblock">
+						<div class="countcraft">{{item.countcraft}}</div>
+						<img :src="`./assets/images/icons/items/`+ item.id + `.png`" class="icoadd">
+					</div>
+				</div>
+				<div v-if="selectedcraft != null" class="selectedcraft">
+					<div class="listblocksel">
+						<div v-if="selectedcraft.tr1 != 0" class="listblockselected">
+							<div class="needed"><a style="color: #6b6bfa;">{{counthave1}}</a> / {{selectedcraft.trc1}}</div>
+							<img :src="`./assets/images/icons/items/`+ selectedcraft.tr1 + `.png`" class="icoadds">
+						</div>
+						<div v-if="selectedcraft.tr2 != 0" class="listblockselected">
+							<img :src="`./assets/images/icons/items/`+ selectedcraft.tr2 + `.png`" class="icoadds">
+						</div>
+						<div v-if="selectedcraft.tr3 != 0" class="listblockselected">
+							<img :src="`./assets/images/icons/items/`+ selectedcraft.tr3 + `.png`" class="icoadds">
+						</div>
+					</div>
+					<div class="icoaddsborder"><img :src="`./assets/images/icons/items/`+ selectedcraft.id + `.png`" class="icoadds"></div>
+					<div @click="createobj()" class="btncraft">Создать предмет</div>
+					<div class="craftblocktime">
+						<div class="textcraftimedesc">Время ожидания</div>
+						<img src="./assets/img/clock.png" class="clocks">
+						<div v-if="selectedcraft.time == 0" class="timecraft">Моментально</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div v-cloak class="cricle" v-if="active">
+		<div class="bgcricle">
+			<div class="centercricle">
+				<div id="8" @mouseOver="over" @click="btn" class="exitcricle">x</div>
+				<div id="0" v-if="items[0] != null" :class="icons[id]" class="contentitem" @click="btn">{{items[0]}}</div>
+				<div id="2" v-if="items[2] != null" :class="icons[id]" class="contentitem2" @click="btn">{{items[2]}}</div>
+				<div id="4" v-if="items[4] != null" :class="icons[id]" class="contentitem3" @click="btn">{{items[4]}}</div>
+				
+				<div id="1" v-if="items[1] != null" :class="icons[id]" class="contentitem5" @click="btn">{{items[1]}}</div>
+				<div id="3" v-if="items[3] != null" :class="icons[id]" class="contentitem6" @click="btn">{{items[3]}}</div>
+				<div id="5" v-if="items[5] != null" :class="icons[id]" class="contentitem7" @click="btn">{{items[5]}}</div>
+				
+				<div id="6" v-if="items[6] != null" :class="icons[id]" class="contentitem4" @click="btn">{{items[6]}}</div>
+				<div id="7" v-if="items[7] != null" :class="icons[id]" class="contentitem8" @click="btn">{{items[7]}}</div>
+			</div>
+		</div>
+	</div>
+	<div v-cloak class="info" v-show="active" :style="style">
+		<div class="headerinfo">
+			<div class="hname">{{name}}</div>
+			<div class="hsub">{{sub}}</div>
+		</div>
+		<div class="btns">
+			<div v-on:click="btn(1)" v-if="type != 2" class="btnuse">Использовать</div>
+			<div v-if="!type && type != 2" v-on:click="btn(3)" class="btnuse">Взять</div>
+			<div v-if="type == 1" v-on:click="btn(2)" class="btnuse2">Передать</div>
+			<div v-if="type == 2" v-on:click="btn(6)" class="btnuse">Убрать</div>
+			<div v-if="type == 1 && act" v-on:click="btn(5)" class="btnuse">В быстрый слот</div>
+			<div v-on:click="btn(4)" v-if="type != 2" class="btnuse">Выбросить</div>
+		</div>
+	</div>
+	
+	<div v-cloak class="rangeslider" v-if="active">
+		<div class="centermain">
+			<div class="textrange">Выберите количество</div>
+			<input type="range" min="1" v-model="count" :max="max" class="range">
+			<div class="min">1</div>
+			<div class="max">{{max}}</div>
+			<div class="count">{{count}}</div>
+			<div @click="btn()" class="btnrange">ПОДТВЕРДИТЬ</div>
+			<div @click="exit()" class="btnrange2">ОТМЕНИТЬ</div>
+		</div>
+		<div class="textbottom">Нажмите в любую область чтобы закрыть это меню</div>
+		<div id="figura" class="leftfig"></div>
+		<div id="figura2" class="leftfig"></div>
+		<div @click="exit()" class="rangeslider">
+		
+		</div>
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha512-1EYgCUCJVtr5ociXCkVxNVIuys2voHSsekuPLW9YJ9+6OiFiBLob/HNwg9C3oEmJuYvCYtnKdGpGwZPPKQzvHg==" crossorigin="anonymous"></script>
+	<script src='./assets/js/dng.js'></script>
+	<script src='./assets/js/inventory.js'></script>
+	<script src="./assets/js/move.min.js"></script>
+	<script src='./assets/js/circle.js'></script>
+	<script>
+		// Создаем браузерный интерфейс (где находится весь ваш HTML и JavaScript)
+		global.board = mp.browsers.new('package://browser/modules/Inventory/board.html');
+
+		// Вставляем JavaScript для работы с перетаскиванием
+		global.board.execute(`
+    let draggingItem = null;
+
+    function startDrag(event, item) {
+        draggingItem = item;
+    }
+
+    function dragItem(event) {
+        if (!draggingItem) return;
+        // Логика для перетаскивания
+    }
+
+    function dropItem(event) {
+        if (!draggingItem) return;
+        let targetSlot = getTargetSlot(event); // Функция, определяющая целевой слот
+        if (targetSlot !== null) {
+            mp.events.callRemote('Inventory', 0, targetSlot, 'use'); // Взаимодействие с сервером
+        }
+        draggingItem = null;
+    }
+
+    function getTargetSlot(event) {
+        let slots = document.querySelectorAll('.slot');
+        for (let slot of slots) {
+            if (isInSlot(event, slot)) {
+                return slot.dataset.index; // Возвращаем индекс слота
+            }
+        }
+        return null;
+    }
+
+    function isInSlot(event, slot) {
+        const rect = slot.getBoundingClientRect();
+        return event.clientX >= rect.left && event.clientX <= rect.right &&
+               event.clientY >= rect.top && event.clientY <= rect.bottom;
+    }
+
+    document.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', dragItem);
+    document.addEventListener('mouseup', dropItem);
+`);
+	</script>
+</body>
+</html>

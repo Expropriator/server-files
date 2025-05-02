@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/infa.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+	<link rel="stylesheet" href="../../../assets/fonts/bebas-neue/stylesheet.css">
+</head>
+
+<body>
+	<div class="main">
+		<div onclick="closemenu()" class="exit">
+			<a>X</a>ВЫЙТИ
+		</div>
+		<div class="center">
+			<div class="header">
+				<div class="cyl">
+					<img src="./skull.svg" class="skull">
+				</div>
+				<a>НАЕМНЫЙ УБИЙЦА</a>
+			</div>
+			<div class="name"><a style="margin-left: 4.5vw;">Заказчик</a><a style="margin-left: 12vw;">Цель</a><a style="margin-left: 11.5vw;">Цена</a></div>
+			<div class="list"> 
+				<div v-for="(item, index) in killlist" class="block">
+					<a>{{item.Name}}</a>
+					<p>{{item.Kill}}</p>
+					<h1>{{item.Price | formatThousands}}$</h1>
+					<div @click="takecont(index)" class="btntake">Принять</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+        Vue.filter('formatThousands', (x) => {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+        })
+	</script>
+    <script src="./js/autosale.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

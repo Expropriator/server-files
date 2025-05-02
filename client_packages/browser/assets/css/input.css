@@ -1,0 +1,70 @@
+.input {
+	position: absolute;
+	bottom: 30vh;
+	left: 50%;
+	transform: translateX(-50%);
+	display: block;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 40vh;
+	height: 15vh;
+	border-bottom-left-radius: 30px;
+	border-top-right-radius: 30px;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 6px;
+	padding: 40px 60px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.questions {
+	position: absolute;
+	font-family: Montserrat;
+	font-weight: 600;
+	font-size: 2vh;
+	top: 3vh;
+	left: 50%;
+	transform: translate(-50%,0);
+	text-align: center;
+	color: #fff;
+}
+.inputdialog {
+	position: absolute;
+	top: 10vh;
+	left: 4vh;
+	width: 27vh;
+	height: 7vh;
+	color: #fff;
+	font-family: Montserrat;
+	font-size: 2vh;
+	font-weight: 600;
+	padding-left: 3vh;
+	background: #ffffff10;
+	border: none;
+	outline: none;
+}
+.btnsend:hover {
+	background: #ffffff20;
+}
+.btnsend:hover .succesbtn {
+	opacity: 1;
+}
+.succesbtn {
+	position: absolute;
+	left: 50%;
+	transition: opacity .33s;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 3vh;
+	opacity: 0.5;
+}
+.btnsend {
+	position: absolute;
+	right: 4vh;
+	top: 10vh;
+	transition: background .33s;
+	width: 7.2vh;
+	height: 7.2vh;
+	background: #ffffff10;
+}

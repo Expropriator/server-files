@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="./css/wanted.css">
+    <title>Wanted</title>
+</head>
+<body>
+    <div id="app">
+        <div class="wanted" v-show="wantedActive">
+			<img src="./cop.png">
+            <div class="wanted__wrapper">
+                <p>Ваш Арест</p>
+                <div class="wanted__params">
+                    <div>{{offender}}</div>
+                    <input class="wanted__input" v-model="time" type="number" placeholder="Время">
+                </div>
+                <input class="wanted__input" v-model="articles" type="text" placeholder="Причина">
+                <div class="wanted__stars">
+                    <p>Выберите нужное количество звезд</p>
+                    <div>
+                        <div class="wanted__star" v-for="i in 5" :class="{hover:showHover(i),active:showStar(i)}" @click="setStar(i)" @mouseover="setHover(i)" @mouseleave="setHover">
+                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.4829 6.20994L10.6864 5.52052L8.54222 1.22146C8.48365 1.10376 8.38731 1.00847 8.26829 0.950552C7.96981 0.804821 7.6071 0.926263 7.45786 1.22146L5.3137 5.52052L0.517213 6.20994C0.384974 6.22862 0.26407 6.29028 0.171503 6.3837C0.0595945 6.49745 -0.0020722 6.6505 5.31712e-05 6.8092C0.00217854 6.9679 0.0679221 7.11927 0.182838 7.23006L3.65316 10.5763L2.83328 15.3013C2.81405 15.4112 2.82635 15.5243 2.86878 15.6276C2.91121 15.731 2.98207 15.8205 3.07333 15.8861C3.16459 15.9516 3.27259 15.9906 3.38509 15.9985C3.4976 16.0064 3.6101 15.983 3.70983 15.9309L8.00004 13.7001L12.2902 15.9309C12.4074 15.9926 12.5434 16.0131 12.6737 15.9907C13.0024 15.9347 13.2235 15.6264 13.1668 15.3013L12.3469 10.5763L15.8172 7.23006C15.9117 7.13851 15.974 7.01893 15.9929 6.88815C16.0439 6.56119 15.8135 6.25852 15.4829 6.20994Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <input class="wanted__input" v-model="comment" type="text" placeholder="Комментарий">
+                <!-- <div class="wanted__redemption"> -->
+                    <!-- <input type="checkbox" v-model="redemption"> -->
+                    <!-- <p>Разрешение на выкуп</p> -->
+                <!-- </div> -->
+                <div class="wanted__buttons">
+                    <div @click="arrestCrime">Арестовать</div>
+                    <div @click="closeApp">Отменить</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./js/wanted.js"></script>
+</body>
+</html>

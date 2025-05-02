@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+		rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+	<script src="./libs/RealCarNames.js"></script>
+</head>
+<style>
+	[v-cloak] {
+		display: none;
+	}
+</style>
+
+<body style="background: none">
+	<div v-if="active" class="main">
+		<div class="namesalon">Автосалон</div>
+		<div class="namesalon2">SHARP MOTORS</div>
+		<div class="namesalon3">Только эксклюзивные и качественные автомобили у нас!</div>
+		<div @click="exit" class="masks__exit">
+			<a>X</a>ВЫЙТИ
+		</div>
+		<div class="colors-menu">
+			<a>Выберите цвет</a>
+			<div @click="color(0)" class="colors-menu__item black"></div>
+			<div @click="color(1)" class="colors-menu__item white"></div>
+			<div @click="color(11)" class="colors-menu__item grey"></div>
+			<div @click="color(2)" class="colors-menu__item red"></div>
+			<div @click="color(3)" class="colors-menu__item orange"></div>
+			<div @click="color(4)" class="colors-menu__item yellow"></div>
+			<div @click="color(5)" class="colors-menu__item green"></div>
+			<div @click="color(6)" class="colors-menu__item sky"></div>
+			<div @click="color(8)" class="colors-menu__item purple"></div>
+			<div @click="color(7)" class="colors-menu__item blue"></div>
+			<div @click="color(9)" class="colors-menu__item cian"></div>
+			<div @click="color(10)" class="colors-menu__item purp"></div>
+		</div>
+		<div class="selectnameauto">
+			<a>Модель</a>
+			{{models[indexM]}}
+		</div>
+		<div style="margin-top: 3vw;" class="selectnameauto">
+			<a>Цена</a>
+			${{prices[indexM] | formatThousands}}
+		</div>
+		<div class="list">
+			<div v-for="(value, index) in models" v-on:click="auto(index)" class="block"
+				:class="{'active': indexM === index}">
+				<a>{{getModelName(models[index])}}</a>
+				<b>${{prices[index] | formatThousands}}</b>
+			</div>
+		</div>
+		<div class="masks__lenght">{{indexM + 1}}<a>/{{models.length}}</a>
+			<p>Модельный ряд</p>
+		</div>
+		<div @click="buy" class="buy">КУПИТЬ</div>
+		<div @click="testdrive" class="testdrive">ТЕСТ ДРАЙВ</div>
+	</div>
+	<script>
+    Vue.filter('formatThousands', (x) => {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    })
+	</script>
+	<script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+
+</html>

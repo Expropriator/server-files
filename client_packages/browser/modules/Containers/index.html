@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>System</title>
+</head>
+<body>
+    <div v-if="active" id="boom">
+        <div class="menu">
+            <div @click="closeContMenu" class="exit"><img src="img/exit.png" alt=""></div>
+            <h2 class="numberCont">Контейнер №{{contNumber}}</h2>
+            <div class="information">
+                <div class="infoItem"><p>Тип:</p> <p>{{type}}</p></div>
+                <div class="infoItem"><p>Класс:</p> <p>{{contClass}}</p></div>
+                <div class="infoItem"><p>Ставка:</p> <p>{{bet}}$</p></div>
+                <div class="infoItem"><p>Минимальный шаг:</p> <p>{{minBet}}$</p></div>
+                <div class="infoItem"><p>Поставил:</p> <p>{{betPlayerName}}</p></div>
+            </div>
+            <div @click="setBet" class="btn">{{info}}</div>
+        </div>
+        <div class="Put" v-if="put">
+            <div @click="put = false" class="exit"><img src="img/exit.png" alt=""></div>
+            <h2 class="numberCont">Контейнер №{{contNumber}}</h2>
+            <div class="put_main">
+                <div class="summ">Введите сумму ставки:</div>
+                <input type="number" v-model="putInput">
+            </div>
+            <div @click="setNewBet" class="btn">ПОСТАВИТЬ</div>
+        </div>  
+        <div v-if="win" class="win">
+            <h2 class="numberCont">ВЫИГРЫШ</h2>
+            <div @click="win = false" class="exit"><img src="img/exit.png" alt=""></div>
+            <div class="win_main">
+                <div class="win_main__item"><p>НАЗВАНИЕ</p><p>СТОИМОСТЬ ПРОДАЖИ</p></div>
+                <div class="win_main__item"><p>{{gain}}</p><p>{{winCost}}$</p></div>
+                <span>Вы можете продать транспорт за 50% от его официальной стоимости государству, либо оставить себе.</span>
+            </div>
+            <div class="win_btns">
+                <div @click="GetPriz" class="btn">ЗАБРАТЬ</div>
+                <div @click="SellPriz" class="btn">ПРОДАТЬ</div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="./js/script.js"></script>
+</html>

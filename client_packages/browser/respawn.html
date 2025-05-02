@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Broadway Spawn</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link type="text/css" rel="stylesheet" href="css/respawn.css" />
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/respawn.js"></script>
+</head>
+<body>
+	<div id="spawn-select" style="display: none;">
+		<div id="home-spawn" class="flex-item select-block home">
+			<div class="title-block">
+				<div class="title-text">
+					<span class="bold">В доме</span>
+					<span class="desc-text"></span>
+				</div>
+			</div>
+			<div class="button-block">
+				<button onclick="spawn(2)" type="button" class="button">Появиться</button>
+			</div>
+		</div>
+		<div id="last-spawn" class="flex-item select-block last">
+			<div class="title-block">
+				<div class="title-text">
+					<span class="bold">Место выхода</span>
+				</div>
+			</div>
+			<div class="button-block">
+				<button onclick="spawn(0)" type="button" class="button">Появиться</button>
+			</div>
+		</div>
+		<div id="org-spawn" class="flex-item select-block org">
+			<div class="title-block">
+				<div class="title-text">
+					<span class="bold">Во фракции</span>
+					<span class="desc-text"></span>
+				</div>
+			</div>
+			<div class="button-block">
+				<button onclick="spawn(1)" type="button" class="button">Появиться</button>
+			</div>
+		</div>
+        <div id="footer">		
+			<!-- <a href="https://broadwaygta5.ru" onclick="spawn(0)"><img src="https://b.radikal.ru/b15/2104/c4/5d340bab55d9.jpg" alt="broadwaygta5.ru"></a> -->
+		</div> 
+	</div>
+</body>
+</html>

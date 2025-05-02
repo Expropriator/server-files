@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<!-- <script src="./js/library/vue.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<!--Подключение VueJs-->
+
+</head>
+<style>
+	[v-cloak] {
+		display: none;
+	}
+</style>
+
+<body>
+	<div class="playermenu" v-cloak v-if="active">
+		<div class="modal" v-if="modal == 1">
+			<div @click="exitmodal" class="exit">
+				<a>X</a>ВЫЙТИ
+			</div>
+			<img src="./img/car1.png" class="car1png">
+			<div v-if="properties == null"></div>
+			<div v-else>
+				<div v-if="properties.Vehicles != null">
+					<div class="namemodal">АВТОПАРК</div>
+					<div class="namemodal2">ВЕСЬ ВАШ АВТОПАРК</div>
+					<div class="listmodal">
+						<div v-for="(veh, index) in properties.Vehicles" class="blockmodal">
+							<a>{{veh.model}}</a>
+							<p>{{veh.number}}</p>
+							<div style="top: 2vw; position: absolute; width: 10vw;" class="bl">
+								<a>Пробег:</a>
+								<p>{{veh.price}}KM</p>
+							</div>
+							<div style="top: 4vw; position: absolute; width: 10vw;" class="bl">
+								<a>Топливо:</a>
+								<p>{{veh.fuel}}</p>
+							</div>
+							<img src="./img/cars/-1.png" class="testcar">
+						</div>
+					</div>
+				</div>
+				<div class="noncars" v-else>
+					<a>У вас нет транспорта</a>
+				</div>
+			</div>
+		</div>
+		<div class="page_1" v-if="style == 0">
+			<div class="left">
+				<div class="center_left">
+					<div class="block_left active">
+						<img src="img/smile.svg" class="image_left">
+						<p>Главная</p>
+					</div>
+					<div @click="gostyle(2)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Профиль</p>
+					</div>
+					<div @click="gostyle(50)" v-on:click="caseInit(1)" class="block_left2">
+						<img src="img/shop.svg" class="image_left">
+						<p>Магазин</p>
+					</div>
+					<div @click="gostyle(4)" class="block_left">
+						<img src="img/rule.svg" class="image_left">
+						<p>Правила</p>
+					</div>
+					<div @click="gostyle(5)" class="block_left">
+						<img src="img/settings.svg" class="image_left">
+						<p>Настройки</p>
+					</div>
+					<div @click="gostyle(6)" class="block_left">
+						<img src="img/horse.svg" class="image_left">
+						<p>Помощь</p>
+					</div>
+				</div>
+			</div>
+			<div class="up_block">
+				<div class="lvl_block">
+					<p>{{stats[0]}} LVL</p>
+					<a>{{stats[1]}} / {{stats[0] * 3}}</a>
+					<div :style="{width: stats[1]/(stats[0] * 3) * 7.5 + 'vw'}" class="lvl_block_active"></div>
+				</div>
+				<div class="playername_block">
+					<div class="name">{{stats[10]}}</div>
+					<div class="surname">{{stats[11]}}<a>#{{stats[14]}}</a></div>
+					<div class="warn_block">
+						<p>Предупреждений</p>
+						<div class="cycle_warn">{{stats[4]}}</div>
+					</div>
+				</div>
+				<div class="donat_block">
+
+				</div>
+			</div>
+			<div class="centerallblocks">
+
+				<div class="battlepass_block">
+					<!-- <div class="block"></div> -->
+					<div class="linear">
+						<!-- <a>BATTLE PASS</a> -->
+						<!-- <p>Зимний пропуск наполнен очень уникальными вещами</p> -->
+
+						<a>SOON</a>
+						<p>Совсем скоро прямо вот зимой</p>
+						<div class="btnenter">Перейти</div>
+						<img src="img/newyear.png" class="newyear">
+					</div>
+				</div>
+				<div class="house_block">
+					<div class="firsttext_block">Дом</div>
+					<div v-if="properties == null"></div>
+					<div v-else>
+						<div v-if="properties.House != null">
+							<div class="secondtext_block">{{properties.House.typeName}}<p>#{{properties.House.id}}</p>
+							</div>
+						</div>
+						<div v-else>
+							<div class="secondtext_block">У вас нет дома</div>
+						</div>
+					</div>
+					<img src="./img/house.png" class="houseicon">
+				</div>
+				<div class="business_block">
+					<div class="firsttext_block">Бизнес</div>
+					<div v-if="properties == null"></div>
+					<div v-else>
+						<div v-if="properties.Business != null">
+							<div class="secondtext_block">{{properties.Business.typeName}}<p>#{{properties.Business.id}}
+								</p>
+							</div>
+						</div>
+						<div v-else>
+							<div class="secondtext_block">У вас нет бизнеса</p>
+							</div>
+						</div>
+					</div>
+					<img src="./img/sage.png" class="safeicon">
+				</div>
+<!--				<div @click="setmodal(1)" class="cars_block">-->
+<!--					<div class="firsttext_block">Автопарк</div>-->
+<!--					<div class="secondtext_block">Весь ваш автопарк<p>Прямо тут</p>-->
+<!--					</div>-->
+<!--					<img src="./img/car1.png" class="car1">-->
+<!--				</div>-->
+				<div class="achivments_block">
+					<div class="cycle_achiv">0</div>
+					<div class="cycle_inform">/ 20</div>
+					<div class="bottom_text">Достижения</div>
+					<div class="stars">
+						<img src="./img/star.png" class="star1">
+						<img src="./img/star.png" class="star2">
+						<img src="./img/star.png" class="star3">
+					</div>
+				</div>
+				<div class="bonus_block">
+					<div class="firsttext_block">Акция</div>
+					<div style="font-size: 1.35vw;" class="secondtext_block">Отыграйте 5 часов и получте<p>200 коинов
+						</p>
+					</div>
+					<img src="./img/hand.png" class="bonusicon">
+				</div>
+				<div class="sale_block">
+					<div class="linear2">
+						<a>Luxury Autos</a>
+						<p>Скидки на эклсюзивные автомобили в автосалоне!</p>
+						<img src="./img/car2.png" class="car2">
+						<div v-on:click="caseInit(1)" @click="gostyle(50)" class="btnenter2">В магазин</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div v-if="style == 4" class="page_1">
+			<div class="left">
+				<div class="center_left">
+					<div @click="gostyle(0)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Главная</p>
+					</div>
+					<div @click="gostyle(2)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Профиль</p>
+					</div>
+					<div @click="gostyle(50)" v-on:click="caseInit(1)" class="block_left2">
+						<img src="img/shop.svg" class="image_left">
+						<p>Магазин</p>
+					</div>
+					<div @click="gostyle(4)" class="block_left active">
+						<img src="img/rule.svg" class="image_left">
+						<p>Правила</p>
+					</div>
+					<div @click="gostyle(5)" class="block_left">
+						<img src="img/settings.svg" class="image_left">
+						<p>Настройки</p>
+					</div>
+					<div @click="gostyle(6)" class="block_left">
+						<img src="img/horse.svg" class="image_left">
+						<p>Помощь</p>
+					</div>
+				</div>
+			</div>
+			<div v-if="modal == 20" class="fullmodalrules">
+				<div @click="exitmodal" class="exit">
+					<a>X</a>НАЗАД
+				</div>
+				<div class="centerrules">
+					<div class="listrules">
+						<div class="hlrul">Общее положение</div>
+						<div class="txtrul">1.1 Сервер основан на режиме RolePlay.</div>
+						<div class="txtrul">1.2 Время в игре соответствует реальному времени по часовому поясу
+							Екатеринбурга (GMT +5).</div>
+						<div class="txtrul">1.3 Все игроки существуют в вымышленном мире, который находится в США, штат
+							"San Andreas".</div>
+						<div class="txtrul">1.4 При отыгровке РП ситуаций стоит опираться на американскую модель
+							поведения в соответствии с реалиями населенных пунктов в США, а именно:</div>
+						<div class="txtdescrul">Развитая инфраструктура и экономическая независимость.</div>
+						<div class="txtdescrul">Толерантное отношение ко всем вероисповеданиям, гендерной, расовой и
+							национальной принадлежности.</div>
+						<div class="txtdescrul">Уважительное отношение к государственным сотрудникам и преобладанием
+							правоохранительных органов над преступностью.</div>
+						<div class="txtdescrul">Густонаселенность жителей в городской и сельской местности.</div>
+						<div style="margin-top: 0.5vw;" class="txtrul">1.5 На сервере действует прецедентная система
+							правил. (Если игрок совершил правонарушение, которое не описано ни в каких правилах сервера,
+							то он может быть наказан с разрешения ГА. Сделано это не с целью выдумывать правила "на
+							ходу" и наказывать по ним, а потому, что все мы люди, могли что-то и забыть или не учесть).
+						</div>
+						<div class="txtrul">1.6 Сервер позиционирует себя как русскоязычный, все РП диалоги должны
+							происходить на русском языке. <a style="color: red;">| Мут 5 минут.</a></div>
+						<div style="margin-top: 0.5vw;" class="hlrul">Положение об аккаунте:</div>
+						<div class="txtrul">При создании игрового аккаунта, игрок соглашается со всеми правилами.</div>
+						<div class="txtrul">Запрещено передавать аккаунт 3-м лицам. <a style="color: red;">|
+								Permban.</a></div>
+						<div class="txtrul">Администрация не несет ответственности за аккаунт игрока в случае его
+							передачи,взлома,обмана и т.д.</div>
+						<div class="txtrul">Запрещена продажа/обмен игровых аккаунтов. <a style="color: red;">|
+								Permban.</a></div>
+						<div class="txtrul">Запрещено одновременно состоять несколькими персонажами во фракции. <a
+								style="color: red;">| WARN персонажей.</a></div>
+						<div class="txtdescrul">Исключение: при покупке третьего персонажа, им можно вступать во
+							фракцию.</div>
+						<div class="txtdescrul">Примечание: запрещено находится на старших/руководящих рангах в обеих
+							фракциях.</div>
+						<div class="txtrul">Игроку криминальной семьи запрещено находится в государственной фракции.
+						</div>
+						<div class="txtrul">Игроку государственной семьи запрещено находится в криминальной фракции.
+						</div>
+						<div style="margin-top: 0.5vw;" class="hlrul">Положение об игровом имуществе:</div>
+						<div class="txtrul">Запрещено иметь более 1 бизнеса на аккаунте. <a style="color: red;">|
+								Изъятие бизнесов.</a></div>
+						<div style="margin-top: 0.5vw;" class="hlrul">Персонажу запрещено иметь nonRP "Имя Фамилия", к
+							nonRP никнеймам относятся:</div>
+						<div class="txtrul">Имена которых не существует в реальности.</div>
+						<div class="txtdescrul">Исключение: разрешены адекватные nonRP никнеймы если они имеют место
+							быть в реалиях США, а так же у игрока имеется одобренная на форуме RP биография.</div>
+						<div class="txtdescrul">Примечание: главный следящий за биографиями / ГА имеют право отклонить
+							nonRP никнейм без каких-либо обоснований или пояснений.</div>
+						<div class="txtdescrul">Пояснение: если игрок планирует использовать nonRP никнейм, то биография
+							должна быть написана максимально качественно, с полным раскрытием характера и именем /
+							фамилией данного персонажа.</div>
+						<div class="txtrul">Имена похожие на ники администраторов.</div>
+						<div class="txtrul">Имена и фамилии знаменитостей, актеров, персонажей из фильмов, сериалов и
+							т.д., а так же схожие имена и фамилии.</div>
+						<div class="txtdescrul">Примечание: специально допущенная ошибка в имени известной личности так
+							же приравнивается к nonRP никнейму.</div>
+						<div class="txtrul">Никнеймы несущие в себе скрытый смысл / звучание, а так же никнеймы не
+							несущие смысловой нагрузки.</div>
+						<div style="color: red;" class="txtrul">За подобный ряд никнеймов выдается demorgan до смены
+							никнейма.</div>
+						<div class="txtrul">Запрещено играть за персонажа противоположного Вам пола. <a
+								style="color: red;">| Demorgan до смены внешности персонажа.</a></div>
+						<div style="margin-top: 0.5vw;" class="hlrul">Модерация платформ</div>
+						<div class="txtrul">4.1.1 Администрация сервера вправе вынести наказания по зафиксированному
+							нарушению с модерируемых платформ.</div>
+						<div class="txtrul">4.1.2 Под модерацией находятся следующие платформы:</div>
+						<div class="txtdescrul">Игровые сервера проекта.</div>
+						<div class="txtdescrul">Официальные дискорд каналы проекта.</div>
+						<div class="txtdescrul">Twitch/Youtube каналы медиа-партнеров.</div>
+						<div class="txtdescrul">Видеоматериалы и скриншоты игроков проекта расположенных на доступных
+							видео и фото хостингах.</div>
+						<div class="txtdescrul">Личные сообщения между администратором и игроком.</div>
+						<div class="txtdescrul">Форум проекта.</div>
+						<div class="txtrul">4.3 Личные сообщения между игроками не входят в зону модерации
+							администрацией.</div>
+						<div class="txtdescrul">Исключение: покупка/продажа внутриигровых ценностей/аккаунтов,
+							распространение закрытой от игроков информации, распространение/продажа запрещенного ПО.
+						</div>
+						<div class="txtrul">4.4 В случае грубого нарушения человек, оформляющий жалобу, может
+							воспользоваться любым видеоматериалом из перечисленных платформ, дабы доказать нарушение
+							игрока.</div>
+						<div class="txtdescrul">Примечание: покупка/продажа игрового имущества за реальные деньги,
+							распространение закрытой информации, использование/распространение/продажа запрещенного ПО и
+							прочие грубые нарушения.</div>
+						<div class="txtrul">4.5 Запрещено использовать запрещенные стримерской платформой (twitch,
+							youtube и др.) слова, высказывания, предложения и прочее. | Mute 240 минут / Ban 3-30 дней /
+							Permban.</div>
+						<div class="txtdescrul">Исключение: покупка/продажа внутриигровых ценностей/аккаунтов,
+							распространение закрытой от игроков информации, распространение/продажа запрещенного ПО.
+						</div>
+						<div class="txtrul">Примечание: видео со всеми запрещенными словами можно посмотреть тут <a
+								style="color: red;">https://youtu.be/KlZq5s3wZrU</a> . Видео предоставлено для
+							наглядности, некоторые слова могут не быть включены в данное видео).</div>
+					</div>
+				</div>
+			</div>
+			<div v-if="modal == 21" class="fullmodalrules">
+				<div @click="exitmodal" class="exit">
+					<a>X</a>НАЗАД
+				</div>
+				<div class="centerrules">
+					<div class="listrules">
+						<div style="margin-top: 0.5vw;" class="hlrul">Игровые чаты</div>
+						<div class="txtrul">Запрещено нарушение общих положений игрового чата:</div>
+						<div class="txtdescrul">Голосовой чат является исключительно IC чатом, где запрещено любое
+							общение по ООС. <a style="color: red;">| Mute 60-120 минут.</a></div>
+						<div class="txtdescrul">Исключение: обоюдное согласие при наличии не более 4 игроков,
+							присутствие рядом администрации с "короной".</div>
+						<div class="txtdescrul">Запрещено упоминание родственников в оскорбительном либо шуточном
+							характере. <a style="color: red;">| Demorgan 90 минут / Ban 5-30 дней</a></div>
+						<div class="txtdescrul">Примечание: завуалированное оскорбление так же считается за упоминание.
+						</div>
+						<div class="txtdescrul">Запрещено использование CapsLock при общении через чаты. <a
+								style="color: red;">| Mute 30-60 минут.</a></div>
+						<div class="txtdescrul">Вся ООС информация передается исключительно через /b и /fb чаты. <a
+								style="color: red;">| Mute 60-120 минут.</a></div>
+						<div class="txtdescrul">Запрещен спам/флуд сообщениями в любые текстовые чаты. <a
+								style="color: red;">| Mute 10 - 60 минут.</a></div>
+						<div class="txtdescrul">Запрещено использование программ для изменения тональности голоса. <a
+								style="color: red;">| Mute 10 - 60 минут.</a></div>
+						<div class="txtdescrul">Запрещено издавать громкие или мешающие звуки. <a style="color: red;">|
+								Mute 10 - 120 минут.</a></div>
+						<div class="txtdescrul">Запрещены ООС оскорбления игроков. <a style="color: red;">| Demorgan
+								15-90 минут.</a></div>
+						<div style="margin-top: 0.5vw;" class="hlrul">Правила глобальных чатов (/dep, /gnews, рации):
+						</div>
+						<div class="txtrul">Запрещено использование матерной брани. <a style="color: red;">| Mute 240
+								минут / WARN.</a> <a style="color: orange">Исключение: рации.</a></div>
+						<div class="txtrul">Запрещена MG / ООС информация. <a style="color: red;">| Mute 240 минут /
+								WARN.</a></div>
+						<div class="txtrul">Запрещены диалоги не несущие смысловую нагрузку. <a style="color: red;">|
+								Mute 240 минут / WARN.</a></div>
+						<div class="txtdescrul">Исключение: отдельные каналы в рации, в котором участники данного канала
+							не возражают.</div>
+						<div class="txtdescrul">Запрещены оскорбления в грубой форме. <a style="color: red;">| Mute 240
+								минут / WARN.</a></div>
+						<div class="txtdescrul">Исключение: IC диалоги в рации (кроме департамента).</div>
+						<div class="txtrul">Запрещено писать в глобальные чаты одновременно с другими фракциями. <a
+								style="color: red;">| Mute 240 минут / WARN.</a></div>
+						<div class="txtdescrul">Примечание: требуется заранее узнавать собирается ли кто-то использовать
+							гос.волну или нет.</div>
+						<div class="txtrul">Запрещено использование капса. <a style="color: red;">| Mute 120-240
+								минут.</a></div>
+						<div class="txtdescrul">Пример: "САНГ, НА СВЯЗЬ".</div>
+						<div class="txtrul">Запрещен спам / флуд нажатием включения рации. <a style="color: red;">| Mute
+								120 минут.</a></div>
+						<div style="margin-top: 0.5vw;" class="hlrul">Маски</div>
+						<div class="txtrul">Все криминальные действия, связанные с использованием оружия, при которых
+							совершается нарушение законов штата, должны сопровождаться с использованием маски. <a
+								style="color: red;">| Demorgan 15 минут.</a></div>
+						<div class="txtdescrul">Исключение: самооборона, внезапный IC конфликт, при котором нет
+							возможности надеть маску.</div>
+						<div class="txtrul">Для сотрудников силовых структур, игрок в маске является приоритетной целью,
+							и они вправе задержать его для дальнейшего выяснения личности.</div>
+						<div class="txtrul">Высокопоставленным сотрудникам государственных структур запрещено
+							использовать маски в рабочее время.</div>
+						<div class="txtdescrul">Исключение: сотрудники силовых структур при исполнении, а так же для
+							сохранения своей личности в IC ситуациях.</div>
+						<div style="margin-top: 0.5vw;" class="hlrul">Role Play процесс</div>
+						<div class="txtrul">Role Play - это отыгровка выбранной роли в игровом процессе, через
+							моделирование реального мира. Игровой процесс предполагает, что вы при игре за вашего
+							персонажа, будете опираться на реальные человеческие качества и качественно отыгрывать свою
+							роль.</div>
+					</div>
+				</div>
+			</div>
+			<div class="helprules">
+				<a>Правила сервера <b style="color: #0de646; text-shadow: 0 0 2vw #0de64650">SHARP</b></a>
+				<div @click="setmodal(20)" class="block1">
+					Главные правила сервера
+				</div>
+				<div @click="setmodal(21)" style="margin-top: 0.3vw;" class="block1">
+					Игровой процесс
+				</div>
+				<div style="left: 30.3vw;position: absolute;" class="block1">
+					Правила фракций
+				</div>
+				<div style="left: 30.3vw; top: 18.3vw;position: absolute;" class="block2">
+					НЕДОСТУПНО
+					<img src="./img/lock.svg" class="lockicon">
+				</div>
+				<div class="block3">
+					НЕДОСТУПНО
+					<img src="./img/lock.svg" class="lockicon">
+				</div>
+			</div>
+		</div>
+
+		<div class="page_1" v-if="style == 3">
+			<div @click="setmodal(11)" v-if="modal == 11" class="btngoitems active">В ПРЕДМЕТЫ</div>
+			<div @click="setmodal(11)" v-else class="btngoitems">В ПРЕДМЕТЫ</div>
+			<div @click="setmodal(0)" v-if="modal == 0" style="right: 21vw;" class="btngoitems active">Рулекта</div>
+			<div @click="setmodal(0)" v-else style="right: 21vw;" class="btngoitems">Рулекта</div>
+			<div class="coinscount">{{money}}</div>
+			<img src="./img/logofreedom.png" class="icomoney">
+			<div @click="gostyle(50)" class="exit">
+				<a>X</a>ВЫЙТИ
+			</div>
+			<div v-if="modal != 11" class="center_roul">
+				<div class="textmodal">Рулетка Shadow</div>
+				<div class="roulette-content__shop-case__item-wrapper__drum">
+					<div class="drum-shadow__wrapper">
+						<div class="drum-shadow__wrapper-item"></div>
+						<div class="drum-shadow__wrapper-item"></div>
+					</div>
+					<div v-for="item in caseData.items" class="roulette-content__shop-case__item-wrapper__drum-item"
+						:class='"rarity-" + (item.rarity)'>
+						<div class="roulette-content__shop-case__item-wrapper__drum-item__preview">
+							<img :src='"./images/items/" + (item.background)' :alt="item.title">
+						</div>
+					</div>
+				</div>
+				<div @click="openCase" class="openstandart"><a>Открыть обычно</a></div>
+				<div class="coinsbuy"><a>200</a> <img src="./img/logofreedom.png" class="icomoney2"></div>
+				<div @click="openCase('quick')" class="openfast"><a>Открыть быстро</a></div>
+			</div>
+			<div v-if="modal == 11" class="prizesmodal">
+				<div class="textmodal2">Ваши предметы</div>
+				<div class="listprize">
+					<div class="listprize2">
+						<div v-for="(item, index) in prizes" class="blockvert">
+							<div class="titleprize">{{item.title}}</div>
+							<div v-if="item.cost != 0" style="margin-top: 3vw" class="titleprize">{{ item.cost }}</div>
+							<div :class='"rarity-" + (item.rarity)' class="imgblock">
+								<img :src='"./images/items/" + (item.background)' :alt="item.title">
+							</div>
+							<div @click="getPrize('take', index)" class="btntake">Забрать</div>
+							<div v-if="item.cost != 0" @click="getPrize('sellList', index)" class="btntake2">Продать
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div v-if="modal == 10" class="modalprize">
+				<div class="blockcentermodal">
+					<div v-if="caseData.winItem">
+						<!-- <img src="./images/items/bentley100exp.png"> -->
+						<img v-if="caseData.winItem.background" :src='"./images/items/" + (caseData.winItem.background)'
+							:alt="caseData.winItem.title">
+						<div class="prizeshadow" :class='"rarity-" + (caseData.winItem.rarity)'></div>
+						<div :class='"rarity-" + (caseData.winItem.rarity)' class="nameprize">{{ caseData.winItem.title
+							}}</div>
+					</div>
+					<div @click="getPrize('get')" :class='"rarity-" + (caseData.winItem.rarity)' class="btnmodal">
+						Забрать себе</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page_1" v-if="style == 2">
+			<div class="left">
+				<div class="center_left">
+					<div @click="gostyle(0)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Главная</p>
+					</div>
+					<div @click="gostyle(2)" class="block_left active">
+						<img src="img/smile.svg" class="image_left">
+						<p>Профиль</p>
+					</div>
+					<div @click="gostyle(50)" v-on:click="caseInit(1)" class="block_left2">
+						<img src="img/shop.svg" class="image_left">
+						<p>Магазин</p>
+					</div>
+					<div @click="gostyle(4)" class="block_left">
+						<img src="img/rule.svg" class="image_left">
+						<p>Правила</p>
+					</div>
+					<div @click="gostyle(5)" class="block_left">
+						<img src="img/settings.svg" class="image_left">
+						<p>Настройки</p>
+					</div>
+					<div @click="gostyle(6)" class="block_left">
+						<img src="img/horse.svg" class="image_left">
+						<p>Помощь</p>
+					</div>
+				</div>
+			</div>
+			<div class="up_block">
+				<div class="lvl_block">
+					<p>{{stats[0]}} LVL</p>
+					<a>{{stats[1]}} / {{stats[0] * 3}}</a>
+					<div :style="{width: stats[1]/(stats[0] * 3) * 7.5 + 'vw'}" class="lvl_block_active"></div>
+				</div>
+				<div class="playername_block">
+					<div class="name">{{stats[10]}}</div>
+					<div class="surname">{{stats[11]}}<a>#{{stats[14]}}</a></div>
+					<div class="warn_block">
+						<p>Предупреждений</p>
+						<div class="cycle_warn">{{stats[4]}}</div>
+					</div>
+				</div>
+				<div class="donat_block">
+
+				</div>
+			</div>
+			<div style="margin-top: -13.45vw;margin-left: -3vw" class="centerallblocks">
+				<div class="up_block">
+					<div class="eatblock">
+						<div class="cycle_eat">{{stats[15]}}%</div>
+						<div class="prod_eat">Голод</div>
+					</div>
+					<div style="position: absolute; left: 10vw;" class="waterblock">
+						<div class="cycle_eat">{{stats[16]}}%</div>
+						<div class="prod_eat">Жажда</div>
+					</div>
+					<div class="blockstat1">
+						<div class="text">Игровой статус</div>
+						<div class="text2">{{stats[3]}}</div>
+					</div>
+					<div class="blockstat2">
+						<div class="text">Организация</div>
+						<div class="text2">{{stats[8]}}</div>
+					</div>
+					<div style="top: 25vw;" class="blockstat2">
+						<div class="text">Работа</div>
+						<div class="text2">{{stats[7]}}</div>
+					</div>
+					<div style="top: 28.5vw;" class="blockstat2">
+						<div class="text">Семейное положение</div>
+						<div class="text2">Холост</div>
+					</div>
+					<div style="left: 19vw;" class="blockstat2">
+						<div class="text">Баланс</div>
+						<div class="text2">${{stats[17] | formatThousands}}</div>
+					</div>
+					<div style="left: 19vw; top: 25vw;" class="blockstat2">
+						<div class="text">Банк</div>
+						<div class="text2">{{stats[13]}}</div>
+					</div>
+					<div style="left: 19vw; top: 28.5vw;" class="blockstat2">
+						<div class="text">Дата создания</div>
+						<div class="text2">{{stats[6]}}</div>
+					</div>
+					<div style="top: 32vw;" class="blockstat2">
+						<div class="text">Уровень работ</div>
+						<div class="text2">{{ workLevels.join(', ') }}</div>
+					</div>
+					<div style="top: 35.5vw;" class="blockstat2">
+						<div class="text">Уровень работ тест</div>
+						<div class="text2">
+							<div class="work-stats">
+								<div class="work-header">Уровни работ</div>
+								<div class="work-list">
+									<div v-for="work in workLevels" :key="work.WorkID" class="work-item">
+										<span class="work-name">{{ getWorkName(work.WorkID) }}</span>
+										<span class="work-level">{{ work.Level }} ур.</span>
+										<span class="work-exp">{{ work.Exp }}/{{ work.ExpToNextLevel }}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="top: 39vw;" class="blockstat2">
+						<div class="text">Уровень работ тест</div>
+						<div class="text2">
+							<span v-for="(lvl, index) in workLevels" :key="index">
+								{{ lvl }}<span v-if="index !== workLevels.length - 1">, </span>
+							</span>
+						</div>
+					</div>
+					 <input v-model="promocode" id="promocode" class="promocodeinput" spellcheck="false" readonly>
+					 <div @click="copy()" class="btncopy">СКОПИРОВАТЬ</div>
+				</div>
+			</div>
+			<img src="./img/1.png" class="persicon">
+		</div>
+
+		<div class="page_1" v-if="style == 51">
+			<div class="left">
+				<div class="center_left">
+					<div @click="gostyle(0)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Главная</p>
+					</div>
+					<div @click="gostyle(2)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Профиль</p>
+					</div>
+					<div @click="gostyle(50)" v-on:click="caseInit(1)" class="block_left2 active">
+						<img src="img/shop.svg" class="image_left">
+						<p>Магазин</p>
+					</div>
+					<div @click="gostyle(4)" class="block_left">
+						<img src="img/rule.svg" class="image_left">
+						<p>Правила</p>
+					</div>
+					<div @click="gostyle(5)" class="block_left">
+						<img src="img/settings.svg" class="image_left">
+						<p>Настройки</p>
+					</div>
+					<div @click="gostyle(6)" class="block_left">
+						<img src="img/horse.svg" class="image_left">
+						<p>Помощь</p>
+					</div>
+				</div>
+			</div>
+			<div class="listpos">
+				<div class="listcars">
+					<div class="centrezired">
+						<div v-for="(item, index) in carsdonate" class="blockcar">
+							<a>{{item.name}}</a>
+							<p>{{item.desc}}</p>
+							<h1>{{item.money}} SC</h1>
+							<div class="imgcar"><img :src='"./images/items/" + (item.background) + ".png"'></div>
+							<div @click="buydonate(item.casebuy)" class="btnbuycarthis">Купить</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page_1" v-if="style == 52">
+			<div class="left">
+				<div class="center_left">
+					<div @click="gostyle(0)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Главная</p>
+					</div>
+					<div @click="gostyle(2)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Профиль</p>
+					</div>
+					<div @click="gostyle(50)" v-on:click="caseInit(1)" class="block_left2 active">
+						<img src="img/shop.svg" class="image_left">
+						<p>Магазин</p>
+					</div>
+					<div @click="gostyle(4)" class="block_left">
+						<img src="img/rule.svg" class="image_left">
+						<p>Правила</p>
+					</div>
+					<div @click="gostyle(5)" class="block_left">
+						<img src="img/settings.svg" class="image_left">
+						<p>Настройки</p>
+					</div>
+					<div @click="gostyle(6)" class="block_left">
+						<img src="img/horse.svg" class="image_left">
+						<p>Помощь</p>
+					</div>
+				</div>
+			</div>
+			<div class="listpos">
+				<div class="listcars">
+					<div class="centrezired">
+						<div v-for="(item, index) in moneyconvert" class="blockcar">
+							<a>{{item.name}}</a>
+							<p>{{item.desc}}</p>
+							<h1>{{item.money}} SC</h1>
+							<div class="imgcar"><img :src='"./images/items/" + (item.background) + ".png"'></div>
+							<div @click="buydonate(item.casebuy)" class="btnbuycarthis">Купить</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page_1" v-if="style == 50">
+			<div class="left">
+				<div class="center_left">
+					<div @click="gostyle(0)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Главная</p>
+					</div>
+					<div @click="gostyle(2)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Профиль</p>
+					</div>
+					<div @click="gostyle(50)" v-on:click="caseInit(1)" class="block_left2 active">
+						<img src="img/shop.svg" class="image_left">
+						<p>Магазин</p>
+					</div>
+					<div @click="gostyle(4)" class="block_left">
+						<img src="img/rule.svg" class="image_left">
+						<p>Правила</p>
+					</div>
+					<div @click="gostyle(5)" class="block_left">
+						<img src="img/settings.svg" class="image_left">
+						<p>Настройки</p>
+					</div>
+					<div @click="gostyle(6)" class="block_left">
+						<img src="img/horse.svg" class="image_left">
+						<p>Помощь</p>
+					</div>
+				</div>
+			</div>
+			<div class="cnt">
+				<div @click="gostyle(51)" class="blockcarsbuy">
+					<a>Автосалон</a>
+					<p>Донат авто</p>
+					<h1>Mercedes-Benz AVTR, Lamborghini Urus, Mercedes-Benz Sprinter, BMW X6M 2021, BMW M5 BULKIN
+						EDITION, Porsche Taycan Litvin Edition, Rolls-Royce Cullinan SMOTRA...</h1>
+					<img src="./images/items/urus.png" class="urus">
+				</div>
+				<div class="blockvipbuy">
+					<a>Вип-статусы</a>
+					<p>Магазин</p>
+					<h1>Вип статус Saphire дает возможность появляться в больнице с 40хп, увеличение зарплат в 1.85
+						раз...</h1>
+					<img src="./images/items/vip3.png" class="urus">
+				</div>
+				<div class="blockstarterpacksbuy">
+					<a>Стартовые наборы</a>
+					<p>Магазин</p>
+					<h1>Набор новичок поможет вам в начале, вы получите VIP Saphire, 3 000 000$, лицензию Drive A и
+						Drive B. Еще в подарок идет сало и булочка с павидлом за хорошее поведение. Прокачка всех
+						навыков на 20%</h1>
+					<img src="./images/items/kalmar.png" style="bottom: -1vw; right: -6vw;" class="urus">
+				</div>
+				<div @click="gostyle(52)" class="blockvirtibuy">
+					<a>Игровая валюта</a>
+					<p>Обмен на вирты</p>
+					<h1>Можно обменять на 500 000$, 2 500 000$ да и в целом на казино можно поменять, главное квартиру
+						не проиграть с женой и детьми, мы же все таки люди а не собаки</h1>
+					<img src="./images/items/money2.png" class="urus">
+				</div>
+				<div @click="gostyle(3)" class="blockroulettebuy">
+					<a>Рулетка Shadow</a>
+					<p>Попытай свою удачу</p>
+					<h1>Рулетка на чистое везение не более. Может выпасть как и 200 000. Так и Mercedes-Benz AVTR
+						который на минуточку стоит 10.000 Коинов</h1>
+					<img src="./img/1.png" class="urus">
+				</div>
+				<div class="blockbattlepassbuy">
+					<a>Скоро</a>
+					<p>Скоро даже очень</p>
+					<h1>0_0</h1>
+					<img src="./img/newyear.png" class="urus">
+				</div>
+			</div>
+		</div>
+		<div class="page_1" v-if="style == 6">
+			<div class="left">
+				<div class="center_left">
+					<div @click="gostyle(0)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Главная</p>
+					</div>
+					<div @click="gostyle(2)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Профиль</p>
+					</div>
+					<div @click="gostyle(50)" v-on:click="caseInit(1)" class="block_left2">
+						<img src="img/shop.svg" class="image_left">
+						<p>Магазин</p>
+					</div>
+					<div @click="gostyle(4)" class="block_left">
+						<img src="img/rule.svg" class="image_left">
+						<p>Правила</p>
+					</div>
+					<div @click="gostyle(5)" class="block_left active">
+						<img src="img/settings.svg" class="image_left">
+						<p>Настройки</p>
+					</div>
+					<div @click="gostyle(6)" class="block_left">
+						<img src="img/horse.svg" class="image_left">
+						<p>Помощь</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page_1" v-if="style == 5">
+			<div class="left">
+				<div class="center_left">
+					<div @click="gostyle(0)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Главная</p>
+					</div>
+					<div @click="gostyle(2)" class="block_left">
+						<img src="img/smile.svg" class="image_left">
+						<p>Профиль</p>
+					</div>
+					<div @click="gostyle(50)" v-on:click="caseInit(1)" class="block_left2">
+						<img src="img/shop.svg" class="image_left">
+						<p>Магазин</p>
+					</div>
+					<div @click="gostyle(4)" class="block_left">
+						<img src="img/rule.svg" class="image_left">
+						<p>Правила</p>
+					</div>
+					<div @click="gostyle(5)" class="block_left active">
+						<img src="img/settings.svg" class="image_left">
+						<p>Настройки</p>
+					</div>
+					<div @click="gostyle(6)" class="block_left">
+						<img src="img/horse.svg" class="image_left">
+						<p>Помощь</p>
+					</div>
+				</div>
+			</div>
+			<div class="up_block">
+				<div class="lvl_block">
+					<p>{{stats[0]}} LVL</p>
+					<a>{{stats[1]}} / {{stats[0] * 3}}</a>
+					<div :style="{width: stats[1]/(stats[0] * 3) * 7.5 + 'vw'}" class="lvl_block_active"></div>
+				</div>
+				<div class="playername_block">
+					<div class="name">{{stats[10]}}</div>
+					<div class="surname">{{stats[11]}}<a>#{{stats[14]}}</a></div>
+					<div class="warn_block">
+						<p>Предупреждений</p>
+						<div class="cycle_warn">{{stats[4]}}</div>
+					</div>
+				</div>
+				<div class="donat_block">
+
+				</div>
+			</div>
+			<div style="margin-top: -13.45vw;margin-left: -3vw" class="centerallblocks">
+				<div class="up_block">
+					<div class="name_block">Настройка клавиш</div>
+
+					<div class="block_key">
+						<div class="text_ket">Двигатель</div>
+						<div class="blockmain">{{binds[5]}}</div><button @click="rebindMenuOpen('Двигатель')"
+							@keyup="rebind(5,event)" class="btnrebind">ИЗМЕНИТЬ</button>
+					</div>
+					<div style="margin-top: 5vw;" class="block_key">
+						<div class="text_ket">Двери</div>
+						<div class="blockmain">{{binds[3]}}</div><button @click="rebindMenuOpen('Двери')"
+							@keyup="rebind(3,event)" class="btnrebind">ИЗМЕНИТЬ</button>
+					</div>
+					<div style="margin-top: 10vw;" class="block_key">
+						<div class="text_ket">Ремень</div>
+						<div class="blockmain">{{binds[6]}}</div><button @click="rebindMenuOpen('Ремень')"
+							@keyup="rebind(6,event)" class="btnrebind">ИЗМЕНИТЬ</button>
+					</div>
+					<div style="margin-left: 20vw;" class="block_key">
+						<div class="text_ket">Анимации</div>
+						<div class="blockmain">{{binds[1]}}</div><button @click="rebindMenuOpen('Анимации')"
+							@keyup="rebind(1,event)" class="btnrebind">ИЗМЕНИТЬ</button>
+					</div>
+					<div style="margin-top: 5vw; margin-left: 20vw;" class="block_key">
+						<div class="text_ket">Меню персонажа</div>
+						<div class="blockmain">{{binds[2]}}</div><button @click="rebindMenuOpen('Меню персонажа')"
+							@keyup="rebind(2,event)" class="btnrebind">ИЗМЕНИТЬ</button>
+					</div>
+					<div style="margin-top: 10vw; margin-left: 20vw;" class="block_key">
+						<div class="text_ket">Инвентарь</div>
+						<div class="blockmain">{{binds[0]}}</div><button @click="rebindMenuOpen('Инвентарь')"
+							@keyup="rebind(0,event)" class="btnrebind">ИЗМЕНИТЬ</button>
+					</div>
+					<button @click="saveBinds" class="btnrebindsave">ПРИМЕНИТЬ</button>
+				</div>
+			</div>
+			<div class="rebindMenu" v-if="rebindMenu">
+				<h2>{{rmTitle}}</h2>
+				<p>Нажмите любую клавишу чтобы поменять кнопку</p>
+				<div class="text_btn">Нажмите <b>ESC</b> для отмены</div>
+			</div>
+			<img src="./img/2.png" class="persicon2">
+		</div>
+	</div>
+	<script>
+    Vue.filter('formatThousands', (x) => {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    })
+	</script>
+	<script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+
+</html>

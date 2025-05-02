@@ -1,0 +1,1036 @@
+body {
+	overflow: hidden;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	font-family: Montserrat;
+	color: #fff;
+}
+.all {
+	-webkit-animation: fadeInFromNone 0.5s ease-out; -moz-animation: fadeInFromNone 0.5s ease-out; -o-animation: fadeInFromNone 0.5s ease-out; animation: fadeInFromNone 0.5s ease-out;
+}
+.houseinfo::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: -webkit-radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  background: -o-radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  background: radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.houseinfo2::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: -webkit-radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  background: -o-radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  background: radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.housebuy::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: -webkit-radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  background: -o-radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  background: radial-gradient(50% 88.89% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, 0.75) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.houseico {
+	width: 100%;
+	/* height: 100%; */
+	transform: translate(0,-50%);
+	position: absolute;
+	top: 50%;
+	left: 0;
+}
+.houseicobg {
+	width: 150%;
+	height: 150%;
+	/* transform: translate(0,-50%); */
+	position: absolute;
+	top: -5vh;
+	filter: blur(2vh);
+	left: -5vh;
+}
+.housebg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: radial-gradient(50% 90% at 50% 50%, rgba(22, 21, 35, 0) 0%, rgba(22, 21, 35, .90) 100%);
+	background-color: #0d162795;
+}
+.exit {
+	position: fixed;
+	left: 1.5vw;
+	top: 1.5vw;
+	background: #00000060;
+	width: 7.5vw;
+	z-index: 4;
+	color: #fff;
+	height: 2vw;
+	zoom: 80%;
+	text-align: center;
+	line-height: 2vw;
+	font-weight: 400;
+	font-size: 0.75vw;
+	border-radius: 0.25vw;
+}
+.exit a {
+	width: 2vw;
+	height: 2vw;
+	position: absolute;
+	color: #fff;
+	/* font-family: Montserrat; */
+	left: 0;
+	border-radius: 0.25vw;
+	background: #00000060;
+}
+/* HOUSE TYPE 0 */
+.house-0 #housecenter {
+	transform: rotate(6.5deg);
+}
+.house-0 .housecenter{
+	width: 9.4vw;
+	height: 9.9vw;
+	position: absolute;
+	left: 45.75%;
+	top: 50%;
+	/* background: grey; */
+}
+.house-0 .housecenter .block a{
+	position: absolute;
+	top: 0;
+	color: #b5b5b5;
+	font-weight: 500;
+	font-size: 0.5vw;
+	text-transform: uppercase;
+}
+.house-0 .housecenter .block p {
+	position: absolute;
+	bottom: 0;
+	color: #606364;
+	font-weight: 600;
+	font-size: 1vw;
+}
+.house-0 .housecenter .block {
+	position: relative;
+	width: 9.4vw;
+	left: 1vw;
+	top: 2vw;
+	height: 2.55vw;
+	margin-top: -0.85vw;
+	/* background: #000; */
+}
+.house-0 #buybtn {
+	transform: rotate(0deg);
+}
+.house-0 .buybtn:hover {
+	opacity: 0.5;
+}
+.house-0 .buybtn {
+	position: absolute;
+	width: 10vw;
+	cursor: pointer;
+	transition: opacity .88s;
+	height: 3vw;
+	font-size: 2vw;
+	line-height: 3vw;
+	text-align: center;
+	font-family: Bebas Neue;
+	font-weight: 600;
+	letter-spacing: 0.1vw;
+	left: -6%;
+	opacity: 0.2;
+	transform: translate(-50%,0);
+	bottom: -8vw;
+	border: 0.4vw solid #ffffff;
+	/* border-radius:  */
+}
+.house-0 .security {
+	position: absolute;
+	transform: rotate(-6.5deg);
+	width: 12vw;
+	left: -40vw;
+	opacity: 0.7;
+	top: -15vw;
+}
+.house-0 .houseinform {
+	position: absolute;
+	top: -10vh;
+	left: -13vw;
+	top: -22vw;
+	width: 30vw;
+	height: 13vw;
+	/* background: #000; */
+	transform: rotate(-6.5deg);
+}
+.house-0 .houseinform .housedom {
+	text-align: center;
+	font-size: 1.5vw;
+	margin-top: 4vw;
+	color: #d4d4d4;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.house-0 .houseinform .hi {
+	text-align: center;
+	font-size: 1vw;
+	margin-top: 0.5vw;
+	color: #d4d4d4;
+	font-weight: 500;
+	opacity: 0.5;
+}
+.house-0 .houseinform .h2 {
+	text-align: center;
+	font-size: 2vw;
+	margin-top: 0vw;
+	text-transform: uppercase;
+	color: #d4d4d4;
+	font-weight: 600;
+}
+.house-0 .open {
+	position: absolute;
+	width: 2vw;
+	height: 1.5vw;
+	border-radius: 60vw;
+	/* background: grey; */
+	right: -11vw;
+	bottom: -10.7vw;
+}
+/* HOUSE TYPE 0 */
+
+/* HOUSE TYPE 1 */
+.house-1 #housecenter {
+	transform: rotate(6.5deg);
+}
+.house-1 .housecenter{
+	width: 9.4vw;
+	height: 9.9vw;
+	position: absolute;
+	left: 45.75%;
+	top: 50%;
+	/* background: grey; */
+}
+.house-1 .houseinfornecenter {
+	position: absolute;
+	left: -24vw;
+	top: -8.5vw;
+}
+.house-1 .housecenter .block a{
+	position: absolute;
+	top: 0;
+	color: #b5b5b5;
+	font-weight: 500;
+	font-size: 0.5vw;
+	text-transform: uppercase;
+}
+.house-1 .housecenter .block p {
+	position: absolute;
+	bottom: 0;
+	color: #606364;
+	font-weight: 600;
+	font-size: 1vw;
+}
+.house-1 .housecenter .block {
+	position: relative;
+	width: 9.4vw;
+	left: 1vw;
+	top: 2vw;
+	height: 2.55vw;
+	margin-top: -0.85vw;
+	/* background: #000; */
+}
+.house-1 #buybtn {
+	transform: rotate(0deg);
+}
+.house-1 .buybtn:hover {
+	opacity: 0.5;
+}
+.house-1 .buybtn {
+	position: absolute;
+	width: 10vw;
+	cursor: pointer;
+	transition: opacity .88s;
+	height: 3vw;
+	font-size: 2vw;
+	line-height: 3vw;
+	text-align: center;
+	font-family: Bebas Neue;
+	font-weight: 600;
+	letter-spacing: 0.1vw;
+	left: -6%;
+	opacity: 0.2;
+	transform: translate(-50%,0);
+	bottom: -10vw;
+	border: 0.4vw solid #ffffff;
+	/* border-radius:  */
+}
+.house-1 .security {
+	position: absolute;
+	transform: rotate(-6.5deg);
+	width: 12vw;
+	left: -40vw;
+	opacity: 0.7;
+	top: -15vw;
+}
+.house-1 .houseinform {
+	position: absolute;
+	left: 11.5vw;
+	top: -6vw;
+	width: 30vw;
+	height: 13vw;
+	/* background: #000; */
+	transform: rotate(-6.5deg);
+}
+.house-1 .houseinform .housedom {
+	text-align: center;
+	font-size: 1.5vw;
+	margin-top: 4vw;
+	color: #d4d4d4;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.house-1 .houseinform .hi {
+	text-align: center;
+	font-size: 1vw;
+	margin-top: 0.5vw;
+	color: #d4d4d4;
+	font-weight: 500;
+	opacity: 0.5;
+}
+.house-1 .houseinform .h2 {
+	text-align: center;
+	font-size: 2vw;
+	margin-top: 0vw;
+	text-transform: uppercase;
+	color: #d4d4d4;
+	font-weight: 600;
+}
+.house-1 .open {
+	position: absolute;
+	width: 4vw;
+	height: 4vw;
+	border-radius: 60vw;
+	/* background: grey; */
+	right: -11.2vw;
+	bottom: -6.4vw;
+}
+/* HOUSE TYPE 1 */
+
+
+/* HOUSE TYPE 2 */
+.house-2 #housecenter {
+	transform: rotate(6.5deg);
+}
+.house-2 .housecenter{
+	width: 9.4vw;
+	height: 9.9vw;
+	position: absolute;
+	left: 45.75%;
+	top: 50%;
+	/* background: grey; */
+}
+.house-2 .houseinfornecenter {
+	position: absolute;
+	left: -31.5vw;
+	top: -3.7vw;
+}
+.house-2 .housecenter .block a{
+	position: absolute;
+	top: 0;
+	color: #b5b5b5;
+	font-weight: 500;
+	font-size: 0.5vw;
+	text-transform: uppercase;
+}
+.house-2 .housecenter .block p {
+	position: absolute;
+	bottom: 0;
+	color: #606364;
+	font-weight: 600;
+	font-size: 1vw;
+}
+.house-2 .housecenter .block {
+	position: relative;
+	width: 9.4vw;
+	left: 1vw;
+	top: 2vw;
+	height: 2.55vw;
+	margin-top: -0.85vw;
+	/* background: #000; */
+}
+.house-2 #buybtn {
+	transform: rotate(0deg);
+}
+.house-2 .buybtn:hover {
+	opacity: 0.5;
+}
+.house-2 .buybtn {
+	position: absolute;
+	width: 10vw;
+	cursor: pointer;
+	transition: opacity .88s;
+	height: 3vw;
+	font-size: 2vw;
+	line-height: 3vw;
+	text-align: center;
+	font-family: Bebas Neue;
+	font-weight: 600;
+	letter-spacing: 0.1vw;
+	left: 320%;
+	opacity: 0.2;
+	transform: translate(-50%,0);
+	bottom: -0vw;
+	border: 0.4vw solid #ffffff;
+	/* border-radius:  */
+}
+.house-2 .security {
+	position: absolute;
+	transform: rotate(-6.5deg);
+	width: 12vw;
+	left: -40vw;
+	opacity: 0.7;
+	top: -15vw;
+}
+.house-2 .houseinform {
+	position: absolute;
+	left: 103.5vw;
+	top: -9.4vw;
+	width: 30vw;
+	height: 13vw;
+	zoom: 55%;
+	/* background: #000; */
+	transform: rotate(-6.5deg);
+}
+.house-2 .houseinform .housedom {
+	text-align: center;
+	font-size: 1.5vw;
+	margin-top: 4vw;
+	color: #d4d4d4;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.house-2 .houseinform .hi {
+	text-align: center;
+	font-size: 1vw;
+	margin-top: 0.5vw;
+	color: #d4d4d4;
+	font-weight: 500;
+	opacity: 0.5;
+}
+.house-2 .houseinform .h2 {
+	text-align: center;
+	font-size: 2vw;
+	margin-top: 0vw;
+	text-transform: uppercase;
+	color: #d4d4d4;
+	font-weight: 600;
+}
+.house-2 .open {
+	position: absolute;
+	width: 4vw;
+	height: 1vw;
+	border-radius: 60vw;
+	/* background: grey; */
+	transform: rotate(-19deg);
+	right: 10.5vw;
+	bottom: -9.8vw;
+}
+/* HOUSE TYPE 2 */
+
+
+/* HOUSE TYPE 3 */
+.house-3 #housecenter {
+	transform: rotate(6.5deg);
+}
+.house-3 .housecenter{
+	width: 9.4vw;
+	height: 9.9vw;
+	position: absolute;
+	left: 45.75%;
+	top: 50%;
+	/* background: grey; */
+}
+.house-3 .houseinfornecenter {
+	position: absolute;
+	left: -37vw;
+	top: -4.7vw;
+}
+.house-3 .housecenter .block a{
+	position: absolute;
+	top: 0;
+	color: #b5b5b5;
+	font-weight: 500;
+	font-size: 0.5vw;
+	text-transform: uppercase;
+}
+.house-3 .housecenter .block p {
+	position: absolute;
+	bottom: 0;
+	color: #606364;
+	font-weight: 600;
+	font-size: 1vw;
+}
+.house-3 .housecenter .block {
+	position: relative;
+	width: 9.4vw;
+	left: 1vw;
+	top: 2vw;
+	height: 2.55vw;
+	margin-top: -0.85vw;
+	/* background: #000; */
+}
+.house-3 #buybtn {
+	transform: rotate(0deg);
+}
+.house-3 .buybtn:hover {
+	opacity: 0.9;
+}
+.house-3 .buybtn {
+	position: absolute;
+	width: 10vw;
+	cursor: pointer;
+	transition: opacity .88s;
+	height: 3vw;
+	font-size: 2vw;
+	line-height: 3vw;
+	text-align: center;
+	font-family: Bebas Neue;
+	font-weight: 600;
+	letter-spacing: 0.1vw;
+	left: 345%;
+	opacity: 0.5;
+	transform: translate(-50%,0);
+	bottom: -0vw;
+	border: 0.4vw solid #fff;
+	/* border-radius:  */
+}
+.house-3 .security {
+	position: absolute;
+	transform: rotate(-6.5deg);
+	width: 12vw;
+	left: -40vw;
+	opacity: 0.7;
+	top: -15vw;
+}
+.house-3 .houseinform {
+	position: absolute;
+	left: 119vw;
+	top: -9vw;
+	width: 30vw;
+	height: 13vw;
+	zoom: 55%;
+	/* background: #000; */
+	transform: rotate(-6.5deg);
+}
+.house-3 .houseinform .housedom {
+	text-align: center;
+	font-size: 1.5vw;
+	margin-top: 4vw;
+	color: #d4d4d4;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.house-3 .houseinform .hi {
+	text-align: center;
+	font-size: 1vw;
+	margin-top: 0.5vw;
+	color: #d4d4d4;
+	font-weight: 500;
+	opacity: 0.5;
+}
+.house-3 .houseinform .h2 {
+	text-align: center;
+	font-size: 2vw;
+	margin-top: 0vw;
+	text-transform: uppercase;
+	color: #d4d4d4;
+	font-weight: 600;
+}
+.house-3 .open {
+	position: absolute;
+	width: 2vw;
+	height: 2vw;
+	border-radius: 60vw;
+	/* background: grey; */
+	transform: rotate(-19deg);
+	right: 15.9vw;
+	bottom: -14.5vw;
+}
+/* HOUSE TYPE 3 */
+
+
+/* HOUSE TYPE 4 */
+.house-4 #housecenter {
+	transform: rotate(6.5deg);
+}
+.house-4 .housecenter{
+	width: 9.4vw;
+	height: 9.9vw;
+	position: absolute;
+	left: 45.75%;
+	top: 50%;
+	/* background: grey; */
+}
+.house-4 .houseinfornecenter {
+	position: absolute;
+	left: -37vw;
+	top: -6vw;
+}
+.house-4 .housecenter .block a{
+	position: absolute;
+	top: 0;
+	color: #b5b5b5;
+	font-weight: 500;
+	font-size: 0.5vw;
+	text-transform: uppercase;
+}
+.house-4 .housecenter .block p {
+	position: absolute;
+	bottom: 0;
+	color: #606364;
+	font-weight: 600;
+	font-size: 1vw;
+}
+.house-4 .housecenter .block {
+	position: relative;
+	width: 9.4vw;
+	left: 1vw;
+	top: 2vw;
+	height: 2.55vw;
+	margin-top: -0.85vw;
+	/* background: #000; */
+}
+.house-4 #buybtn {
+	transform: rotate(0deg);
+}
+.house-4 .buybtn:hover {
+	opacity: 0.9;
+}
+.house-4 .buybtn {
+	position: absolute;
+	width: 10vw;
+	cursor: pointer;
+	transition: opacity .88s;
+	height: 3vw;
+	font-size: 2vw;
+	line-height: 3vw;
+	text-align: center;
+	font-family: Bebas Neue;
+	font-weight: 600;
+	letter-spacing: 0.1vw;
+	left: -5%;
+	opacity: 0.5;
+	transform: translate(-50%,0);
+	bottom: -0vw;
+	border: 0.4vw solid #fff;
+	/* border-radius:  */
+}
+.house-4 .security {
+	position: absolute;
+	transform: rotate(-6.5deg);
+	width: 12vw;
+	left: -40vw;
+	opacity: 0.7;
+	top: -18vw;
+}
+.house-4 .houseinform {
+	position: absolute;
+	left: 57.6vw;
+	top: -7.8vw;
+	width: 30vw;
+	height: 13vw;
+	zoom: 55%;
+	/* background: #000; */
+	transform: rotate(-6.5deg);
+}
+.house-4 .houseinform .housedom {
+	text-align: center;
+	font-size: 1.5vw;
+	margin-top: 4vw;
+	color: #d4d4d4;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.house-4 .houseinform .hi {
+	text-align: center;
+	font-size: 1vw;
+	margin-top: 0.5vw;
+	color: #d4d4d4;
+	font-weight: 500;
+	opacity: 0.5;
+}
+.house-4 .houseinform .h2 {
+	text-align: center;
+	font-size: 2vw;
+	margin-top: 0vw;
+	text-transform: uppercase;
+	color: #d4d4d4;
+	font-weight: 600;
+}
+.house-4 .open {
+	position: absolute;
+	width: 8vw;
+	height: 1.2vw;
+	border-radius: 60vw;
+	/* background: grey; */
+	transform: rotate(-6.5deg);
+	right: 11.9vw;
+	bottom: -4.3vw;
+}
+/* HOUSE TYPE 4 */
+
+
+/* HOUSE TYPE 5 */
+.house-5 #housecenter {
+	transform: rotate(6.5deg);
+}
+.house-5 .housecenter{
+	width: 9.4vw;
+	height: 9.9vw;
+	position: absolute;
+	left: 45.75%;
+	top: 50%;
+	/* background: grey; */
+}
+.house-5 .houseinfornecenter {
+	position: absolute;
+	left: -42vw;
+	top: -5vw;
+}
+.house-5 .housecenter .block a{
+	position: absolute;
+	top: 0;
+	color: #b5b5b5;
+	font-weight: 500;
+	font-size: 0.5vw;
+	text-transform: uppercase;
+}
+.house-5 .housecenter .block p {
+	position: absolute;
+	bottom: 0;
+	color: #606364;
+	font-weight: 600;
+	font-size: 1vw;
+}
+.house-5 .housecenter .block {
+	position: relative;
+	width: 9.4vw;
+	left: 1vw;
+	top: 2vw;
+	height: 2.55vw;
+	margin-top: -0.85vw;
+	/* background: #000; */
+}
+.house-5 #buybtn {
+	transform: rotate(0deg);
+}
+.house-5 .buybtn:hover {
+	opacity: 0.9;
+}
+.house-5 .buybtn {
+	position: absolute;
+	width: 10vw;
+	cursor: pointer;
+	transition: opacity .88s;
+	height: 3vw;
+	font-size: 2vw;
+	line-height: 3vw;
+	text-align: center;
+	font-family: Bebas Neue;
+	font-weight: 600;
+	letter-spacing: 0.1vw;
+	left: 430%;
+	opacity: 0.5;
+	transform: translate(-50%,0);
+	bottom: 5vw;
+	border: 0.4vw solid #fff;
+	/* border-radius:  */
+}
+.house-5 .security {
+	position: absolute;
+	transform: rotate(-6.5deg);
+	width: 12vw;
+	left: -45vw;
+	opacity: 0.7;
+	top: -16vw;
+}
+.house-5 .houseinform {
+	position: absolute;
+	left: 140.1vw;
+	top: -22.4vw;
+	width: 30vw;
+	height: 13vw;
+	zoom: 55%;
+	/* background: #000; */
+	transform: rotate(-6.5deg);
+}
+.house-5 .houseinform .housedom {
+	text-align: center;
+	font-size: 1.5vw;
+	margin-top: 4vw;
+	color: #d4d4d4;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.house-5 .houseinform .hi {
+	text-align: center;
+	font-size: 1vw;
+	margin-top: 0.5vw;
+	color: #d4d4d4;
+	font-weight: 500;
+	opacity: 0.5;
+}
+.house-5 .houseinform .h2 {
+	text-align: center;
+	font-size: 2vw;
+	margin-top: 0vw;
+	text-transform: uppercase;
+	color: #d4d4d4;
+	font-weight: 600;
+}
+.house-5 .open {
+	position: absolute;
+	width: 8vw;
+	height: 1.2vw;
+	border-radius: 60vw;
+	/* background: grey; */
+	transform: rotate(-96.5deg);
+	right: 11.9vw;
+	bottom: -13.3vw;
+}
+/* HOUSE TYPE 5 */
+
+
+
+/* HOUSE TYPE 6 */
+.house-6 #housecenter {
+	transform: rotate(6.5deg);
+}
+.house-6 .housecenter{
+	width: 9.4vw;
+	height: 9.9vw;
+	position: absolute;
+	left: 45.75%;
+	top: 50%;
+	/* background: grey; */
+}
+.house-6 .houseinfornecenter {
+	position: absolute;
+	left: -40vw;
+	top: -4.5vw;
+}
+.house-6 .housecenter .block a{
+	position: absolute;
+	top: 0;
+	color: #b5b5b5;
+	font-weight: 500;
+	font-size: 0.5vw;
+	text-transform: uppercase;
+}
+.house-6 .housecenter .block p {
+	position: absolute;
+	bottom: 0;
+	color: #606364;
+	font-weight: 600;
+	font-size: 1vw;
+}
+.house-6 .housecenter .block {
+	position: relative;
+	width: 9.4vw;
+	left: 1vw;
+	top: 2vw;
+	height: 2.55vw;
+	margin-top: -0.85vw;
+	/* background: #000; */
+}
+.house-6 #buybtn {
+	transform: rotate(0deg);
+}
+.house-6 .buybtn:hover {
+	opacity: 0.5;
+}
+.house-6 .buybtn {
+	position: absolute;
+	width: 10vw;
+	cursor: pointer;
+	transition: opacity .88s;
+	height: 3vw;
+	font-size: 2vw;
+	line-height: 3vw;
+	text-align: center;
+	font-family: Bebas Neue;
+	font-weight: 600;
+	letter-spacing: 0.1vw;
+	left: 1vw;
+	opacity: 0.2;
+	transform: translate(-50%,0);
+	bottom: -10vw;
+	border: 0.4vw solid #fff;
+	/* border-radius:  */
+}
+.house-6 .security {
+	position: absolute;
+	transform: rotate(-6.5deg);
+	width: 12vw;
+	left: -45vw;
+	opacity: 0.7;
+	top: -16vw;
+}
+.house-6 .houseinform {
+	position: absolute;
+	left: 65.8vw;
+	top: 14vw;
+	width: 30vw;
+	height: 13vw;
+	zoom: 55%;
+	/* background: #000; */
+	transform: rotate(-6.5deg);
+}
+.house-6 .houseinform .housedom {
+	text-align: center;
+	font-size: 1.5vw;
+	margin-top: 4vw;
+	color: #d4d4d4;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.house-6 .houseinform .hi {
+	text-align: center;
+	font-size: 1vw;
+	margin-top: 0.5vw;
+	color: #d4d4d4;
+	font-weight: 500;
+	opacity: 0.5;
+}
+.house-6 .houseinform .h2 {
+	text-align: center;
+	font-size: 2vw;
+	margin-top: 0vw;
+	text-transform: uppercase;
+	color: #d4d4d4;
+	font-weight: 600;
+}
+.house-6 .open {
+	position: absolute;
+	width: 6.5vw;
+	height: 1.9vw;
+	border-radius: 60vw;
+	/* background: grey; */
+	transform: rotate(-6.5deg);
+	right: 9.9vw;
+	bottom: -10.3vw;
+}
+/* HOUSE TYPE 6 */
+.text {
+	text-align: center;
+	position: relative;
+	bottom: 1vw;
+	color: #fff;
+	position: absolute;
+	width: 38vh;
+	left: 50%;
+	opacity: 0.5;
+	font-weight: 500;
+	font-size: 0.75vw;
+	transform: translate(-50%,0);
+	/* background: grey; */
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #30343b00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ffffff00 5%, #ffffff20 100%);
+  border-radius: 10px;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Shadow - Ticket</title>
+    
+    <link rel="stylesheet" href="./assets/css/ticket.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+<style>
+    body {
+        user-select: none;
+    }
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<body>
+    <div class="wrapper" id="app" v-show="active" v-cloak>	
+		<header style="width: 23vw;left: 1vw;top: 0.35vw;text-align: center;">Вопросы</header>
+		<header style="width: 23vw;right: 1vw;top: 0.35vw;text-align: center;">Ответы</header>
+		<div class="listrep">
+			<div v-if="reports.length" v-for="report in reports" :key="report.id" >
+				<div v-if="!report.blocked" :key="report.id" @click="selectReport(report)" class="blockrep">
+					<div class="sp"></div>
+					<a>{{report.author}} <b>({{report.authorId}})</b></a>
+					<h1>{{report.text}}</h1>
+					<p>Репорт #{{report.id}}</p>
+				</div>
+				<div v-if="report.blocked" class="blockrep">
+					<div class="sp active"></div>
+					<a>{{report.author}} <b>({{report.authorId}})</b></a>
+					<h1>{{report.text}}</h1>
+					<p>Репорт #{{report.id}}</p>
+				</div>
+			</div>
+			<div v-if="!reports.length" class="zerorep">
+				Репортов нет
+			</div>
+		</div>
+		<div class="inputans">
+			<div v-if="selected" class="blockrep active">
+				<div class="sp active"></div>
+				<a>{{selected.author}} <b>({{selected.authorId}})</b></a>
+				<h1>{{selected.text}}</h1>
+				<p>Репорт #{{selected.id}}</p>
+			</div>
+		</div>
+		<div @click.prevent="sendAnswer(selected)" class="succes">Отправить</div>
+		<input placeholder="Напишите ответ на жалобу..." v-model="answer">
+		<div class="deistvia">
+			<header>
+				Действия
+			</header>
+			<div class="fast1">Проследить за нарушителем</div>
+			<div class="fast2">ТП к постродавшему</div>
+		</div>
+		<div class="shablons">
+			<header>
+				Шаблоны
+			</header>
+			<div @click="ans('Не обнаружил нарушений. Если жалоба еще актуальна оформите ее по форме на нашем форуме shadow-rp.ru. Приятной игры!')" class="fast1">Не нашел нарушений</div>
+			<div @click="ans('Данная информация находится в меню F2. Приятной игры!')" style="margin-top: 2.5vw" class="fast1">Вся информация в меню F2</div>
+			<div @click="ans('Уже лечу!')" style="margin-top: 5vw" class="fast1">Уже лечу</div>
+			<div @click="ans('Если вы обнаружили недоработку отправляйте ее в канал #баги в нашем Discord сервере')" style="margin-top: 7.5vw" class="fast1">Баг</div>
+			<div @click="ans('Спасибо за жалобу, нарушитель был наказан! Приятной игры!')" style="margin-top: 10vw" class="fast1">Нарушитель был наказан!</div>
+			<div @click="ans('Спасибо! Приятной игры!')" class="fast2">Спасибо</div>
+			<div @click="ans('Удачного вам дня!')" style="margin-top: 2.5vw" class="fast2">Удачного дня!</div>
+			<div @click="ans('Уже слежу!')" style="margin-top: 5vw" class="fast2">Слежу</div>
+			<div @click="ans('Расскажите подробнее про жалобу')" style="margin-top: 7.5vw" class="fast2">Уточните</div>
+			<div @click="ans('Жалоба еще актуальна?')" style="margin-top: 10vw" class="fast2">Актуально?</div>
+		</div>
+    </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            active: false,
+            playerName: "Matvey_Pestrov",
+            selected: false,
+            answer: "",
+            reports: [
+				<!-- { -->
+					<!-- "author": 123, -->
+					<!-- "authorId": 123, -->
+					<!-- "id": 1, -->
+					<!-- "blocked": false, -->
+					<!-- "text": "Шадов эрпэ хуита основатель пидарас и вообще заходите на мув рп там все топ и мод уникальный не рыгага!", -->
+				<!-- }, -->
+				<!-- { -->
+					<!-- "author": 223, -->
+					<!-- "authorId": 223, -->
+					<!-- "id": 2, -->
+					<!-- "blocked": false, -->
+					<!-- "text": "ов эрпэ хуита основатель пидарас и вообще заходите на мув рп там все топ и мод уникальный не рыгага!", -->
+				<!-- } -->
+			]
+        },
+
+        methods: {
+            addReport(report) {
+                this.reports.unshift(report);
+            },
+			ans: function(ans) {
+				this.answer = ans;
+			},
+            selectReport(report) {
+				if (report.blocked) return;
+                if (this.selected) return;
+
+                this.selected = report;
+
+                this.selected.blocked = true;
+                this.selected.blockedBy = this.playerName;
+                <!-- this.$refs.answerBox.focus(); -->
+                mp.trigger("takereport", report.id, false);
+            },
+
+            setStatus(id, name){
+                let report = this.reports.find(r => r.id == id);
+                if(!report) return;
+
+                report.blocked = true;
+                report.blockedBy = name;
+            },
+
+            returnReport(report) {
+                if (!report) return;
+
+                this.selected.blocked = false;
+                this.selected.blockedBy = "";
+                this.selected = false;
+                this.answer = "";
+                mp.trigger("takereport", report.id, true);
+            },
+
+            sendAnswer(report) {
+                if (!this.answer) return;
+
+                this.selected = false;
+                //let reportToDelete = this.reports.findIndex(r => r.id == report.id);
+
+                mp.trigger("sendreport", report.id, this.answer);
+
+                //this.reports.splice(reportToDelete, 1);
+                this.answer = "";
+            },
+
+            unblockReport(id) {
+                let report = this.reports.find(r => r.id == id);
+                if (!report) return;
+
+                report.blocked = false;
+                report.blockedBy = "";
+            },
+
+            deleteReport(id) {
+                let reportToDelete = this.reports.findIndex(r => r.id == id);
+                if(reportToDelete < 0) return;
+
+                this.reports.splice(reportToDelete, 1);
+            },
+
+            exitReport() {
+                this.active = false;
+                mp.trigger('exitreport');
+            }
+        }
+    })
+
+    function addReport(id_, author_, authorId_, text_, blocked_, blockedBy_) {
+        let report = {
+            id: id_,
+            author: author_,
+            authorId: authorId_,
+            text: text_,
+            blocked: blocked_,
+            blockedBy: blockedBy_
+        }
+        app.addReport(report);
+    }
+
+    function deleteReport(id) {
+        app.deleteReport(id);
+    }
+
+    function setStatus(id, name) {
+        if (name.length < 1) {
+            app.unblockReport(id);
+        } else {
+            app.setStatus(id, name);
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/styles.css"><!--Подключение css-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script><!--Подключение VueJs-->
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Rubik:wght@400&display=swap" rel="stylesheet">
+    <!--  -->
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper" v-if="">
+        <div :class="wrapperClass">
+            <header>
+                <div class="header__container">
+                    <div class="logo">
+                        <img src="assets/images/logo.png" alt="logo">
+                        <h1>Переназначение клавиш</h1>
+                    </div>
+                    <img @click="exit()" src="assets/images/close.svg" alt="exit" class="exit">
+                </div>
+            </header>
+            <main>
+                <div class="main__container">
+                    <div class="mainContent">
+                        <div class="mainBlock">
+                            <div>Инвентарь</div>
+                            <button @click="rebindMenuOpen('Инвентарь')" @keyup="rebind(0,event)">{{binds[0]}}</button>
+                        </div>
+                        <div class="mainBlock">
+                            <div>Анимации</div>
+                            <button @click="rebindMenuOpen('Анимации')" @keyup="rebind(1,event)">{{binds[1]}}</button>
+                        </div>
+                        <div class="mainBlock">
+                            <div>Телефон</div>
+                            <button  @click="rebindMenuOpen('Телефон')" @keyup="rebind(2,event)">{{binds[2]}}</button>
+                        </div>
+                        <div class="mainBlock">
+                            <div>Двери машины</div>
+                            <button  @click="rebindMenuOpen('Двери машины')" @keyup="rebind(3,event)">{{binds[3]}}</button>
+                        </div>
+                        <div class="mainBlock">
+                            <div>Круиз-контроль</div>
+                            <button  @click="rebindMenuOpen('Круиз-контроль')" @keyup="rebind(4,event)">{{binds[4]}}</button>
+                        </div>
+                        <div class="mainBlock">
+                            <div style="font-size: 28px;">Завести двигатель</div>
+                            <button  @click="rebindMenuOpen('Завести двигатель')" @keyup="rebind(5,event)">{{binds[5]}}</button>
+                        </div>
+                        <div class="mainBlock">
+                            <div style="font-size: 24px;">Ремень безопасности</div>
+                            <button  @click="rebindMenuOpen('Ремень безопасности')" @keyup="rebind(6,event)">{{binds[6]}}</button>
+                        </div>
+                        <div class="mainBlock">
+                            <div>Наручники</div>
+                            <button  @click="rebindMenuOpen('Наручники')" @keyup="rebind(7,event)">{{binds[7]}}</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div @click="saveBinds" class="footer__btn">Сохранить</div>
+            </footer>
+        </div>
+        <div class="rebindMenu" v-if="rebindMenu">
+            <h2>{{rmTitle}}</h2>
+            <p>Нажмите любую клавишу</p>
+            <span>Нажмите ESC для отмены</span>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script><!--Подключение Js-->
+</body>
+</html>

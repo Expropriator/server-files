@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+
+<body style="background: none;">
+	<div class="shop" v-if="active">
+		<div @click="exit()" class="exit">
+			<a>X</a>ВЫЙТИ
+		</div>
+		<div class="names">{{header}}</div>
+		<div class="namesstreet">{{street}}</div>
+		<div class="categories">
+			<div v-if="currentTab == 0" @click="current(0)" class="block active">Продукты</div>
+			<div v-else @click="current(0)" class="block">Продукты</div>
+			<div v-if="currentTab == 1" @click="current(1)" class="block active">Алкоголь</div>
+			<div v-else @click="current(1)" class="block">Алкоголь</div>
+			<div v-if="currentTab == 2" @click="current(2)" class="block active">Инструменты</div>
+			<div v-else @click="current(2)" class="block">Инструменты</div>
+			<div v-if="currentTab == 3" @click="current(3)" class="block active">Разное</div>
+			<div v-else @click="current(3)" class="block">Разное</div>
+		</div>
+
+<!--		Новая Покупка-->
+		<div class="items">
+			<div class="list">
+				<div v-for="(item, index) in items[currentTab]" :key="index"  @click="penQuantitySelector(item)" class="item">
+					<div class="image">
+						<img :src="`./img/`+ item.type + `.png`" class="imgico">
+					</div>
+					<div class="name">{{item.title}}</div>
+					<div class="price">${{item.price}}</div>
+				</div>
+			</div>
+
+			<!-- Модальное окно -->
+			<div v-if="selectedItem" class="modal">
+				<div class="modal-content">
+					<h3>Выберите количество для {{ selectedItem.title }}</h3>
+					<input type="number" v-model="quantity" min="1" placeholder="Введите количество" />
+					<button @click="confirmPurchase">Купить</button>
+					<button @click="closeModal">Отмена</button>
+				</div>
+			</div>
+		</div>
+<!--		Новая Покупка-->
+
+<!--		Старая покупка 29.04-->
+<!--		<div class="items">-->
+<!--			<div class="list">-->
+<!--				<div v-for="(item, index) in items[currentTab]" @click="buy(item.index)" class="item">-->
+<!--					<div class="image">-->
+<!--						<img :src="`./img/`+ item.type + `.png`" class="imgico">-->
+<!--					</div>-->
+<!--					<div class="name">{{item.title}}</div>-->
+<!--					<div class="price">${{item.price}}</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+
+<!--		Старая покупка-->
+		<!-- <div class="sale"> -->
+			<!-- <div class="finisname">ИТОГО:</div> -->
+			<!-- <div class="finishprice">$300</div> -->
+			<!-- <div class="finishbuy">КУПИТЬ</div> -->
+			<!-- <div class="listb"> -->
+				<!-- <div v-for="(item, index) in basket" class="blocksale"> -->
+					<!-- <div class="imagebs"></div> -->
+					<!-- <div class="textbs">{{item}}</div> -->
+				<!-- </div> -->
+			<!-- </div> -->
+		<!-- </div> -->
+	</div>
+    <script src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/c552bfdf6a.js" crossorigin="anonymous"></script>
+</body>
+</html>

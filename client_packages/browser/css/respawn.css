@@ -1,0 +1,176 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body { 
+    margin: 0;
+    line-height: 1; 
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(../images/respawn/main-bg.png);
+    background-size: cover;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.flex-item:nth-child(2n) {
+    box-sizing: border-box;
+    margin: 0 75px;
+    margin-top: 50px;
+}
+
+#spawn-select {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-block {
+    width: 350px;
+    height: 600px;
+    background: #000;
+    position: relative;
+    z-index: 2;
+}
+
+.select-block::after {
+    content: "";
+    border-bottom: 5px solid rgba(116, 233, 0, 0.5);
+    width: 390px;
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    -webkit-box-shadow: 0px 0px 17px 7px #00f20a;
+    -moz-box-shadow: 0px 0px 17px 7px #00f20a;
+    box-shadow: 0px 0px 17px 7px #00f20a;
+}
+
+.last {
+    background-image: url(https://b.radikal.ru/b07/2101/cf/68057399c7cf.jpg);
+    background-position: center center;
+}
+
+.home {
+    background-image: url(https://a.radikal.ru/a38/2101/c1/1eef4280bfda.jpg);
+    background-position: center center;
+}
+
+.org {
+    background-image: url(https://d.radikal.ru/d39/2101/3d/f9c3b92a5e10.jpg);
+    background-position: center center;
+}
+
+.last:hover {
+    background-image: url(https://a.radikal.ru/a31/2101/d6/13f516d0249f.gif);
+    background-position: center center;
+}
+
+.home:hover {
+    background-image: url(https://d.radikal.ru/d38/2101/4e/7b671ac350d2.gif);
+    background-position: center center;
+}
+
+.org:hover {
+    background-image: url(https://d.radikal.ru/d29/2101/67/791b27127401.gif);
+    background-position: center center;
+}
+
+.title-block {
+    background: linear-gradient(56deg, rgb(116, 233, 7, 0.6) 37%, rgb(116, 233, 7, 0.9) 56%);
+    padding: 20px 0;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    width: 90%;
+    transform: rotate(356deg);
+}
+
+.title-block .title-text > span {
+    display: block;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+}
+
+
+.title-block .title-text > span:first-child {
+    font-size: 32px;
+    font-family: 'Russo One', sans-serif;
+}
+
+.button-block {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+.button-block button {
+	font-family: 'Montserrat', sans-serif;
+    border: 0;
+    padding: 10px 55px;
+    color: rgb(12, 12, 12);
+    border-radius: 5px;
+    background: linear-gradient(56deg, rgb(116, 233, 7, 0.6) 37%, rgb(116, 233, 7, 0.9) 56%);
+    text-transform: uppercase;
+    -webkit-box-shadow: 0px 0px 17px 7px rgba(116, 233, 0, 0.5);
+    -moz-box-shadow: 0px 0px 17px 7px rgba(116, 233, 0, 0.5);
+    box-shadow: 0px 0px 17px 7px rgba(116, 233, 0, 0.5);
+}
+
+.button-block button:hover {
+    scale: 1.1;
+    animation: entry 1s linear 1;
+    transition: .5s all ease;
+    color: rgb(14, 13, 13);
+    background: linear-gradient(56deg, rgb(116, 233, 7, 0.6) 37%, rgb(116, 233, 7, 0.9) 56%);
+    -webkit-box-shadow: 0px 0px 17px 7px rgba(116, 233, 7, 0.5);
+    -moz-box-shadow: 0px 0px 17px 7px rgba(116, 233, 7, 0.5);
+    box-shadow: 0px 0px 17px 7px rgba(116, 233, 7, 0.5);
+}
+
+.button-block button[disabled]:active,
+.button-block button[disabled]:hover,
+.button-block button[disabled]{
+	cursor: not-allowed;
+	pointer-events: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: #ffffff;
+
+}
+
+.disabled {
+	filter: grayscale(100%);
+}
+
+#footer {
+    opacity: 0.5;
+    text-align: center;
+    position: fixed;
+    left: 0; bottom: 0;
+    padding: 5px;
+    color: #fff;
+    width: 100%;
+}

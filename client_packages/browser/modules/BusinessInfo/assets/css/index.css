@@ -1,0 +1,260 @@
+body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-family: 'Montserrat', sans-serif;
+	user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		overflow: hidden;
+		margin: 0;
+}
+
+#app {
+	display:flex;
+	width:100%;
+	height:100%;
+	flex-direction:column;
+	background-color: rgba(22, 21, 35, .80);
+	position:fixed; 
+	background-size: 100%, 100%;
+	-webkit-animation: fadeInFromNone 0.2s ease-out;
+	-moz-animation: fadeInFromNone 0.2s ease-out;
+	-o-animation: fadeInFromNone 0.2s ease-out;
+	animation: fadeInFromNone 0.2s ease-out;
+}
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+.main {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgba(22, 21, 35);
+	width: 80vh;
+	height: 50vh;
+	top: 26vh;
+	border-radius: 0.5vh;
+}
+.main .up {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80vh;
+	height: 10vh;
+}
+.main .up .sp .ico {
+	width: 4vh;
+	position: absolute;
+	top: 0.9vh;
+	left: 1vh;
+}
+.main .up .sp {
+	position: absolute;
+	width: 6vh; 
+	height: 6vh;
+	border-radius: 100vh;
+	background: #0de646;
+	box-shadow: 0 0 2vh 0.8vh #0de64660;
+	top: 2.5vh;
+	left: 3vh;
+}
+.main .up .text1 {
+	position: absolute;
+	font-family: Montserrat;
+	font-weight: 600;
+	color: #fff;
+	font-size: 1.5vh;
+	top: 3.8vh;
+	left: 12vh;
+}
+.main .up .text2 {
+	position: absolute;
+	font-family: Montserrat;
+	font-weight: 400;
+	color: #ffffff70;
+	font-size: 1.5vh;
+	top: 5.3vh;
+	left: 12vh;
+}
+.main .up .line {
+	position: absolute;
+	width: 80vh;
+	height: 0.15vh;
+	background: #ffffff20;
+	bottom: -1vh;
+	left: 0;
+}
+.main .info {
+	position: absolute;
+	width: 68vh;
+	left: 6vh;
+	height: 30vh;
+	bottom: 5vh;
+}
+.main .info .block {
+	position: relative;
+	width: 68vh;
+	height: 6vh;
+	margin-top: -1vh;
+}
+.main .info .block .left {
+	position: absolute;
+	color: #ffffff;
+	left: 4vh;
+	line-height: 6vh;
+	font-family: Montserrat;
+	font-weight: 500;
+	font-size: 1.5vh;
+}
+.main .info .block .right {
+	position: absolute;
+	color: #cecece;
+	right: 0;
+	line-height: 6vh;
+	font-family: Montserrat;
+	font-weight: 500;
+	font-size: 1.4vh;
+}
+.main .info .block .ico {
+	width: 3vh;
+	position: absolute;
+	margin-top: 1.5vh;
+}
+.main .info .block .ico2 {
+	width: 2.8vh;
+	left: 0.3vh;
+	position: absolute;
+	margin-top: 1.5vh;
+}
+.main .btncup:hover ,
+.main .btnbuy:hover {
+	transition: all 0.33s;
+	box-shadow: 0 0 2vh 0.5vh #0de64650;
+}
+.main .btncup {
+	position: absolute;
+	background: #0de646;
+	width: 14vh;
+	transition: all 0.33s;
+	height: 5vh;
+	font-family: Montserrat;
+	font-weight: 600;
+	color: #fff;
+	text-align: center;
+	padding-left: 2vh;
+	padding-right: 2vh;
+	border-radius: 0.5vh;
+	right: 6vh;
+	bottom: 2vh;
+	line-height: 5vh;
+	font-size: 1.4vh;
+}
+.main .btnbuy {
+	position: absolute;
+	background: #0de646;
+	width: 14vh;
+	transition: all 0.33s;
+	height: 5vh;
+	font-family: Montserrat;
+	font-size: 1.5vh;
+	font-weight: 600;
+	color: #fff;
+	text-align: center;
+	padding-left: 4vh;
+	border-radius: 0.5vh;
+	right: 6vh;
+	bottom: 2vh;
+	line-height: 5vh;
+}
+.main .textdesc {
+	position: absolute;
+	font-family: Montserrat;
+	font-weight: 400;
+	color: #9e9e9e;
+	font-size: 1.2vh;
+	bottom: 4vh;
+	left: 6vh;
+}
+.main .btnclose:hover {
+	transition: all 0.33s;
+	color: #ffffff50;
+}
+.main .btnclose {
+	position: absolute;
+	right: 0;
+	transition: all 0.33s;
+	top: -2vh;
+	font-family: Montserrat;
+	font-weight: 400;
+	color: #ffffff40;
+	font-size: 1.5vh;
+}

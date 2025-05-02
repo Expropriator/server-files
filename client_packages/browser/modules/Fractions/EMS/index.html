@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="fonts/font/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+
+<body>
+	<div class="ped">
+		<div v-if="style == 0" class="dialog">
+			<div class="name">
+			Дэвид Харис
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text">
+				Привет ты в главной больнице города Los Santos! Чем могу помочь? 
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div onclick="closemenu()" class="btnyes2">Спасибо, я сам</div>
+				<div v-if="hp > 99" @click="gostyle(2)" class="btnyes">Лечение</div>
+				<div v-else @click="gostyle(5)" class="btnyes">Лечение</div>
+				<div v-if="!workdaystatus">
+					<div v-if="fracid == 8" @click="gostyle(3)" class="btnno">Начать рабочий день</div>
+				</div>
+				<div v-else>
+					<div v-if="fracid == 8" @click="gostyle(4)" class="btnno">Закончить рабочий день</div>
+				</div>
+				<div v-if="fracid != 8" @click="gostyle(1)" class="btnno">Как здесь работать?</div>
+			</div>
+		</div>
+		<div v-if="style == 1" class="dialog">
+			<div class="name">
+			Дэвид Харис
+			</div>
+			<div class="line"></div>
+			<div class="textblock">
+				<div class="text" style="top: 1.5vh;">
+				Подавайте заявки на портале штата или приходите на наборы.
+				</div>
+			</div>
+			<div style="bottom: 8.5vh;" class="btns">
+				<div @click="gostyle(0)" class="btnyes">Понял, спасибо</div>
+			</div>
+		</div>
+		<div v-if="style == 2" class="dialog">
+			<div class="name">
+			Дэвид Харис
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Вы не нуждаетесь в лечении! Надеюсь больше не увидимся
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 11vh;" class="btns">
+				<div @click="close()" class="btnyes3">Понятно</div>
+			</div>
+		</div>
+		<div v-if="style == 3" class="dialog">
+			<div class="name">
+			Дэвид Харис
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Удачного дня в больнице, {{namep}} {{surnamep}}! Не забудьте переодеться в нашу одежду.
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 11vh;" class="btns">
+				<div @click="StartWorkDay()" class="btnyes3">Спасибо</div>
+				<!-- <div @click="gostyle(0)" style="position: absolute; top: 2vh;" class="btnno">Нет, немного позже</div> -->
+			</div>
+		</div>
+		<div v-if="style == 4" class="dialog">
+			<div class="name">
+			Дэвид Харис
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Уже уходите? Жалко. До завтра и удачного дня {{namep}} {{surnamep}}!
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 11vh;" class="btns">
+				<div @click="StartWorkDay()" class="btnyes3">Спасибо, и вам</div>
+				<!-- <div @click="gostyle(0)" style="position: absolute; top: 2vh;" class="btnno">Нет, немного позже</div> -->
+			</div>
+		</div>
+		<div v-if="style == 5" class="dialog">
+			<div class="name">
+			Дэвид Харис
+			</div>
+			<div class="line"></div>
+			<div class="textblock2">
+				<div class="text">
+				Я выписал вам лечение за {{price}}$, каждую минуту вы будете получать по 20 ХП
+				</div>
+			</div>
+			<div style="position: absolute; bottom: 11vh;" class="btns">
+				<div @click="GetHealth()" class="btnyes3">Спасибо</div>
+				<!-- <div @click="gostyle(0)" style="position: absolute; top: 2vh;" class="btnno">Нет, немного позже</div> -->
+			</div>
+		</div>
+	</div>
+    <script src="./js/index.js"></script>
+	<script src="./js/library/jquery-3.2.1.min.js"></script>
+</body>
+</html>

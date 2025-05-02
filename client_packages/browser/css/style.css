@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+body {
+    overflow: hidden;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(255,255,255,0);
+}
+
+.shop24 {
+    width: 162vh;
+    height: 100.000vh;
+    color: #fff;
+    font-size: 1vw;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.shop24 .left {
+    background: #0c101a;
+    width: 30.3vh;
+    color: #fff;
+    padding: 1vh 3vh 0 3vh;
+    margin-left: 3vh;
+}
+.shop24 .left .market {
+	color: #fff;
+	width: 24vh;
+	border-bottom: .05vh solid #232533;
+	margin-bottom: 4vh;
+}
+.shop24 .left h1 {
+	color: #fff;
+	font-size: 2.7vh;
+	position: relative;
+	margin-bottom: 1vw;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-style: italic;
+	width: 14vh;
+	letter-spacing: 0.1vw;
+}
+.shop24 .left p {
+	color: #fff;
+	text-align: center;
+	margin: 0vh 0vh 0vh 2.5vh;
+}
+.shop24 .left svg {
+	color: #585b64;
+	margin: 0vh 2.2vh 0vh 1.2vh;
+	font-size: 3vh;
+	width: 2.6vh;
+}
+
+.shop24 .left .list {
+    display: block;
+}
+.shop24 .left .button {
+	color: #fff;
+	height: 4.5vh;
+	background: rgb(10 13 22 / 47%);
+	border-radius: 0.7vh;
+	text-align: left;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	margin-bottom: 0.5vh;
+	font-size: 2.1vh;
+}
+
+.shop24 .left .button span {
+	color: #ffffff00;
+}
+
+.shop24 .left .button:hover span, .shop24 .left .active span {
+	color: #ffffff00;
+	background: linear-gradient(112deg, rgba(223,47,47,1) 30%, rgba(247,134,123,1) 71%);
+	height: 3.3vh;
+	width: 0.23vh;
+	border-radius: 2vh;
+	box-shadow: 0 0 0.5vh #df2f2f;
+}
+
+.shop24 .left .button:hover p, .shop24 .left .active p{
+    background: linear-gradient(
+112deg
+, rgba(223,47,47,1) 30%, rgba(247,134,123,1) 71%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.shop24 .left .button:hover path, .shop24 .left .active path{
+text-transform: uppercase;
+    background: linear-gradient(
+112deg
+, rgba(223,47,47,1) 30%, rgba(247,134,123,1) 71%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.shop24 .left .bottom .button {
+	color: #fff;
+	height: 6vh;
+	width: 24vh;
+	background: rgb(10 13 22 / 47%);
+	border-radius: 0.5vh;
+	text-align: left;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	margin-bottom: 0;
+	font-size: 1.4vh;
+}
+
+.shop24 .left .bottom .button p{
+	font-size: 1.5vh;
+	width: 16vh;
+	margin: 0;
+}
+
+.shop24 .left .bottom {position: absolute;width: 24.3vh;bottom: 3vh;border-radius: 0.5vh;border: solid 0.01vh #DF2F2F;}
+
+.shop24 .left .button img {
+	color: #fff;
+	width: 2vw;
+	margin: 0 1vw 0 1vw;
+}
+
+.shop24 .center {
+    background: #0c101a;
+    width: 78.3vh;
+    margin-left: 1vh;
+    color: #fff;
+    padding: 1vh 3vh 0 3vh;
+}
+.shop24 .center h1 {
+    color: #fff;
+    font-size: 2.5vh;
+    font-family: 'Roboto';
+    margin-bottom: 1vh;
+    font-style: italic;
+    font-weight: bold;
+}
+.shop24 .center .items {
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    width: 75vh;
+}
+.shop24 .center .items .item {
+    width: 17.3vh;
+    height: 20vh;
+    padding: 0.5vh;
+    background: #070913;
+    border-radius: 0.4vh;
+    margin-right: 0.9vh;
+    margin-bottom: 0.9vh;
+}
+
+.shop24 .center .items .item .info { 
+justify-content: center;  
+align-items: center;
+text-align: center;
+}
+
+.shop24 .center .items .item img {
+    width: 7vh;
+}
+.shop24 .center .items .item p {
+    margin-bottom: -1.1vh;
+    margin-top: -0.1vh;
+    padding: 0.4vh;
+    margin-left: 0;
+}
+.shop24 .center .items .item .buy p {
+    margin-bottom: 0;
+    margin-top: -0.1vh;
+    padding: 0.3vh;
+    margin-left: 4vh;
+}
+.shop24 .center .items .item .buy .box {
+	
+background: #20232e;
+	
+width: 3vh;
+	
+height: 3vh;
+	
+padding: 0.7vh 0vh 0vh 0vh;
+	
+border-radius: 0.5vh;
+	
+position: absolute;
+	
+margin-top: -0.1vh;
+}
+.shop24 .center .items .item .buy .box i{
+	
+}
+p.price {
+    margin-bottom: 0.1vh !important;
+    font-size: 2.7vh;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #DF2F2F;
+    text-transform: uppercase;
+    background: linear-gradient(112deg, rgba(223,47,47,1) 30%, rgba(247,134,123,1) 71%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.shop24 .center .items .item .buy {padding: 0.6vh;border: solid 0.01vw #9e9e9e30;border-radius: 0.5vh;text-align: center;}
+
+.shop24 .center .items .item .buy:hover {border: solid 0.01vw #DF2F2F70}
+
+.shop24 .right {
+    background: #0c101a;
+    position: relative;
+    margin-left: 1vh;
+    width: 41vh;
+    color: #fff;
+    padding: 1vh 3vh 0vw 3vh;
+    font-size: 1vh;
+}
+.shop24 .right h1 {
+    color: #fff;
+    font-size: 4vh;
+    margin-bottom: 1vh;
+    font-style: italic;
+    font-weight: bold;
+    font-family: 'Roboto';
+}
+.shop24 .right p {
+    color: #767985;
+    font-size: 2.17vh;
+    margin-bottom: 2vh;
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 0.1vh;
+}
+.shop24 .right .items {
+    color: #fff;
+    width: 35vh;
+    height: 55vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-bottom: .05vh solid #49494930;
+    margin-bottom: 0.5vh;
+}
+.shop24 .right .items .item {
+    color: #fff;
+    background: #070913;
+    width: 35vh;
+    height: 5.5vh;
+    display: flex;
+    margin-bottom: 0.5vh;
+    border-radius: 0.5vh;
+}
+.shop24 .right .items .item img {
+    color: #fff;
+    width: 5.5vh;
+    margin-left: 0.7vh;
+    padding: 0.4vh;
+}
+.shop24 .right .items .item .bod {
+    color: #fff;
+    background: #0c101cb5;
+    border-radius: 4vh;
+    display: flex;
+    width: 18.1vh;
+    height: 5vh;
+    margin: 0.25vh 0.25vh 0.25vh 1.5vh;
+}
+.shop24 .right .items .item .bod p {
+    color: #fff;
+    width: 7.9vh;
+    text-align: center;
+    margin: 0.9vh 0 0 0;
+}
+.shop24 .right .items .item .bod .min {
+    color: #fff;
+    width: 4.8vh;
+    height: 4.8vh;
+    border-radius: 3vh;
+    margin: 0.1vh;
+    background: #262834;
+}
+.shop24 .right .items .item .bod .min p {
+    color: #fff;
+    font-size: 4.2vh;
+    text-align: center;
+    margin-top: -0.85vh;
+    width: 4.8vh;
+}
+.shop24 .right .items .item .bod .ply {
+    color: #fff;
+    width: 4.8vh;
+    height: 4.8vh;
+    border-radius: 3vh;
+    margin: 0.1vh;
+    background: #262834;
+}
+.shop24 .right .items .item .bod .ply p {
+    color: #fff;
+    font-size: 3.2vh;
+    text-align: center;
+    margin-top: 0vh;
+    width: 4.8vh;
+}
+.shop24 .right .items .item .off {
+    color: #fff;
+}
+.shop24 .right .items .item .off svg {
+    margin-left: 1vh;
+    color: #161824;
+    font-size: 5.8vh;
+    margin-top: -0.1vh;
+    padding-left: 0.3vh;
+    border-left: 0.05vh solid #16182450;
+}
+.shop24 .right .price {
+    margin-top: -3vh;
+    color: #fff;
+    font-size: 6vh;
+    font-style: italic;
+    text-shadow: 0 0 1vh #df2f2f;
+    -webkit-text-fill-color: currentColor;
+    margin-bottom: 0;
+}
+.shop24 .right .buy {
+    color: #fff;
+    width: 35vh;
+    height: 10vh;
+    display: flex;
+    text-align: center;
+    padding-left: 2vh;
+}
+.shop24 .right .buy .nal {
+    background: rgb(10 13 22 / 47%);
+    width: 15.25vh;
+    height: 9.6vh;
+    display: block;
+    border-radius: 1vh;
+    border: solid 0.01vh #DF2F2F;
+}
+.shop24 .right .buy .nal img {width: 4.6vh;}
+.shop24 .right .buy .card {
+    color: #fff;
+    background: rgb(10 13 22 / 47%);
+    width: 15.25vh;
+    height: 9.5vh;
+    margin-left: 0.7vh;
+    border-radius: 1vh;
+    display: block;
+    border: solid 0.01vh #DF2F2F;
+}
+.shop24 .right .buy .card img {width: 4.6vh;}
+.shop24 .right .buy p {
+    color: #DDDDDE;
+}
+.shop24 .right ::-webkit-scrollbar {
+    width: 0.2vw;
+    display: block;
+    margin-left: 45vw;
+    /* background-color: #b2b3b620; */
+    border-radius: 1vw;
+}
+.shop24 .right ::-webkit-scrollbar-thumb {
+    /* background-color: #b0339b; */
+    border-radius: 1vw;
+}

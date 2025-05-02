@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Casino Market</title>
+  <link rel="stylesheet" href="css/market.css">
+  <link rel="stylesheet" href="../../../assets/css/font.css">
+  <link rel="stylesheet" href="../../../fonts/bebas-neue/stylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>	
+  <div id="app" v-cloak>
+    <transition name="modal">
+		<div class="container" v-if="active">
+			<div class="bg">
+				<div @click="btn(26,$event)" v-bind:class="{ active: btns[26] }" id="btncategory" class="buyblock1">
+					<div class="allsp">
+						<div class="sphere1"></div>
+						<div class="sphere2"></div>
+					</div>
+					<div class="pers"><img src="./images/pers.png" class="per"></div>
+					<div class="pers2"><img src="./images/pers.png" class="per"></div>
+					<div class="pers3"><img src="./images/pers.png" class="per"></div>
+					<div class="logo"><img src="./images/logo.png" class="logo"></div>
+					<div class="desc">Bleuter'd Diamond</div>
+					<div class="desc2">Теперь с пузыриками.</div>
+					<div class="price">300$</div>
+					<div class="downline"></div>
+				</div>
+				<div @click="btn(4,$event)" class="buyblock2" v-bind:class="{ active: btns[4] }" id="btncategory">
+					<div class="allsp">
+						<div class="sphere1"></div>
+						<div class="sphere2"></div>
+					</div>
+					<div class="name">Pißwasser</div>
+					<div class="desc3">Для настоящих ценителей пива.</div>
+					<div class="logo2"><img src="./images/logo2.png" class="logo2"></div>
+					<div class="beer"><img src="./images/beer.png" class="beer"></div>
+					<div class="price2">100$</div>
+				</div>
+				<div @click="btn(9,$event)" class="buyblock3" v-bind:class="{ active: btns[9] }" id="btncategory">
+					<div class="allsp">
+						<div class="sphere1"></div>
+						<div class="sphere2"></div>
+					</div>
+					<div class="name">eCola</div>
+					<div class="desc4">Deliciously Infectious!</div>
+					<div class="logo3"><img src="./images/logo3.png" class="logo3"></div>
+					<div class="butilka"><img src="./images/butilka.png" class="butilka"></div>
+					<div class="butilka2"><img src="./images/butilka.png" class="butilka2"></div>
+					<div class="price2">200$</div>
+				</div>
+				<div @click="btn(25,$event)" class="buyblock4" v-bind:class="{ active: btns[25] }" id="btncategory">
+					<div class="allsp">
+						<div class="sphere1"></div>
+						<div class="sphere2"></div>
+					</div>
+					<div class="name">Jack Janiels</div>
+					<div class="desc5">Tennessee whiskey.</div>
+					<div class="logo3"><img src="./images/logo4.png" class="logo3"></div>
+					<!-- <div class="butilka"><img src="./images/butilka3.png" class="butilka"></div> -->
+					<div class="butilka2"><img src="./images/butilka3.png" class="beer"></div>
+					<div class="price2">500$</div>
+				</div>
+				<div @click="btn(24,$event)" class="buyblock5" v-bind:class="{ active: btns[24] }" id="btncategory">
+					<div class="allsp">
+						<div class="sphere1"></div>
+						<div class="sphere2"></div>
+					</div>
+					<div class="name">Cherenkov</div>
+					<div class="desc6">Согреет вас до глубины души.</div>
+					<div class="logo3"><img src="./images/logo5.png" class="logo3"></div>
+					<div class="butilka"><img src="./images/butilka2.png" class="butilka3"></div>
+					<div class="price2">400$</div>
+				</div>
+				<div class="nameshop">Бар Diamond Casino</div>
+				<div class="warn">Черезмерное употребление алкоголем вредит Вашему здоровью!</div>
+				<div class="btnbuy"><a @click="buy(indexp)">НАЖМИТЕ</a>КУПИТЬ</div>
+			</div>
+		</div>
+	  <!-- <div class="container" v-if=""> -->
+        <!-- <div class="bg1"> -->
+		<!-- <div class="bg2"></div> -->
+		<!-- <div class="women"><img class="women" src="./images/women.png"></div> -->
+			<!-- <div class="nameblock"> -->
+				<!-- ПОКУПКА <a style="font-weight: 300;">ФИШЕК</a> -->
+			<!-- </div> -->
+			<!-- <div class="infoblock"> -->
+				<!-- <div class="text1"><a style="font-weight: 100;font-size: 1.6vh;">ПОКУПКА</a><img src="./images/chip.png" class="chip">1<a>К</a>100$<a style="font-weight: 100;margin-left: 3vh;font-size: 1.6vh;">ПРОДАЖА</a><img src="./images/chip.png" class="chip">1<a>К</a>90$</div> -->
+			<!-- </div> -->
+			<!-- <div v-for="(item, index) in buyitems" class="buyblock"> -->
+				<!-- <div @click="buy1(item.ID)" id="block" class="block1"> -->
+					<!-- <div class="count"><img src="./images/chip.png" class="chip2">100</div> -->
+					<!-- <div class="priceblock"> -->
+						<!-- <div class="name">СТОИМОСТЬ</div> -->
+						<!-- <div class="price">10,000$</div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div @click="buy2(item.ID)" id="block" class="block2"> -->
+					<!-- <div class="count"><img src="./images/chip.png" class="chip2">1 000</div> -->
+					<!-- <div class="priceblock"> -->
+						<!-- <div class="name">СТОИМОСТЬ</div> -->
+						<!-- <div class="price">100,000$</div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div @click="buy3(indexp)" id="block" class="block3"> -->
+					<!-- <div class="count"><img src="./images/chip.png" class="chip2">10 000</div> -->
+					<!-- <div class="priceblock"> -->
+						<!-- <div class="name">СТОИМОСТЬ</div> -->
+						<!-- <div class="price">1,000,000$</div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div @click="buy4(item.ID)" id="block" class="block4"> -->
+					<!-- <div class="count"><img src="./images/chip.png" class="chip2">100 000</div> -->
+					<!-- <div class="priceblock"> -->
+						<!-- <div class="name">СТОИМОСТЬ</div> -->
+						<!-- <div class="price">10,000,000$</div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+			<!-- </div> -->
+			<!-- <div class="nameblock2"> -->
+				<!-- ПРОДАЖА <a style="font-weight: 300;">ФИШЕК</a> -->
+			<!-- </div> -->
+			<!-- <div class="textdesc">ВВЕДИТЕ КОЛЛИЧЕСТВО ДЛЯ ПОЛУЧЕНИЯ ДЕНЕГ С ФИШЕК</div> -->
+			<!-- <div v-for="(item, index) in sellitems" class="inputblock"> -->
+				<!-- <input maxlength="6" placeholder="ВВЕДИТЕ КОЛЛИЧЕСТВО" v-model="sellValue"> -->
+				<!-- <div class="blockres">{{ sellValue * 90 | formatThousands }}$</div> -->
+				<!-- <div @click="sell(item.ID)" class="btnsell">ПРОДАТЬ ФИШКИ</div> -->
+			<!-- </div> -->
+		<!-- </div> -->
+      <!-- </div> -->
+    </transition>
+
+    <transition name="fade">
+      <div class="fade" v-if="active"></div>
+    </transition>
+  </div>
+  <script src="js/market.js"></script>
+  <script>Vue.filter('formatThousands', (x) => {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");})</script>
+</body>
+
+</html>

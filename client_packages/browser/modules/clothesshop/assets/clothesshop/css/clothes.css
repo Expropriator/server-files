@@ -1,0 +1,463 @@
+body {
+	overflow: hidden;
+	-webkit-user-select: none;
+	font-family: bebas neue;
+}
+.clothes {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.bgshow2 {
+	background: radial-gradient(50% 100% at 50% 50%, rgba(22, 21, 45, 0) 0%, rgba(22, 21, 45,.70) 100%);
+	background-size: 100%, 100%;
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+.backslol {
+	background: linear-gradient(90deg, #1e2a32, #1e2a3200);
+	background-size: 100%, 100%;
+	left: 0vh;
+	top: 0;
+	position: absolute;
+	width: 30%;
+	height: 100%;
+	z-index: -1;
+}
+.backslol2 {
+	background: linear-gradient(180deg, #0de64600, #0de64660);
+	background-size: 100%, 100%;
+	right: 0vh;
+	bottom: 0vh;
+	position: absolute;
+	width:100%;
+	height: 25%;
+	z-index: -1;
+}
+.obwak {
+  color: white;
+}
+.obwak .logoname {
+  display: flex;
+  width: 200vw;
+  background: #1a191b;
+  float: right;
+  top: 5vw;
+  /* margin-bottom: -1vw; */
+  position: absolute;
+  left: 1vw;
+}
+
+.obwak h2 {
+  padding: 0.5vw;
+  left: 0vh;
+  top: 0.5vw;
+  position: absolute;
+  /* font-family: Akrobat; */
+  font-weight: 800;
+  font-size: 2.5vw;
+}
+.obwak a {
+  padding: 0.5vw;
+  left: 0vh;
+  top: 5vw;
+  position: absolute;
+  /* font-family: Akrobat; */
+  font-weight: 300;
+  font-size: 2vw;
+}
+
+.obwak .logsname {
+  width: 2vw;
+  padding: 0.5vw;
+  margin-left: 0.75vw;
+}
+
+.right {
+  float: right;
+  height: 100%;
+  width: 22.5vw;
+  left: 1vw;
+  top: 70%;
+  color: #fff;
+  transform: translate(0,-50%);
+  position: absolute;
+  /* overflow: hidden; */
+}
+.left {
+  padding: 0.7vh 0.3vh 0.3vh 0.3vh;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  /* min-width: 4vw; */
+  width: 54vw;
+  /* height: 7.5vw; */
+  bottom: 1vw;
+  height: 4.5vw;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* background: red; */
+}
+.obwak i {
+  cursor: pointer;
+  padding: 0.5vw;
+  background-color: #222123;
+  border-radius: 0.25vw;
+}
+.obwak i:hover {
+  background-color: #0de646;
+  transition: all 0.33s;
+}
+.obwak .list div {
+  width: 1.5vw;
+  padding: 0.5vw;
+  border-radius: 0.25vw;
+  display: inline-block;
+  /*background-color: #37474f;*/
+}
+.obwak h1 {
+  margin: 0;
+  margin-bottom: 1.5vw;
+  /* padding: 0; */
+  font-size: 2vw;
+  /*width: 34vh;*/
+  background-color: #328cb7;
+}
+.obwak .fa{
+  /*float: left;*/
+  background: #ffffff20;
+  border-radius: 0.25vw;
+  border: 2px solid #ffffff50;
+  transition: all 0.33s;
+  margin-right: 0.5vw;
+  width: 0.75vw; 
+  height: 0.75vw; 
+  font-size: 0.75vw;
+}
+.obwak .right-arrow {
+  /*float: right;*/
+  background: #ffffff20;
+  border-radius: 0.25vw;
+  border: 2px solid #ffffff50;
+  transition: all 0.33s;
+}
+.obwak .list {
+  margin-top: 1vw;
+  text-align: center;
+}
+.obwak .items {
+  height: 10vw;
+}
+.clothes .btn {
+	line-height: 2vw;
+  border-radius: 1.75vw;
+  /* border: 2px solid; */
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.75vw;
+  font-weight: 500;
+  margin: 0.5vw;
+}
+.clothes .buy {
+  width: 7vw;
+  height: 2vw;
+  margin: 35.5vw 0 0 60vw;
+  background: #fff;
+  border-radius: 0.25vw;
+  color: #000;
+  /* font-family: Akrobat; */
+  font-weight: 500;
+  font-size: 0.65vw;
+  transition: all 0.33s;
+  left: -58.5vw;
+  bottom: 1vw;
+  position: absolute;
+}
+.text1 {
+	position: absolute;
+	/* font-family: Akrobat; */
+	font-weight: 500;
+	color: #fff;
+	font-size: 0.75vw;
+	left: 6vw;
+}
+.clothes .btn .buy .fas {
+	color: #fff;
+	position: absolute;
+	left: -1vw;
+}
+.clothes .block {
+	position: absolute;
+	top: 2.5vw;
+	width: 22.5vw;
+}
+.clothes .exit {
+  position: absolute;
+  bottom: 0.5vw;
+  right: 1vw;
+  background: #ffffff;
+  border-radius: 0.25vw;
+  width: 6vw;
+  /* font-family: Akrobat; */
+  font-size: 0.75vw;
+  height: 1vw;
+  color: #000;
+  line-height: 2vw;
+  height: 2vw;
+  font-weight: 400;
+  transition: all 0.33s;
+}
+.clothes .buy:hover {
+  border-radius: 0.25vw;
+  box-shadow: 0px 0px 2vw 0.4vw #ffffff30;
+  transition: all 0.33s;
+}
+.clothes .exit:hover {
+  border-radius: 0.25vw;
+  box-shadow: 0px 0px 2vw 0.4vw #ffffff30;
+  transition: all 0.33s;
+}
+.icon {
+  height: 5vw;
+  width: 5vw;
+  /* background-color: #1a191b; */
+  /* border-top-left-radius: 10.25vw; */
+  /* border-bottom-left-radius: 10.25vw; */
+  margin-bottom: 0.25vw;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* transform: rotate(-90deg); */
+  background-size: 1.6vw;
+  background-color: #00000010;
+  opacity: 0.7;
+  border-radius: 0.25vw;
+  border: 0.15vw solid #ffffff10;
+  transition: all 0.33s;
+  /* font-family: Akrobat; */
+  font-weight: 600;
+  color: #bcbcbc;
+  text-align: center;
+  font-size: 0.65vw;
+  line-height: 8.5vw;
+}
+.icon.active {
+	/* height: 9vh; */
+	/* width: 9vh; */
+	border-radius: 0.25vw;
+	background-color: #ffffff10;
+	border: 0.15vw solid #ffffff10;
+	transition: all 0.33s;
+	color: #fff;
+	opacity: 1;
+	}
+.icon:hover {
+	opacity: 1;
+	border-radius: 0.25vw;
+	background-color: #ffffff10;
+	border: 0.15vw solid #ffffff10;
+	transition: all 0.33s;
+	color: #fff;
+}
+.obwak .listclothes {
+  margin: 0.5vw;
+  overflow-y: scroll;
+  height: 20vw;
+  /* width: 100%; */
+  list-style-type: none;
+  overflow-x: hidden;
+}
+.obwak .listclothes .clothesPrice b {
+  color: #ffffff;
+}
+.obwak .clothes__block {
+  border-radius: 0.25vw;
+  display: flex;
+  /*padding: 3vh;*/
+  background: #43434380;
+  width: 18.5vw;
+  height: 2.8vw;
+  margin-bottom: 0.25vh;
+  transition: all 0.33s;
+  /* font-family: Akrobat; */
+}
+.obwak .clothes__block.active,
+.obwak .clothes__block:hover {
+	background: #0de646;
+	transition: all 0.33s;
+}
+.obwak .clothes__block .hovers {
+  display: none;
+}
+.obwak .clothes__block.active .clothesName,
+.obwak .clothes__block:hover .clothesName {
+  /* padding: 0.5vh 0 0.5vh 0.1vh; */
+}
+.obwak .clothesName {
+  width: 250%;
+  padding: 0.5vh 0 0.5vh 1vh;
+  height: 1vw;
+  /* font-family: "Akrobat"; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.7vw;
+  line-height: 1.2vw;
+  color: #ffffff;
+  text-align: left;
+}
+.select__colors {
+  margin: 1.5vw;
+  /* display: block; */
+  width: 13vw;
+  height: 4.75vw;
+  border-radius: 0.25vw;
+  position: absolute;
+  top: 23vw;
+  left: 1vw;
+}
+.obwak .clothesPrice {
+  width: 100%;
+  padding: 0.5vh 1vh;
+  height: 2vh;
+  font-size: 0.7vw;
+  color: #fff;
+  font-weight: 700;
+  text-align: right;
+}
+.obwak .styleblock {
+  display: flex;
+  margin: 1.5vh 0 0 2vh;
+  width: 20vh;
+}
+.obwak .stylesblock {
+  width: 6vh;
+}
+.obwak p {
+  margin: 1vh;
+  color: rgb(255, 255, 255);
+}
+.obwak p span {
+  color: green;
+  font-size: 16pt;
+}
+.obwak .hat {
+  background-image: url("../res/clothes/hats.svg");
+}
+.obwak .jacket {
+  background-image: url("../res/clothes/blazer.svg");
+}
+.obwak .shirt {
+  background-image: url("../res/clothes/shirt.svg");
+}
+.obwak .pants {
+  background-image: url("../res/clothes/trousers.svg");
+}
+.obwak .shoe {
+  background-image: url("../res/clothes/grooves.svg");
+}
+.obwak .gloves {
+  background-image: url("../res/clothes/gloves.svg");
+}
+.obwak .watches {
+  background-image: url("../res/clothes/wristwatch.svg");
+}
+.obwak .glasses {
+  background-image: url("../res/clothes/sunglasses.svg");
+}
+.obwak .jewerly {
+  background-image: url("../res/clothes/necklace.svg");
+}
+.obwak .bag {
+  background-image: url("../res/clothes/bag.png");
+}
+.clothes .mouse {
+	position: absolute;
+	left: 1.5vw;
+	top: 1vw;
+}
+.clothes .mouse .iconka {
+	width: 1vw;
+	opacity: 0.7;
+	position: absolute;
+	top: 0.5vw;
+}
+.clothes .mouse .txt {
+	/* font-family: Akrobat; */
+	font-weight: 300;
+	color: #fff;
+	width: 8vw;
+	opacity: 0.7;
+	position: absolute;
+	line-height: 1vw;
+	left: 1.5vw;
+}
+.clothes .infoicon {
+	width: 2.5vw;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	bottom: 8vw;
+	opacity: 0.5;
+	position: absolute;
+}
+.clothes .upicon {
+	width: 2vw;
+	transform: rotate(270deg);
+	bottom: 1vw;
+	left: 11vw;
+	opacity: 0.5;
+	position: absolute;
+}
+.clothes .infoclothes {
+	text-align: center;
+	position: absolute;
+	width: 10vw;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	height: 5vw;
+	bottom: 3.3vw;
+	/* font-family: Akrobat; */
+	color: #ffffff60;
+	/* width: 20vh; */
+}
+.clothes .infoclothes2 {
+	text-align: center;
+	left: 3.9vw;
+	top: 40vw;
+	font-size: 0.85vw;
+	position: absolute;
+	/* font-family: Akrobat; */
+	color: #ffffff60;
+	width: 12vw;
+}
+/* @font-face { */
+  /* font-family: "Akrobat-Bold"; */
+  /* font-weight: 700; */
+  /* font-style: bold; */
+  /* src: local("Akrobat-Bold"), */
+    /* url("../fonts/Akrobat-Bold/Akrobat-Bold.woff2") format("woff2"), */
+    /* url("../fonts/Akrobat-Bold/Akrobat-Bold.woff") format("woff"); */
+/* } */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080e1f00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #0de64600 5%, #0de64600 100%);
+  border-radius: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

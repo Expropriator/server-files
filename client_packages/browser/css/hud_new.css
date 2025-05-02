@@ -1,0 +1,1054 @@
+﻿	@media (max-width: 1300px)  {
+		.inGameHud {zoom: 70%}
+	}
+	@media (min-width: 1301px) and (max-width: 1400px) {
+		.inGameHud {zoom: 80%}
+	}
+	@media (min-width: 1401px) and (max-width: 1650px) {
+		.inGameHud {zoom: 80%}
+	}
+	@media (min-width: 1651px) and (max-width: 2560px) {
+		.inGameHud {zoom: 100%}
+	}
+
+	@font-face {
+		font-family: 'Akrobat';
+		font-weight: 700;
+		font-style: normal;
+		src: local('Roboto'), url('../fonts/Akrobat/akrobat-black.woff') format('woff2'), url('../fonts/Roboto/700/Roboto-Bold.woff') format('woff');
+	}
+	
+	
+	@font-face {
+		font-family: 'Akrobatmed';
+		src: url(../fonts/Akrobat/akrobat-extrabold.woff);
+		font-weight: medium;
+	}
+	
+	@font-face {
+		font-family: 'Akrobatbold';
+		src: url(../fonts/Akrobat/akrobat-bold.woff);
+		font-weight: bold;
+	}
+	
+	@font-face {
+		font-family: 'Akrobatlig';
+		src: url(../fonts/Akrobat/akrobat-semibold.woff);
+		font-weight: lighter;
+	}
+
+	[v-cloak] {
+		display: none;
+	}
+
+	body {
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		overflow: hidden;
+		margin: 0;
+		/*background: url(../images/img/bgshow.png);*/
+	}
+
+	p {
+		margin: 0;
+	}
+
+	#effect {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	#safezone {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.fade-enter-active, .fade-leave-active {
+	  transition: opacity .58s
+	}
+	.fade-enter, .fade-leave-to {
+	  opacity: 0
+	}
+
+	.inGameHud {
+		position: absolute;
+		margin: 0 auto;
+		line-height: normal;
+		color:#fff;
+		width: 100%;
+		height: 100%;
+        -webkit-animation-name: opacity, slide;
+        animation-name: opacity, slide;
+        -webkit-animation-duration: .5s, .5s;
+        animation-duration: .5s, .5s;
+        -webkit-animation-timing-function: ease, ease;
+        animation-timing-function: ease, ease;
+	}
+	.inGameHud .header_hud{
+		position: absolute;
+		top: 2.5vh;
+		display: flex;
+		right: 0vw;
+		font-family: 'Akrobatmed';
+	}
+	.inGameHud .header_hud .logo{
+		opacity: 0.8;
+		position: relative;
+	}
+	.inGameHud .header_hud .online{
+		position: absolute;
+		right: 15.1vw;
+		top: 3vh;
+		font-family: 'Akrobatmed';
+	}
+	.inGameHud .header_hud .id{
+		position: absolute;
+		left: -12.5vw;
+		top: 0.51vh;
+		font-weight: 800;
+		font-size: 16px;
+		line-height: 19px;
+		letter-spacing: 0.03em;
+		color: rgb(245 245 245 / 91%);
+	}
+	.inGameHud .header_hud .pid{
+		position: relative;
+		left: -205%;
+		opacity: 0.5;
+		top: 15%;
+	}
+	.inGameHud .header_hud .user{
+		width: 51%;
+		position: relative;
+	}
+	.inGameHud .header_hud .onlinecount{
+		position: absolute;
+		letter-spacing: 0.05em;
+		color: rgb(245 245 245 / 91%);
+		font-size: 0.84vw;
+	}
+	.inGameHud .money{
+		position: absolute;
+		top: 9.5vh;
+		right: 0vw;
+		font-weight: 800;
+		font-size: 36px;
+		line-height: 43px;
+		text-align: right;
+		display: flex;
+		letter-spacing: 0.03em;
+		color: #156615;
+		flex-direction: row;
+		font-family: Akrobatmed;
+		text-align: center;
+		text-shadow: 0px 0px 3px rgb(0 0 0 / 25%);
+	}
+	.inGameHud .money .ico{
+		width: 32px;
+		position: relative;
+		height: 32px;
+		line-height: 43px;
+		padding-top: 0.7vh;
+	}
+	
+	
+	.inGameHud .speedometer_hud{
+		position: absolute;
+		bottom: -5%;
+		right: 1%;
+	}
+	.inGameHud .speedometer_hud .speedcount{
+		position: relative;
+		color: #ffffff;
+		display: flex;
+		justify-content: center;
+		margin-left: -9vw;
+		font-family: 'Akrobatbold';
+		margin-bottom: 13.5vh;
+	}
+	.inGameHud .speedometer_hud .speedcount .count{
+		font-size: 3.2em;
+		font-weight: 300;
+		color: white;
+		transition: all .73s;
+	}
+	.inGameHud .speedometer_hud .speedcount p{
+		position: absolute;
+		margin-left: 3px;
+		font-size: 1.3em;
+		top: 5vh;
+		letter-spacing: 0.14em;
+		transition: all .33s;
+		text-transform: uppercase;
+		font-family: 'Akrobatlig';
+	}
+	.inGameHud .speedometer_hud .fuel a{
+		position: absolute;
+		margin-top: 4px;
+	}
+	.inGameHud .speedometer_hud .fuel .fuel_ico{
+		margin-left: 2.5vw;
+		margin-bottom: 8.8vh;
+	}
+	.inGameHud .speedometer_hud .help_car{
+		display: flex;
+		right: 4.8vw;
+		bottom: 6.1vh;
+		position: relative;
+	}
+	.inGameHud .speedometer_hud .help_car .helps{
+		display: flex;
+		margin-left: 13px;
+	}
+	.inGameHud .speedometer_hud .help_car .icon_help{
+		padding-right: 4px;
+		width: 27px;
+		height: 25px;
+		transition: all .33s;
+	}
+	.inGameHud .speedometer_hud .help_car p{
+		background: #6f6f6f78;
+		line-height: 1.7em;
+		width: 28px;
+		margin-left: 11px;
+		font-weight: 100;
+		font-size: 16px;
+		height: 25px;
+		text-align: center;
+		border-radius: 50%;
+	}
+	.inGameHud .steet_block{
+		position: absolute;
+		bottom: 0.35%;
+		display: flex;
+		left: 17%;
+		font-family: 'Akrobatmed';
+		flex-direction: column;
+		justify-content: center;
+	}
+	.inGameHud .steet_block .crossingroad{
+		letter-spacing: 0.03em;
+		border: 2px solid rgba(255, 255, 255, 0.15);
+		box-sizing: border-box;
+		border-radius: 2px;
+		padding: 0.45vw;
+		position: absolute;
+		left: -1.7vw;
+		display: flex;
+		bottom: 0vh;
+		white-space: nowrap;
+	}
+	.inGameHud .steet_block .street{
+		font-weight: 100;
+	}
+	.inGameHud .steet_block .street .marker{
+		width: 13px;
+		position: absolute;
+		margin-left: -13px;
+		margin-top: 3px;
+	}
+	.inGameHud .steet_block .info_table{
+		display:flex;
+	}
+	.inGameHud .steet_block .info_table .icon{
+		width: 38px;
+		transition: all .33s;
+		padding-left: 0.7vw;
+	}
+	.inGameHud .steet_block .info_table p{
+		background: #6f6f6f75;
+		width: 30px;
+		padding: 1%;
+		line-height: 1.5em;
+		text-align: center;
+		margin-left: 13px;
+	}
+	.inGameHud .steet_block .info_table .activeP{
+		background: #fff0;
+
+	}
+	.inGameHud .steet_block .info_table .info{
+	    background: #156615;
+	    box-shadow: 0px 8px 15px rgb(186 255 99 / 50%);
+	    border-radius: 2px;
+	    width: 2.2vw;
+	    position: absolute;
+	    height: 3.94vh;
+	    /* clip-path: polygon(6% 0, 100% 0%, 93% 100%, 0% 100%); */
+	    left: 1.06vw;
+	    bottom: 10.07vh;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    flex-direction: row;
+	}
+	.inGameHud .bonus {
+		position: absolute;
+		top: 27vh;
+		right: 0vw;
+		z-index: 999;
+	}
+
+	i {
+		display: block;
+        width: 23px;
+        height: 23px;
+
+        background: url("../assets/svg/water.svg") no-repeat center center;
+	}
+	.inGameHud .bonus-bar {
+		color: white;
+		/*padding: 0.66vh 0.51vw;*/
+		padding: 0.64vh 0.49vw;
+		font-size: 1.6em;
+		background: rgba(255, 255, 255, 0.11);
+		border-radius: 2px;
+		/* clip-path: polygon(6% 0, 100% 0%, 93% 100%, 0% 100%);*/
+	}
+	.inGameHud .bonus-block {
+		display: flex;
+		flex-wrap: wrap;
+		width: 228px;
+		height: auto;
+		background: url(../images/img/Recta.png) no-repeat;
+		background-size: 100% 100%;
+		font-family: 'Akrobatmed';
+		border-radius: 2px;
+	}
+	.inGameHud .bonus-block header {
+		flex: 40%;
+		width: 100%;
+		padding: 7px 15px 2px 19px;
+		display: flex;
+		color: black;
+		align-items: center;
+		justify-content: space-between;
+		border-radius: 2px;
+		text-align: -webkit-right;
+		font-size: 14px;
+	}
+	.inGameHud .bonus-block header .fa-times-circle-o {
+		color: #ab2b2b;
+	}
+	.inGameHud .bonus-block .main {
+		flex: 60%;
+		width: 82%;
+		padding: 1.2vh 1.55vw;
+		border-radius: 2px;
+		margin-top: 0vh;
+		color: rgba(37, 37, 37, 0.7);
+	}
+	.inGameHud .bonus-block .main p {
+		padding: 10px 30px;
+		text-align: center;
+		background: rgba(153, 153, 255, 0.14);
+		border-radius: 4px;
+	}
+	.inGameHud .stars{
+		position: absolute;
+		top: 18vh;
+		right: 0vw;
+		display: flex;
+	}
+	.inGameHud .stars .ico{
+		width: 25px;
+		height: 25px;
+		opacity: 0.4;
+		margin-left: 8px;
+	}
+	.inGameHud .info_table .eatings {
+		display: flex;
+		position: absolute;
+		margin-top: -34px;
+		margin-left: 7px;
+	}
+	.inGameHud .info_table .eatings .eat {
+		margin-right: 16px;
+	}
+	.inGameHud .info_table .eatings .icohud {
+		width: 1.3vh;
+	}
+	.inGameHud .info_table .eatings .waterhud {
+		width: 1.89vh;
+	}
+	.inGameHud .info_table .eatings a {
+		margin-left: 4px;
+		position: relative;
+		top: -0.6vh;
+		font-size: 1.8vh;
+	}
+
+
+	.inGameHud .bank{
+		position: absolute;
+		top: 14vh;
+		right: 0vw;
+		font-weight: 800;
+		font-size: 24px;
+		line-height: 29px;
+		text-align: right;
+		letter-spacing: 0.03em;
+		color: #FFFFFF;
+		font-family: Akrobatmed;
+		text-shadow: 0px 0px 3px rgb(0 0 0 / 25%);
+	}
+	.inGameHud .bank .ico{
+		width: 19px;
+		position: relative;
+		margin: 0px 9px -0.9px 0px;
+	}
+
+	.help {
+		position: absolute;
+		bottom: 38%;
+		width: 8vw;
+		left: -1%;
+		font-size: 16px;
+		color: #ffffff;
+		transform: translateY(-5%);
+		display: flex;
+		font-family: 'Akrobatbold';
+		flex-direction: column;
+	}
+
+	.greenzone {
+		position: absolute;
+		left: 18.1%;
+		bottom: 5.25vh;
+		opacity: 0.95;
+		display: flex;
+		width: 2vw;
+		height: 4vh;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 0.11);
+		border-radius: 2px;
+		padding: 0.1vh 0.1vw 0vh 0.1vw;
+	}
+
+	.greenzone p {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		flex-wrap: wrap;
+		position: absolute;
+		align-items: center;
+		font-size: 1vw;
+		white-space: nowrap;
+		left: 2.7vw;
+		top: 0%;
+		font-family: 'Akrobatmed';
+		color: black;
+		background: #156615;
+		box-shadow: 0px 8px 15px rgb(186 255 99 / 50%);
+		border-radius: 2px;
+		padding: 0.7vh 0.5vw 1.1986vh 0.5vw;
+	} 
+	
+	.help p {
+		margin: 0px;
+		letter-spacing: 0.02vw;
+		margin-top: 0px;
+		background: #00000000;
+		padding: 2.5px 11px;
+		display: flex;
+		color: rgba(255, 255, 255, 0.5);
+		justify-content: end;
+		text-align: center;
+	}
+	
+	.help span {
+		font-weight: 600;
+		position: relative;
+		left: -9px;
+		top: -5px;
+		width: 30px;
+		padding: 3px 13px 4px 13px;
+		color: rgba(255, 255, 255, 0.5);
+		border: 2px solid #156615;
+		box-sizing: border-box;
+		border-radius: 11px;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+	}
+
+
+	
+	.lineinfo{
+		display: flex;
+		flex-direction: column;
+		padding-top: 0.4vh;
+	}
+	
+	
+	
+	.progress .icon1 {
+		height: 1.87vh;
+		padding-right: 0.1vw;
+		padding-left: 0.3vw;
+		margin-top: -0.5vh;
+		border-radius: 2px 0px 0px 2px;
+		clip-path: polygon(71% 0, 79% 29%, 88% 61%, 100% 100%, 0 100%, 0% 60%, 0 0);
+	}
+	.progress .icon1 img {
+		height: 1.87vh;
+		border-radius: 2px 0px 0px 2px;
+	}
+	.progress .progress_bar {
+		width: 14.5vh;
+		height: 1.784vh;
+		background: rgba(0, 0, 0, 0.5);
+		margin-right: 1vw;
+		margin-left: -1vw;
+		margin-top: -0.45vh;
+	
+	}
+	.progress .progress_bar .value {
+	height: 100%;
+	background: linear-gradient(to left, #156615, #156615);
+	
+	}
+
+
+	.hp_status {
+		text-align: center;
+		bottom: 5vh;
+		position:absolute;
+		right: 67px;
+		}
+		
+	.hp {
+		position: absolute;
+		bottom: -0.4vh;
+		right: -6.4vh;
+		width: 33.1vh;
+		height: unset;
+
+		}
+		
+	.hp path {
+		will-change: auto;
+		stroke-width: 0.2vh;
+		stroke-miterlimit: round;
+		stroke-linecap: round;
+		-webkit-transition: stroke-dashoffset 40ms ease-in-out;
+		transition: stroke-dashoffset 40ms ease-in-out;
+		}
+		
+	.hp path.bg {
+		stroke: rgba(255, 255, 255, 0.08);
+		}
+		
+	.hp path.meter {
+		stroke: #156615;
+		}
+
+
+		.hpp_status {
+			text-align: center;
+			bottom: 5vh;
+			position:absolute;
+			right: 67px;
+			}
+			
+		.hpp {
+			position: absolute;
+			bottom: -3.3vh;
+			right: -9.4vh;
+			width: 39vh;
+			height: unset;
+			}
+			
+		.hpp path {
+			will-change: auto;
+			stroke-width: 1vh;
+			stroke-miterlimit: round;
+			-webkit-transition: stroke-dashoffset 40ms ease-in-out;
+			transition: stroke-dashoffset 40ms ease-in-out;
+			}
+			
+		.hpp path.bg {
+			stroke: #2a6b1a;
+			}
+			
+		.hpp path.meter {
+			stroke: #2a6b1a;
+			}	
+
+	.fuel {
+		position: absolute;
+		bottom: -3.3vh;
+		left: 3.9vw;
+		width: 39vh;
+		height: unset;
+		}
+		
+	.fuel path {
+		will-change: auto;
+		stroke-width: 0.7vh;
+		stroke-miterlimit: round;
+		-webkit-transition: stroke-dashoffset 850ms ease-in-out;
+		transition: stroke-dashoffset 850ms ease-in-out;
+		}
+		
+	.fuel path.bg {
+		stroke: rgba(255, 255, 255, 0.08);
+		}
+		
+	.fuel path.meter {
+		stroke: #2a6b1a;
+		}
+
+
+		.eat_status {
+			text-align: center;
+			bottom: 5vh;
+			position:absolute;
+			right: 67px;
+			}
+			
+		.eat {
+			position: absolute;
+			bottom: 0vh;
+			right: -6.4vh;
+			width: 33.1vh;
+			height: unset;
+	
+			}
+			
+		.eat path {
+			will-change: auto;
+			stroke-width: 0.2vh;
+			stroke-miterlimit: round;
+			stroke-linecap: round;
+			-webkit-transition: stroke-dashoffset 40ms ease-in-out;
+			transition: stroke-dashoffset 40ms ease-in-out;
+			}
+			
+		.eat path.bg {
+			stroke: rgba(255, 255, 255, 0.2);
+			}
+			
+		.eat path.meter {
+			stroke: #ffffffab;
+			}
+
+					.eat_status {
+			text-align: center;
+			bottom: 5vh;
+			position:absolute;
+			right: 67px;
+			}
+			
+		.eat {
+			position: absolute;
+			bottom: 9.94vh;
+			right: -0.6vw;
+			width: 2.2vw;
+			display: flex;
+			height: 4.2vh;
+			border-radius: 2px;
+			background: rgba(255, 255, 255, 0.11);
+			border-radius: 2px;
+			justify-content: center;
+			text-align: center;
+			align-items: center;
+			padding: 0.1vh 0.1vw 0.0vh 0.1vw;
+
+			}
+			
+		.eat path {
+			will-change: auto;
+			stroke-width: 2.6vh;
+			stroke-miterlimit: round;
+			stroke-linecap: butt;
+			-webkit-transition: stroke-dashoffset 40ms ease-in-out;
+			transition: stroke-dashoffset 40ms ease-in-out;
+			}
+			
+		.eat path.bg {
+			stroke: rgba(255, 255, 255, 0.2);
+			}
+			
+		.eat path.meter {
+			stroke: #2a6b1a;
+			}
+
+
+
+
+			.water_status {
+				text-align: center;
+				bottom: 5vh;
+				position:absolute;
+				right: 67px;
+				}
+				
+			.water {
+				position: absolute;
+				bottom: 4.86vh;
+				right: -0.6vw;
+				width: 6.1vh;
+				height: unset;
+				background-color: rgba(255, 255, 255, 0.11);
+				border-radius: 2px;
+				justify-content: center;
+				text-align: center;
+				align-items: center;
+				width: 2.2vw;
+				display: flex;
+				height: 4.2vh;
+				padding: 0.1vh 0.1vw 0.0vh 0.1vw;		
+				}
+				
+			.water path {
+				will-change: auto;
+				stroke-width: 2.6vh;
+				stroke-miterlimit: round;
+				stroke-linecap: butt;
+				-webkit-transition: stroke-dashoffset 40ms ease-in-out;
+				transition: stroke-dashoffset 40ms ease-in-out;
+				}
+				
+			.water path.bg {
+				stroke: rgba(255, 255, 255, 0.2);
+				}
+				
+			.water path.meter {
+				stroke: #2a6b1a;
+				}
+
+
+	.rpm {
+		position: absolute;
+		bottom: -0.5vh;
+		left: 5vh;
+		width: 33.1vh;
+		height: unset;
+		}
+		
+	.rpm path {
+		will-change: auto;
+		stroke-width: 0.2vh;
+		stroke-miterlimit: round;
+		stroke-linecap: round;
+		-webkit-transition: stroke-dashoffset 850ms ease-in-out;
+		transition: stroke-dashoffset 850ms ease-in-out;
+		}
+		
+	.rpm path.bg {
+		stroke: rgba(255, 255, 255, 0.08);
+		}
+		
+	.rpm path.meter {
+		stroke: #2a6b1a;
+		}	
+
+		.bg {
+			stroke: rgba(255, 255, 255, 0.08);
+			}
+			
+		.meter {
+			stroke: #2a6b1a;
+			}	
+		
+	.datatim {
+		position: absolute;
+		top: 3.4vh;
+		right: 4.3vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-family: 'Akrobatmed';
+		}
+
+.date {
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 13px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    margin-bottom: 0px;
+    text-shadow: 0px 0px 3px rgb(0 0 0 / 25%);
+}
+
+.time {
+    font-weight: 800;
+    font-size: 37px;
+    line-height: 34px;
+    color: #FFFFFF;
+    text-shadow: 0px 0px 3px rgb(0 0 0 / 25%);
+}
+
+    svg circle {
+
+      }
+    .active > svg circle {
+
+      }
+
+	.iconii {
+		display: block;
+		width: 13px;
+		position: absolute;
+		height: 13px;
+		bottom: 11.5vh;
+		right: 0.1vw;
+		background: url(../images/img/eat.svg) no-repeat;
+		background-size: 100% 100%;
+		background-position: center;
+	  }
+	.iconi {
+		display: block;
+		width: 13px;
+		height: 13px;
+		position: absolute;
+		background: url(../images/img/water.png) no-repeat;
+		bottom: 6.45vh;
+		right: 0.1vw;
+		background-size: 100% 100%;
+		background-position: center;
+	}  
+
+			
+		.inGameHud .gunshud 
+		{
+			width: 4vw;
+			height: 3vh;
+			position: absolute;
+			top: 21vh;
+			padding: 0.1vh 0.01vw 0.1vh 0.2vw;
+			right: 0.1vw;
+			z-index: 2;
+			overflow: hidden;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+		
+		
+		.inGameHud .patrone
+		{
+		width: 69px;
+		height: 19px;
+		display: flex;
+		position: absolute;
+		}
+		
+		.inGameHud .patrone img
+		{
+		width: 40px;
+		height: 40px;
+		margin-left: 7px;
+		}
+		
+		.inGameHud .patrons 
+		{
+			height: 17px;
+			display: flex;
+			position: absolute;
+		}
+		
+		.inGameHud .patrons img
+		{
+			height: 17px;
+		}
+		
+		.inGameHud .patronsblock 
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 500;
+			height: 17px;
+		}
+		
+		.inGameHud .patronsbl
+		{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 500;
+		height: 50px;
+		/* margin-top: 2px; */
+		/* margin-left: -58px; */
+		}
+		
+		
+		.inGameHud #patronn
+		{
+		font-size: 22.93px;
+		width: 86px;
+		text-align: left;
+		margin-left: 5px;
+		margin-top: -10px;
+		text-shadow: 0px 0px 3px rgba(0,0,0);
+		}
+		
+		.inGameHud #patronnum 
+		{
+			font-size: 20px;
+			font-family: 'Akrobatmed';
+		}		
+
+		.php {
+			position: absolute;
+			top: 5.8vh;
+			right: 3vw;
+			transform: rotate( 
+		90deg
+		 );
+			font-size: 14px;
+			font-family: 'Akrobatbold';
+			letter-spacing: 0.1vw;
+			line-height: 17px;
+			color: rgba(255, 255, 255, 0.2);
+		}
+
+		.prpm {
+			position: absolute;
+			top: 5.5vh;
+			left: -6.8vw;
+			transform: rotate( 
+		270deg
+		 );
+			font-size: 14px;
+			font-family: 'Akrobatbold';
+			letter-spacing: 0.1vw;
+			line-height: 17px;
+			color: rgba(255, 255, 255, 0.2);
+		}
+
+
+		.kentuk {
+			margin: 0% auto;
+			display: block;
+			position: relative;
+			bottom: 6.5vh;
+			font-size: 10px;
+			right: 4.6vw;
+			text-align: center;
+			padding-bottom: 0vh;
+			line-height: 0.4vh;
+			letter-spacing: 0.03vw;
+			font-family: 'Akrobatbold';
+			width: 5.7vw;
+			background: url(../images/img/polosakent.png) no-repeat;
+			height: 2.3vh;
+			background-size: 100% 100%;
+		}
+
+
+
+
+
+		  .shaddd {
+			position: absolute;
+			z-index: -1;
+			content: "";
+			background: rgb(0 0 0 / 0%);
+			width: 40px;
+			height: 40px;
+			left: 1.1vw;
+			bottom: 10.9vh;
+			box-shadow: 0px 8px 15px rgb(186 255 99 / 50%);
+	
+		  }
+		
+
+
+		  .speed_count .type {
+			text-transform: uppercase;
+			font-size: 1vh;
+			font-weight: 700;
+			opacity: 0.19;
+			}
+			
+			.speed_count .bg {
+			opacity: 0.19;
+			}
+			
+			.speed {
+				position: absolute;
+				bottom: 4vh;
+				right: 0vh;
+				width: 20.85185vh;
+				height: unset;
+				filter: drop-shadow( -7px 9px 19px rgba(209, 209, 0, 0.4));
+			  }
+			  
+			  .speed path {
+				will-change: auto;
+				stroke-width: 0.94074vh;
+				stroke-miterlimit: round;
+				-webkit-transition: stroke-dashoffset 250ms ease-in-out;
+				transition: stroke-dashoffset 250ms ease-in-out;
+			  }
+			  
+			  .speed path.bg {
+				stroke: rgb(255 255 255 / 36%);
+				stroke-dasharray: 0.1vw;
+			  }
+			  
+			  .speed path.meter {
+				stroke: #2a6b1a;
+				stroke-width: 1.20vh;
+				stroke-linecap: butt;
+			  }
+
+
+
+			  .inGameHud .speedometer_hud .speedcount .switch {
+				color: rgba(255, 255, 255, 0.4);
+				bottom: 5.9vh;
+				position: absolute;
+				font-size: 1.1em;
+				line-height: 22px;
+				font-family: 'Akrobatlig';
+				transition: all .73s;
+			  }
+
+
+
+				.swit {
+					color: #ffffff;
+					font-size: 1.25em;
+					transition: all .73s;
+					margin-bottom: -1.8vh;
+					font-family: 'Akrobatmed';
+					position: relative;
+					top: 0.1vh;
+				}
+
+				.sped {
+					position: absolute;
+					bottom: -3.3vh;
+					right: -5.4vw;
+					width: 39.2vh;
+					height: unset;
+					}
+					
+				.sped path {
+					will-change: auto;
+					stroke-width: 0.7vh;
+					stroke-miterlimit: round;
+					-webkit-transition: stroke-dashoffset 850ms ease-in-out;
+					transition: stroke-dashoffset 850ms ease-in-out;
+					}
+					
+				.sped path.bg {
+					stroke: rgba(255, 255, 255, 0.08);
+					}
+					
+				.sped path.meter {
+					stroke: #2a6b1a;
+					}

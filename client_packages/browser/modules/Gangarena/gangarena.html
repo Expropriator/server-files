@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset='utf-8'>
+	<title>Freedom GangArena</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="../../assets/fonts/bebas-neue/stylesheet.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<script src="./js/library/vue.js"></script>
+</head>
+<style>
+	[v-cloak] {
+		display: none;
+	}
+</style>
+<body>
+	<div v-cloak v-if="active" class="gangarena">
+		<div v-if="style == 0" v-on:click="hide()" class="exit">
+				<a>x</a>ВЫЙТИ
+		</div>
+		<div class="mainpage" v-if="style == 0">
+			<div class="text">Выберите что вы хотите сделать</div>
+			<div @click="gostyle(1)" class="left">
+				<div class="bgleft_for_overflow">
+					<img src="./img/2.png" class="pers2">
+				</div>
+				<div class="nametype">Список</div>
+				<div class="namedesc">матчей</div>
+				<div class="filter_hover_shadow_blue"></div>
+				<div class="filter_shadow"></div>
+			</div>
+			<div @click="gostyle(10)" class="right">
+				<div class="nametype">Создать</div>
+				<div class="namedesc">матч</div>
+				<div class="filter_hover_shadow_red"></div>
+				<div class="filter_shadow"></div>
+				<div class="bgright_for_overflow">
+				<img src="./img/gun.png" class="gun2">
+				<img src="./img/gun.png" class="gun3">
+				<img src="./img/gun.png" class="gun4">
+				<img src="./img/gun.png" class="gun5">
+				</div>
+			</div>
+		</div>
+		<div v-if="style == 10" class="main_arena">
+			<div @click="gostyle(0)" class="exit">
+				<a><</a>НАЗАД
+			</div>
+			<div class="nameblock">
+				<a>Создание</a> матча
+			</div>
+				<img src="./img/gun.png" class="gunbg">
+			<div class="center_main">
+				<div class="game">
+					<img src="./img/skull.svg" class="skull">
+					<a>DEATHMATCH</a>
+				</div>
+				<div class="descgame">
+					<a>
+						Стрелйте, убивайте, выйгрывайте! Сражайтесь с другими игроками на определенном оружии и определите, кто из вас лучший. Максимальное количество игроков - 16.
+					</a>
+				</div>
+				<div class="nameloc">
+					<a></a>Выберите локацию<p></p>
+				</div>
+				<div @click="statemodal(true)" class="map">
+					<a>{{arena}}</a>
+					<img :src="`./img/maps/`+ map + `.png`" class="iconmap">
+				</div>
+				<div>
+					<a id="input">Количество игроков</a>
+					<input v-model="lobby[1]" maxlength="2" value="16" class="input">
+				</div>
+				<div style="margin-top: 5.4vw; position: absolute;width: 25vw;">
+					<a id="input">Пароль</a>
+					<input v-model="lobby[0]" maxlength="10" class="input">
+				</div>
+				<div style="margin-top: 10.8vw; position: absolute;width: 25vw;">
+					<a id="input">Стоимость участия $(ставка)</a>
+					<input v-model="lobby[2]" maxlength="5" class="input">
+				</div>
+				<div class="descprice">
+					<a>
+						Ставка вносится каждым игроком при присоединении к матчу. Максимальная стоимость - $50 000
+					</a>
+				</div>
+				<div class="weaponblock">
+					<img :src="`./img/guns/` + weapon + `.png`" class="gun">
+					<div @click="minweap" class="prev"><</div>
+					<div @click="plweap" class="next">></div>
+				</div>
+				<div v-on:click="sendlobby()" class="btncreate">СОЗДАТЬ МАТЧ</div>
+			</div>
+			<div class="mapselector" v-if="modal">
+				<div v-for="i in 6" @click="setarena(i-1)" class="blmap">
+					<img :src="`./img/maps/`+ (i-1) + `.png`" class="icomap">
+					<a>{{arenas[i-1]}}</a>
+				</div>
+			</div>
+		</div>
+		<div v-if="style == 1" class="listmatch">
+			<div @click="gostyle(0)" class="exit2">
+				<a><</a>НАЗАД
+			</div>
+			<img src="./img/2.png" class="pers">
+			<div style="top: 4vw; text-align: left;left: 1.8vw;" class="nameblock">
+				<a style="margin-left: 0vw;">Список</a> матчей
+			</div>
+			<div class="list">
+				<div class="types">
+					<a style="margin-left: -0.6vw" id="type1">ЛОББИ</a>
+					<a id="type2">КАРТА</a>
+					<a id="type3">ДОСТУП</a>
+					<a style="margin-left: -1vw" id="type4">ИГРОКИ</a>
+					<a id="type5">ОРУЖИЕ</a>
+					<a id="type6">ВЗНОС</a>
+					<a id="type7">ДЕЙСТВИЕ</a>
+				</div>
+				<div v-if="lobbies == null" class="null"><a>НЕТ АКТИВНЫХ МАТЧЕЙ</a></div>
+					<div v-if="lobbies == null" v-for="i in 16" style="filter: blur(0.4vw);" class="blocklist2">
+						<a id="type1">#1</a>
+						<a id="type2">FREEDOM</a>
+						<a style="color: red;" id="type3">ЗАКРЫТО</a>
+						<a id="type4">16</a>
+						<a id="type5">REVOLVER</a>
+						<a id="type6">50 000$</a>
+						<div>ПРИСОЕДИНИТЬСЯ</div>
+					</div>
+				<div v-for="data in lobbies" class="blocklist">
+					<a id="type1">#{{data[0]}}</a>
+					<a id="type2">{{data[5]}}</a>
+					<a v-if="!data[1]" style="color: #00ff24;" id="type3">ОТКРЫТО</a>
+					<a v-else style="color: red;" id="type3">ЗАКРЫТО</a>
+					<a id="type4">{{data[2]}}</a>
+					<a id="type5">{{data[4]}}</a>
+					<a id="type6">{{data[3] | formatThousands}}$</a>
+					<div v-on:click="connectlobby(data[0])">ПРИСОЕДИНИТЬСЯ</div>
+				</div>
+			</div>
+		</div>
+		<div class="properties" v-if="style == 2">
+			<div v-on:click="hide()" class="exit2">
+				<a>x</a>ВЫЙТИ
+			</div>
+			<div style="left: 7vw;" class="nameblock">
+					<a style="margin-left: -4vw;">Ожидание</a> матча
+			</div>
+			<div class="centerprop">
+				<div class="mapbl">
+					<div class="overflow_map"><img :src="`./img/maps/`+ lobby[4] + `.png`" class="iconmap2"></div>
+					<div class="property_game">
+						<div class="settings">ИГРОКОВ: <a style="color: #0de646;">{{lobby[0]}}</a></div>
+						<div class="settings">ОРУЖИЕ: <a style="color: #0de646;">{{lobby[1]}}</a></div>
+						<div class="settings">ВЗНОС: <a style="color: #0de646;">{{lobby[2] | formatThousands}}$</a></div>
+						<div v-if="adm" v-on:click="start()" class="btnstart">НАЧАТЬ</div>
+					</div>
+				</div>
+				<div class="textname">{{lobby[4]}} - #{{lobby[3]}}</div>
+				<div class="playerlist">
+					<div class="nameloc2">
+						<a></a>Список игроков<p></p>
+					</div>
+					<div v-for="player in players" class="blockpl">
+						<div class="name">{{player}}</div>
+						<div v-if="adm" v-on:click="kick(player)" class="btnkcik">KICK</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div v-if="style == 3" class="listmatch">
+			<div v-on:click="hide()" class="exit2">
+				<a>x</a>ВЫЙТИ
+			</div>
+			<img src="./img/2.png" class="pers">
+			<div style="top: 4vw; text-align: left;left: 1.8vw;" class="nameblock">
+				<a style="margin-left: 0vw;">Список</a> победителей
+			</div>
+			<div class="list">
+				<div class="types">
+					<a style="margin-left: 0.8vw;" id="type1">ПОБЕДИТЕЛЬ</a>
+					<a style="margin-left: 6vw;" id="type2">УБИЙСТВ</a>
+					<a style="margin-left: 6vw;" id="type3">СМЕРТЕЙ</a>
+					<a style="margin-left: 8vw;" id="type4">ПРИЗ</a>
+				</div>
+				<div v-for="winner in winners" class="blocklist">
+					<a id="type8">{{winner[0]}}</a>
+					<a id="type9">{{winner[1]}}</a>
+					<a id="type10">{{winner[2]}}</a>
+					<a id="type11">{{winner[3] | formatThousands}}$</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div v-cloak class="hud_gun" v-if="hud">
+		<div class="center">
+			<div class="block">
+				<div class="name">{{localmap}}</div>
+				<!-- <div class="time">{{time}}</div> -->
+				<div style="opacity: 1;" class="time">{{time}}</div>
+				<div class="progres_bar">
+					<div :style="{ width: time2 * 0.0334 + 'vh'}" class="progres"></div>
+				</div>
+				<div class="btnkils">
+					{{kills}} KILLS
+				</div>
+				<div class="btndeath">
+					{{deaths}} DEATH
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="./js/gangarena.js"></script>
+<script>
+        Vue.filter('formatThousands', (x) => {
+        return x.toString().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g," ")
+        })
+	</script>
+</body>
+</html>

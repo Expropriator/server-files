@@ -1,0 +1,137 @@
+.death_window {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	width: 31vh;
+	height: 20vh;
+	top: 70vh;
+	z-index: -2;
+	font-family: Bebas Neue;
+}
+.boneslogo {
+	width: 5vh;
+}
+.death_window .logo_death_main {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	top: 3vh;
+	height: 5vh;
+	width: 5vh;
+}
+.boneslogo2 {
+	width: 8vh;
+}
+.death_window .logo_death_main2 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	top: -4vh;
+	opacity: 0.1;
+	height: 8vh;
+	width: 8vh;
+	z-index: -1;
+}
+.death_window .text_window {
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	font-size: 5vh;
+	margin-top: -3vh;
+	text-shadow: 0 0 3vh #ffffff;
+}
+.death_window .text_window2 {
+	color: #fff;
+	font-weight: 700;
+	text-align: center;
+	font-size: 3.5vh;
+	margin-top: -1vh;
+	text-shadow: 0 0 3vh #ffffff;
+}
+.block_description1 {
+	display: none;
+}
+.btn_window_none:hover .block_description1 {
+	position: absolute;
+	width: 22vh;
+	right: -25vh;
+	top: -2vh;
+	background: #ffffff20;
+	display: flex;
+	height: 10vh;
+	border-radius: 0.5vh;
+	text-align: left;
+	padding-left: 1.5vh;
+	line-height: 2vh;
+	font-size: 1.8vh;
+	padding-top: 1.5vh;
+}
+.block_description1 a {
+	position: absolute;
+	width: 25vh;
+	font-size: 1.9vh;
+	text-align: left;
+	left: 1.5vh;
+	top: 1.25vh;
+}
+.block_description2 {
+	display: none;
+}
+.btn_window_accept:hover .block_description2 {
+	position: absolute;
+	width: 22vh;
+	left: -25vh;
+	top: -2vh;
+	background: #ffffff20;
+	display: flex;
+	height: 8vh;
+	border-radius: 0.5vh;
+	text-align: left;
+	padding-left: 1.5vh;
+	line-height: 2vh;
+	font-size: 1.8vh;
+	padding-top: 1.5vh;
+}
+.block_description2 a {
+	position: absolute;
+	width: 20vh;
+	font-size: 1.9vh;
+	text-align: left;
+	left: 1.5vh;
+	top: 1.25vh;
+}
+.btn_window_none:hover,
+.btn_window_accept:hover {
+	transition: all 0.33s;
+	transform: scale(1.05); 
+}
+.btn_window_accept {
+	color: #fff;
+	background: #0de646;
+	width: 19vh;
+	text-align: center;
+	height: 5vh;
+	transition: all 0.33s;
+	font-size: 2vh;
+	border-radius: 0.5vh;
+	line-height: 5vh;
+}
+.btn_window_none {
+	color: #fff;
+	background: #0de646;
+	width: 11vh;
+	position: absolute;
+	right: 0;
+	transition: all 0.33s;
+	bottom: 0.9vh;
+	text-align: center;
+	height: 5vh;
+	font-size: 2vh;
+	border-radius: 0.5vh;
+	line-height: 5vh;
+}
+.killer_window {
+	text-align: center;
+	font-size: 1.9vh;
+	color: #ffffff50;
+}

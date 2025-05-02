@@ -1,0 +1,52 @@
+.info {
+    position: absolute;
+    width: 26vh;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.92) 0%, rgba(0, 14, 27, 0.88) 100%);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    flex-wrap: nowrap;
+}
+.info .header {
+    width: 100%;
+    display: flex;
+    border-bottom: 0.2vh solid white;
+    flex-wrap: wrap;
+}
+.info .header .text {
+    width: 23vh;
+    height: 3vh;
+    padding-left: 3vh;
+    padding-top: 0.3vh;
+    font-size: 1.6vh;
+}
+.info .clos {
+    width: 3vh;
+    height: 3vh;
+    font-size: 2vh;
+}
+.info .box {
+    width: 100%;
+    padding: 2vh 1vh;
+    font-size: 1.6vh;
+}
+.info .button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: .1vh solid white;
+}
+.info .btns {
+    height: 3vh;
+    font-size: 1.2vh;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(68, 68, 68, 0.28);
+    padding: 0.6vh;
+    transition: 0.2s;
+}
+
+.info .btns:hover {
+    background-color: white !important;
+    color: black !important;
+}

@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+body {
+	overflow: hidden;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.Driving {
+	font-family: Bebas Neue;
+}
+.Driving .back {
+	-webkit-animation: fadeInFromNone 1.5s ease-out;
+	-moz-animation: fadeInFromNone 1.5s ease-out;
+	-o-animation: fadeInFromNone 1.5s ease-out;
+	animation: fadeInFromNone 1.5s ease-out;
+}
+.Driving .back .bg {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	width: 170vh;
+	filter: blur(10vh);
+	height: 100vh;
+	background: #00000050;
+}
+.Driving .back .cricle1 {
+	    position: fixed;
+		width: 220vh;
+		height: 220vh;
+		top: -75vh;
+		left: -5vh;
+		border-radius: 5000px;
+		border: 14vh dashed #0de64640;
+        border-color: #0de646;
+		background: #ffffff00;
+		z-index: 10;
+		/*animation: wave 10s linear infinite;*/
+}
+.Driving .back .nameblock {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100vh;
+	height: 60vh;
+	top: -85vh;
+}
+.Driving .back .nameblock .name1 {
+	color: #fff;
+	font-size: 10vh;
+	font-weight: 600;
+	text-align: center;
+	line-height: 60vh;
+	text-shadow: 0 0 6vh #fff;
+}
+.Driving .back .nameblock .name2 {
+	color: #fff;
+	font-size: 3vh;
+	font-weight: 600;
+	width: 50vh;
+	margin-left: auto;
+	margin-right: auto;
+	height: 8vh;
+	margin-top: -23vh;
+	opacity: 0.9;
+	text-align: center;
+	text-shadow: 0 0 6vh #fff;
+}
+.Driving .back .nameblock .name3 {
+	color: #fff;
+	font-size: 15vh;
+	opacity: 0.1;
+	line-height: 60vh;
+	font-weight: 600;
+	position: absolute;
+	left: 26vh;
+	top: 0vh;
+	text-align: center;
+}
+.Driving .back .cricle2 {
+	    position: fixed;
+		width: 220vh;
+		height: 220vh;
+		top: -75vh;
+		right: -5vh;
+		border-radius: 5000px;
+		border: 14vh dashed #0de64640;
+        border-color: #0de646;
+		background: #ffffff00;
+		z-index: 10;
+		/*animation: wave 10s linear infinite;*/
+}
+	@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+@keyframes wave {
+    100% {
+       transform: rotate(360deg);
+    }
+}
